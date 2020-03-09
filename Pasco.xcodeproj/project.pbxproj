@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1194BB124117344A894E07E2 /* Pods_Pasco_PascoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64BEAA74702C39D3B1D0C29 /* Pods_Pasco_PascoUITests.framework */; };
+		1729B68425A55C4D03534343 /* Pods_Pasco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAF99A3456B7CD6FC9DBA82 /* Pods_Pasco.framework */; };
+		5DA59B0F53AEB528910703F2 /* Pods_PascoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CCF113ED35AA5982C89907 /* Pods_PascoTests.framework */; };
 		9210F8C62415DD3200682574 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210F8C52415DD3200682574 /* AppDelegate.swift */; };
 		9210F8C82415DD3200682574 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210F8C72415DD3200682574 /* SceneDelegate.swift */; };
 		9210F8CA2415DD3200682574 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210F8C92415DD3200682574 /* ViewController.swift */; };
@@ -37,6 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		215CA81E1A687047DC1802F7 /* Pods-Pasco-PascoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasco-PascoUITests.debug.xcconfig"; path = "Target Support Files/Pods-Pasco-PascoUITests/Pods-Pasco-PascoUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2AAF99A3456B7CD6FC9DBA82 /* Pods_Pasco.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pasco.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B418731F50ACCE489603F70 /* Pods-PascoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTests.release.xcconfig"; path = "Target Support Files/Pods-PascoTests/Pods-PascoTests.release.xcconfig"; sourceTree = "<group>"; };
+		4DDCEED1434DA0789F8AE35C /* Pods-Pasco-PascoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasco-PascoUITests.release.xcconfig"; path = "Target Support Files/Pods-Pasco-PascoUITests/Pods-Pasco-PascoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5101567EE0DFA09BE78517CF /* Pods-Pasco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasco.debug.xcconfig"; path = "Target Support Files/Pods-Pasco/Pods-Pasco.debug.xcconfig"; sourceTree = "<group>"; };
+		80CCF113ED35AA5982C89907 /* Pods_PascoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PascoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F59F48459994B61602CCE79 /* Pods-PascoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTests.debug.xcconfig"; path = "Target Support Files/Pods-PascoTests/Pods-PascoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9210F8C22415DD3200682574 /* Pasco.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pasco.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9210F8C52415DD3200682574 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9210F8C72415DD3200682574 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +63,8 @@
 		9210F8EA2415DD3300682574 /* PascoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PascoUITests.swift; sourceTree = "<group>"; };
 		9210F8EC2415DD3300682574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9210F8F82415E30D00682574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D64BEAA74702C39D3B1D0C29 /* Pods_Pasco_PascoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pasco_PascoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9DCA5CB36BD0BB1161AA4E7 /* Pods-Pasco.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasco.release.xcconfig"; path = "Target Support Files/Pods-Pasco/Pods-Pasco.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1729B68425A55C4D03534343 /* Pods_Pasco.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DA59B0F53AEB528910703F2 /* Pods_PascoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1194BB124117344A894E07E2 /* Pods_Pasco_PascoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +102,8 @@
 				9210F8DE2415DD3300682574 /* PascoTests */,
 				9210F8E92415DD3300682574 /* PascoUITests */,
 				9210F8C32415DD3200682574 /* Products */,
+				EDB54BBB1E376A07970BE78A /* Pods */,
+				B7394B97636BA233D4403EC6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,6 +151,30 @@
 			path = PascoUITests;
 			sourceTree = "<group>";
 		};
+		B7394B97636BA233D4403EC6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2AAF99A3456B7CD6FC9DBA82 /* Pods_Pasco.framework */,
+				D64BEAA74702C39D3B1D0C29 /* Pods_Pasco_PascoUITests.framework */,
+				80CCF113ED35AA5982C89907 /* Pods_PascoTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EDB54BBB1E376A07970BE78A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5101567EE0DFA09BE78517CF /* Pods-Pasco.debug.xcconfig */,
+				E9DCA5CB36BD0BB1161AA4E7 /* Pods-Pasco.release.xcconfig */,
+				215CA81E1A687047DC1802F7 /* Pods-Pasco-PascoUITests.debug.xcconfig */,
+				4DDCEED1434DA0789F8AE35C /* Pods-Pasco-PascoUITests.release.xcconfig */,
+				8F59F48459994B61602CCE79 /* Pods-PascoTests.debug.xcconfig */,
+				2B418731F50ACCE489603F70 /* Pods-PascoTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9210F8EF2415DD3300682574 /* Build configuration list for PBXNativeTarget "Pasco" */;
 			buildPhases = (
+				8D4CC841FCB88EBA55834829 /* [CP] Check Pods Manifest.lock */,
 				9210F8BE2415DD3200682574 /* Sources */,
 				9210F8BF2415DD3200682574 /* Frameworks */,
 				9210F8C02415DD3200682574 /* Resources */,
+				91B87BFE124F38B5557F85A6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +201,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9210F8F22415DD3300682574 /* Build configuration list for PBXNativeTarget "PascoTests" */;
 			buildPhases = (
+				28EA4A533A3254E98EE4A747 /* [CP] Check Pods Manifest.lock */,
 				9210F8D72415DD3300682574 /* Sources */,
 				9210F8D82415DD3300682574 /* Frameworks */,
 				9210F8D92415DD3300682574 /* Resources */,
@@ -176,9 +220,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9210F8F52415DD3300682574 /* Build configuration list for PBXNativeTarget "PascoUITests" */;
 			buildPhases = (
+				428150A71B027D6BAFF47715 /* [CP] Check Pods Manifest.lock */,
 				9210F8E22415DD3300682574 /* Sources */,
 				9210F8E32415DD3300682574 /* Frameworks */,
 				9210F8E42415DD3300682574 /* Resources */,
+				589144B56B95B9BB9834F912 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +306,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28EA4A533A3254E98EE4A747 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PascoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		428150A71B027D6BAFF47715 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pasco-PascoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		589144B56B95B9BB9834F912 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pasco-PascoUITests/Pods-Pasco-PascoUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pasco-PascoUITests/Pods-Pasco-PascoUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pasco-PascoUITests/Pods-Pasco-PascoUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D4CC841FCB88EBA55834829 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pasco-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91B87BFE124F38B5557F85A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pasco/Pods-Pasco-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pasco/Pods-Pasco-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pasco/Pods-Pasco-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9210F8BE2415DD3200682574 /* Sources */ = {
@@ -440,6 +589,7 @@
 		};
 		9210F8F02415DD3300682574 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5101567EE0DFA09BE78517CF /* Pods-Pasco.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -458,6 +608,7 @@
 		};
 		9210F8F12415DD3300682574 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9DCA5CB36BD0BB1161AA4E7 /* Pods-Pasco.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -476,6 +627,7 @@
 		};
 		9210F8F32415DD3300682574 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F59F48459994B61602CCE79 /* Pods-PascoTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,6 +650,7 @@
 		};
 		9210F8F42415DD3300682574 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B418731F50ACCE489603F70 /* Pods-PascoTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +673,7 @@
 		};
 		9210F8F62415DD3300682574 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 215CA81E1A687047DC1802F7 /* Pods-Pasco-PascoUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +694,7 @@
 		};
 		9210F8F72415DD3300682574 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4DDCEED1434DA0789F8AE35C /* Pods-Pasco-PascoUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
