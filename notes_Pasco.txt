@@ -1,0 +1,3 @@
+Setup Cocoapods:
+	sudo gem install cocoapods
+	pod setup --verbose
