@@ -1,0 +1,43 @@
+Tabs:
+-   Questions:
+        - difficulty of each question: correct/total tests
+        - Hide/reveal answers
+-   Test:
+        - subject, year
+        - timed and graded
+        -
+-   Account:
+        - Log in: username / password
+        - Sign Up: Email, username, password
+        - Score card
+            - score and ranking
+-   More:
+        - some user info
+        - app appearance
+        - help
+        - tell a friend
+        - developer
+        - data from waec
+            https://www.waecgh.org/bece
+        - sign out
+
+
+Setup Cocoapods:
+	sudo gem install cocoapods
+	pod setup --verbose
+	in the Podfile, added this:
+		# add the Firebase pod for Google Analytics
+  		pod 'Firebase/Analytics'
+  		# add pods for any other desired Firebase products
+  		# https://firebase.google.com/docs/ios/setup#available-pods
+	pod install
+		This creates a .xcworkspace file in the workspace
+Religious & Moral Education
+
+
+04/11/2020
+- edit "record" to save questons properly
+04/12/2020
+- firebase does not allow uploading "......." in the database
+    this causes an empty importedRecords and data
+    need to fix this!!!
