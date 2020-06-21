@@ -16,6 +16,11 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("i am here")
+//        setUserEnvironment()
+    }
 
     /*
     // MARK: - Navigation
