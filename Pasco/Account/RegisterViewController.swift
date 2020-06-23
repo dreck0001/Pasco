@@ -1,32 +1,29 @@
 //
-//  AccountViewController.swift
+//  RegisterViewController.swift
 //  Pasco
 //
-//  Created by denis on 4/10/20.
+//  Created by denis on 6/22/20.
 //  Copyright © 2020 GhanaWare. All rights reserved.
 //
 
 import UIKit
 
-class AccountViewController: UIViewController {
- 
-//    @IBAction func dismissAction(_ sender: UIButton) {
-////        presentingViewController?.dismiss(animated: true, completion: nil)
-//        dismiss(animated: true, completion: nil)
-//    }
+class RegisterViewController: UIViewController {
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func dismissAction(_ sender: UIButton) {
+        
+    }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        print("i am in \(self.description)")
-////        setUserEnvironment()
-//    }
+    
+    
 
     /*
     // MARK: - Navigation

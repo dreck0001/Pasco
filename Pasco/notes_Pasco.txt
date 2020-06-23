@@ -41,3 +41,12 @@ Religious & Moral Education
 - firebase does not allow uploading "......." in the database
     this causes an empty importedRecords and data
     need to fix this!!!
+
+
+06/22/2020
+How to setup TextFieldEffects for enhanced textfields.
+Add the following to pod file:
+    use_frameworks!
+    pod 'TextFieldEffects'
+    enter "pod install" in terminal
+https://github.com/raulriera/TextFieldEffects

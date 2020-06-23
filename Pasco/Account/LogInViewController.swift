@@ -1,32 +1,27 @@
 //
-//  AccountViewController.swift
+//  LogInViewController.swift
 //  Pasco
 //
-//  Created by denis on 4/10/20.
+//  Created by denis on 6/21/20.
 //  Copyright © 2020 GhanaWare. All rights reserved.
 //
 
 import UIKit
 
-class AccountViewController: UIViewController {
- 
-//    @IBAction func dismissAction(_ sender: UIButton) {
-////        presentingViewController?.dismiss(animated: true, completion: nil)
-//        dismiss(animated: true, completion: nil)
-//    }
+class LogInViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        print("i am in \(self.description)")
-////        setUserEnvironment()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("i am in \(self.description)")
+//        setUserEnvironment()
+//        performSegue(withIdentifier: "test", sender: nil)
+//        performSegue(withIdentifier: "test2", sender: nil)
+    }
 
     /*
     // MARK: - Navigation
