@@ -10,6 +10,12 @@ import Foundation
 import UIKit
 
 struct Constants {
+    static let registerButtonText = "Sign Up"
+    static let signInButtonText = "Sign In"
+    
+    static let usernamePlaceholder = "Username"
+    static let emailPlaceholder = "Email"
+    static let passwordPlaceholder = "Password"
     struct admob {
         static let appId = "ca-app-pub-7701962660538609~4342523085"
         static let bannerViewAdUnitID       = "ca-app-pub-7701962660538609/6756739913"

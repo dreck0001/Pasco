@@ -399,7 +399,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="15" translatesAutoresizingMaskIntoConstraints="NO" id="na8-4E-v9v">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="na8-4E-v9v">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-6Y-Wgl">
@@ -416,10 +416,10 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="3"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
+                                                <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" red="0.29772937300000002" green="0.39089709519999999" blue="0.61571127179999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -438,10 +438,10 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="3"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="14"/>
+                                                <real key="value" value="13"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -453,16 +453,28 @@
                                     <constraint firstItem="SQs-Wo-VFG" firstAttribute="height" secondItem="WGz-x5-Oyd" secondAttribute="height" id="0iQ-Qu-2oa"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbi-fC-Ckl">
+                                <rect key="frame" x="20" y="44" width="374" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="OxS-Ji-FRR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="55"/>
+                                <color key="textColor" red="0.29772937300000002" green="0.39089709519999999" blue="0.61571127179999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="na8-4E-v9v" firstAttribute="bottom" secondItem="O9v-TK-5vh" secondAttribute="bottom" id="61L-YK-5LF"/>
                             <constraint firstItem="O9v-TK-5vh" firstAttribute="top" secondItem="na8-4E-v9v" secondAttribute="top" constant="44" id="9iE-7C-rWO"/>
+                            <constraint firstItem="O9v-TK-5vh" firstAttribute="trailing" secondItem="Lbi-fC-Ckl" secondAttribute="trailing" constant="20" id="FyM-HH-IVk"/>
                             <constraint firstItem="na8-4E-v9v" firstAttribute="leading" secondItem="O9v-TK-5vh" secondAttribute="leading" id="WTM-Df-VLA"/>
+                            <constraint firstItem="O9v-TK-5vh" firstAttribute="top" secondItem="Lbi-fC-Ckl" secondAttribute="top" id="WTl-3Z-6G1"/>
                             <constraint firstItem="O9v-TK-5vh" firstAttribute="trailing" secondItem="na8-4E-v9v" secondAttribute="trailing" id="ata-hl-2uN"/>
                             <constraint firstItem="O9v-TK-5vh" firstAttribute="bottom" secondItem="bkH-6Y-Wgl" secondAttribute="bottom" constant="65" id="hvx-WC-96G"/>
                             <constraint firstItem="O9v-TK-5vh" firstAttribute="trailing" secondItem="bkH-6Y-Wgl" secondAttribute="trailing" constant="50" id="kdH-Ce-kuA"/>
                             <constraint firstItem="bkH-6Y-Wgl" firstAttribute="leading" secondItem="O9v-TK-5vh" secondAttribute="leading" constant="50" id="yJq-nL-Zz2"/>
+                            <constraint firstItem="Lbi-fC-Ckl" firstAttribute="leading" secondItem="O9v-TK-5vh" secondAttribute="leading" constant="20" id="yXN-ov-bCu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O9v-TK-5vh"/>
                     </view>
@@ -502,24 +514,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterBackground1" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-4w-E4b">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="eY1-4w-E4b">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD1-wE-GRo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <connections>
-                                    <action selector="dismissAction:" destination="xui-Xr-K7F" eventType="touchUpInside" id="ogE-m5-LQK"/>
                                     <segue destination="YAL-5h-YXD" kind="unwind" unwindAction="prepareForUnwindWithSegue:" id="1kR-bO-kZU"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="sdV-zp-jhQ">
-                                <rect key="frame" x="40" y="150" width="334" height="290.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="sdV-zp-jhQ">
+                                <rect key="frame" x="40" y="120" width="334" height="390.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Username" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LAm-eM-rlW" customClass="MadokaTextField" customModule="TextFieldEffects">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="username"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -533,9 +544,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="r7r-mS-BIs" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="0.0" y="54" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="74" width="334" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -550,10 +561,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nZQ-Nd-r5e" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="0.0" y="108" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="148" width="334" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="new-password"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="next" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="new-password"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -567,9 +578,9 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Confirm password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="nCF-iy-HtE" customClass="MadokaTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="0.0" y="162" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="222" width="334" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="new-password"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
@@ -584,7 +595,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uZ3-gz-lGT" customClass="DesignableButton" customModule="Pasco">
-                                        <rect key="frame" x="0.0" y="216" width="334" height="50"/>
+                                        <rect key="frame" x="0.0" y="296" width="334" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="1rk-Us-8GP"/>
@@ -595,7 +606,7 @@
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="3"/>
+                                                <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="13"/>
@@ -606,7 +617,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fK-mH-dvq">
-                                        <rect key="frame" x="0.0" y="270" width="334" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="370" width="334" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -640,7 +651,7 @@
                             <constraint firstItem="rps-Ts-pE7" firstAttribute="leading" secondItem="jdY-5R-UBn" secondAttribute="leading" constant="20" id="Z0X-7c-QUQ"/>
                             <constraint firstItem="jdY-5R-UBn" firstAttribute="trailing" secondItem="sdV-zp-jhQ" secondAttribute="trailing" constant="40" id="bfq-xc-WxB"/>
                             <constraint firstItem="jdY-5R-UBn" firstAttribute="trailing" secondItem="rps-Ts-pE7" secondAttribute="trailing" constant="20" id="dfB-bN-mSP"/>
-                            <constraint firstItem="sdV-zp-jhQ" firstAttribute="top" secondItem="rps-Ts-pE7" secondAttribute="bottom" id="gIm-3y-AcI"/>
+                            <constraint firstItem="sdV-zp-jhQ" firstAttribute="top" secondItem="rps-Ts-pE7" secondAttribute="bottom" constant="-30" id="gIm-3y-AcI"/>
                             <constraint firstItem="jdY-5R-UBn" firstAttribute="trailing" secondItem="fD1-wE-GRo" secondAttribute="trailing" id="wOy-BC-XMh"/>
                             <constraint firstItem="eY1-4w-E4b" firstAttribute="top" secondItem="HpW-ax-sgH" secondAttribute="top" id="xVt-mC-otA"/>
                             <constraint firstItem="fD1-wE-GRo" firstAttribute="bottom" secondItem="jdY-5R-UBn" secondAttribute="bottom" constant="34" id="xuK-vv-Ced"/>
@@ -649,6 +660,13 @@
                         <viewLayoutGuide key="safeArea" id="jdY-5R-UBn"/>
                     </view>
                     <navigationItem key="navigationItem" id="peQ-nz-hKx"/>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="nCF-iy-HtE" id="2Dv-4w-aUb"/>
+                        <outlet property="emailTextField" destination="r7r-mS-BIs" id="U47-e6-VRk"/>
+                        <outlet property="errorLabel" destination="3fK-mH-dvq" id="Ph3-lS-mLP"/>
+                        <outlet property="passwordTextField" destination="nZQ-Nd-r5e" id="Fqb-gF-Qn4"/>
+                        <outlet property="usernameTextField" destination="LAm-eM-rlW" id="k4D-IX-fUU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDX-gc-OmK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="YAL-5h-YXD" userLabel="Exit" sceneMemberID="exit"/>
@@ -703,8 +721,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="15" width="700" height="525"/>
-        <image name="RegisterBackground1" width="825" height="550"/>
+        <image name="RegisterBackground2" width="550" height="825"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.split.3x3" catalog="system" width="128" height="93"/>

@@ -37,9 +37,14 @@ class AccountCheckViewController: UIViewController {
                 self.performSegue(withIdentifier: "AccountSegue", sender: nil)
             } else {
                 self.userIsSignedIn = false
-                
             }
         })
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool { //if user is already sign in, then u can create an account or log in
+        if let sendingButton = sender as? UIButton, let title = sendingButton.currentTitle, title == Constants.registerButtonText || title == Constants.signInButtonText, userIsSignedIn {
+            return false
+        } else { return true }
     }
     @IBAction func RegisterAction(_ sender: UIButton) {
         
