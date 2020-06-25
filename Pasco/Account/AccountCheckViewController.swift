@@ -13,8 +13,8 @@ class AccountCheckViewController: UIViewController {
     
     @IBOutlet weak var registerButton: DesignableButton!
     @IBOutlet weak var signInButton: DesignableButton!
+    var userIsSignedIn = Bool() { didSet { print("---userIsSignedIn = \(userIsSignedIn)") } }
     
-    var userIsSignedIn = Bool()
     var handle: AuthStateDidChangeListenerHandle?
 
     
@@ -26,23 +26,34 @@ class AccountCheckViewController: UIViewController {
     }
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
-            chechIfUserIsSignedIn()
+//            chechIfUserIsSignedIn()
+            userIsSignedIn = checkSignInStatus()
         }
     
-    private func chechIfUserIsSignedIn() {
-        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            if let user = user {
-                self.userIsSignedIn = true
-                print("the user is \(user)")
-                self.performSegue(withIdentifier: "AccountSegue", sender: nil)
-            } else {
-                self.userIsSignedIn = false
-            }
-        })
+//    private func chechIfUserIsSignedIn() {
+//        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
+//            if let user = user {
+//                self.userIsSignedIn = true
+//                print("the user is \(user)")
+//                self.performSegue(withIdentifier: "toAccountVC", sender: nil)
+//            } else {
+//                self.userIsSignedIn = false
+//            }
+//        })
+//    }
+    private func checkSignInStatus() -> Bool {
+        if Auth.auth().currentUser != nil {
+            print("---AccountCheckVC: user is signed in.Segue to AccountVC")
+            performSegue(withIdentifier: "toAccountVC", sender: nil)
+            return true
+        } else {
+            print("---AccountCheckVC: user is not signed in. Staying here")
+            return false
+        }
     }
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool { //if user is already sign in, then u can create an account or log in
-        if let sendingButton = sender as? UIButton, let title = sendingButton.currentTitle, title == Constants.registerButtonText || title == Constants.signInButtonText, userIsSignedIn {
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool { //if user is not already signed in, then u can create an account or log in
+        if let sendingButton = sender as? UIButton, let title = sendingButton.currentTitle, title == Constants.registerButtonText || title == Constants.signInButtonText {
             return false
         } else { return true }
     }

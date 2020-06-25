@@ -46,21 +46,25 @@ struct User {
         ]
     }
     
-    static func getUsers() -> [String] {
-        var usernames = [String]()
-        let db = Firestore.firestore()
-        db.collection("users").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting users: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    usernames.append(document.documentID)
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
-        }
-        return usernames
-    }
+    
+    
+//    static func getUsers() -> [String] {
+//        var usernames = [String]()
+//        let db = Firestore.firestore()
+//        db.collection("users").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting users: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    let username = document.documentID
+//                    usernames.append(username)
+//                    print("\(document.documentID) => \(document.data())")
+//                }
+//            }
+//        }
+//        print(usernames)
+//        return usernames
+//    }
     
 //    init(userData: AuthDataResult) {
 //        uid = userData.user.uid

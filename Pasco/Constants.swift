@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 struct Constants {
+    static let fillAllFieldsError = "Please fill all fields"
+    static let creatingUserError = "Please fill all fields"
+
     static let registerButtonText = "Sign Up"
     static let signInButtonText = "Sign In"
     
@@ -21,6 +24,27 @@ struct Constants {
         static let bannerViewAdUnitID       = "ca-app-pub-7701962660538609/6756739913"
         static let bannerViewAdUnitID_test  = "ca-app-pub-3940256099942544/2934735716"
 //        If your app is published to Google Play or the App Store, remember to come back to link your app.
+    }
+    
+    enum AlertMessages: String {
+        case email = "Invalid Email"
+        case username = "Invalid Username"
+        case username_alreadyTaken = "Username is already taken"
+        case alphaStringFirstLetterCaps = "First letter should be capital"
+        case alphaStringWithSpace1 = "Invalid first name"
+        case alphaStringWithSpace2 = "Invalid last name"
+        case phoneNo = "Invalid Phone"
+        case password = "Invalid Password"
+    }
+    
+    enum RegEx: String {
+        case email = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}" // Email
+        case username = "\\w{3,18}"                                     // 3-18 alphanumeric and _
+        case alphaStringFirstLetterCaps = "^[A-Z]+[a-zA-Z]*$"           // SandsHell voi
+        case alphaStringWithSpace1 = "^[a-zA-Z ]*$"                      // e.g. hello denis
+        case alphaStringWithSpace2 = "^[A-Za-z ]*$"                      // e.g. hello denis
+        case phoneNo = "[0-9]{10,14}"                                   // PhoneNo 10-14 Digits
+        case password = "^.{4,15}$"                                     // Password length 4-15
     }
     
     enum Subject: String {
