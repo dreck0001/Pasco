@@ -25,6 +25,7 @@
 		9210F8EB2415DD3300682574 /* PascoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210F8EA2415DD3300682574 /* PascoUITests.swift */; };
 		9210F8F92415E30D00682574 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9210F8F82415E30D00682574 /* GoogleService-Info.plist */; };
 		9229A68B2441788600E86DA5 /* CSVUploaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229A68A2441788600E86DA5 /* CSVUploaderViewController.swift */; };
+		9263096724AE7F9E00E46509 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263096624AE7F9E00E46509 /* Utilities.swift */; };
 		926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7527249FD71C00F4EBEE /* LogInViewController.swift */; };
 		926D752A249FDBB400F4EBEE /* AccountCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */; };
 		92C7EF96249F13BB00E2BFA4 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */; };
@@ -32,7 +33,6 @@
 		92CFCBF924A1538D00912CC1 /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFCBF824A1538D00912CC1 /* ScaleSegue.swift */; };
 		92CFCBFB24A17BAB00912CC1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFCBFA24A17BAB00912CC1 /* RegisterViewController.swift */; };
 		92CFCBFE24A2C03500912CC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFCBFD24A2C03500912CC1 /* User.swift */; };
-		92CFCC0024A4007D00912CC1 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFCBFF24A4007D00912CC1 /* Utilities.swift */; };
 		92E57AF1246A0A3300BC4C90 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E57AF0246A0A3300BC4C90 /* Question.swift */; };
 		92E57AF3246A3EF600BC4C90 /* SelectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92E57AF2246A3EF600BC4C90 /* SelectionTableViewCell.swift */; };
 		92F0564924953417009B3900 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F0564824953417009B3900 /* QuestionTableViewCell.swift */; };
@@ -84,6 +84,7 @@
 		9210F8EC2415DD3300682574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9210F8F82415E30D00682574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9229A68A2441788600E86DA5 /* CSVUploaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVUploaderViewController.swift; sourceTree = "<group>"; };
+		9263096624AE7F9E00E46509 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../Model/Utilities.swift; sourceTree = "<group>"; };
 		926D7527249FD71C00F4EBEE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCheckViewController.swift; sourceTree = "<group>"; };
 		92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		92CFCBF824A1538D00912CC1 /* ScaleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		92CFCBFA24A17BAB00912CC1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		92CFCBFD24A2C03500912CC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		92CFCBFF24A4007D00912CC1 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = SOURCE_ROOT; };
 		92E57AF0246A0A3300BC4C90 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		92E57AF2246A3EF600BC4C90 /* SelectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionTableViewCell.swift; sourceTree = "<group>"; };
 		92F0564824953417009B3900 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -164,9 +164,8 @@
 				9210F8D62415DD3300682574 /* Info.plist */,
 				9210F8CE2415DD3200682574 /* Pasco.xcdatamodeld */,
 				9210F8F82415E30D00682574 /* GoogleService-Info.plist */,
-				92CFCBFF24A4007D00912CC1 /* Utilities.swift */,
+				92F4355C24AC328C00953157 /* Utils */,
 				9210BA752440303A00F92204 /* MoreViewController.swift */,
-				9210BA7724403C7200F92204 /* Constants.swift */,
 				92C7EF95249F13BB00E2BFA4 /* DesignableButton.swift */,
 				92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */,
 				9229A68E244179BC00E86DA5 /* CSV */,
@@ -229,6 +228,15 @@
 				92F0564824953417009B3900 /* QuestionTableViewCell.swift */,
 			);
 			path = Question;
+			sourceTree = "<group>";
+		};
+		92F4355C24AC328C00953157 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9263096624AE7F9E00E46509 /* Utilities.swift */,
+				9210BA7724403C7200F92204 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		B7394B97636BA233D4403EC6 /* Frameworks */ = {
@@ -508,11 +516,11 @@
 				926D752A249FDBB400F4EBEE /* AccountCheckViewController.swift in Sources */,
 				92C7EF97249F13BC00E2BFA4 /* DesignableButton.swift in Sources */,
 				9210BA7024402FC000F92204 /* QuestionsViewController.swift in Sources */,
-				92CFCC0024A4007D00912CC1 /* Utilities.swift in Sources */,
 				92F0564924953417009B3900 /* QuestionTableViewCell.swift in Sources */,
 				92CFCBF924A1538D00912CC1 /* ScaleSegue.swift in Sources */,
 				9210F8C82415DD3200682574 /* SceneDelegate.swift in Sources */,
 				9210BA7824403C7200F92204 /* Constants.swift in Sources */,
+				9263096724AE7F9E00E46509 /* Utilities.swift in Sources */,
 				92CFCBFE24A2C03500912CC1 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

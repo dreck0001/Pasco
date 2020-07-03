@@ -7,35 +7,90 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountViewController: UIViewController {
  
-//    @IBAction func dismissAction(_ sender: UIButton) {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var myNavBar: UINavigationBar!
+    let usersRef = Firestore.firestore().collection("users")
+    var user: Pasco.User? {
+        didSet {
+            print("---AccountVC: \(user!)")
+            tableView.reloadData()
+        }
+    }
+
+    //    @IBAction func dismissAction(_ sender: UIButton) {
 ////        presentingViewController?.dismiss(animated: true, completion: nil)
 //        dismiss(animated: true, completion: nil)
 //    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUser()
 
-        // Do any additional setup after loading the view.
+        setupNavigationBar()
+        // tableview stuff
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
-
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//        print("i am in \(self.description)")
-////        setUserEnvironment()
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupNavigationBar() {
+        myNavBar.isTranslucent = false
+        //        navigationBar.barTintColor = UIColor.black
+                
+        //        view.addSubview(navigationBar)
+        myNavBar.translatesAutoresizingMaskIntoConstraints = false
+        myNavBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        myNavBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        myNavBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        myNavBar.prefersLargeTitles = true
     }
-    */
+    
+    private func getUser(){
+        if let user = Auth.auth().currentUser {
+            usersRef.whereField("email", isEqualTo: user.email!).getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print("---AccountVC: Eror Could not find the userinfo using the email: \(err)")
+                } else {
+                    if querySnapshot!.count > 1 {
+                        print("---AccountVC: email returned more than 1 user. Investigate why!: \(querySnapshot!.documents)")
+                    } else {
+    //                    DispatchQueue.main.async {
+                            for document in querySnapshot!.documents {
+                                let data = document.data()
+                                self.user = Pasco.User(data: data)
+                            }
+    //                    }
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+
+
+extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "accountDetails", for: indexPath)
+        if let user = user {
+            cell.textLabel?.text = user.username
+            cell.detailTextLabel?.text = user.email
+        }
+        return cell
+    }
+    
 
 }
+

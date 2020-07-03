@@ -11,19 +11,30 @@ import UIKit
 
 struct Constants {
     static let fillAllFieldsError = "Please fill all fields"
-    static let creatingUserError = "Please fill all fields"
+    static let creatingUserError = "An unknown error occurred. Please try again"
 
-    static let registerButtonText = "Sign Up"
-    static let signInButtonText = "Sign In"
+    static let registerButtonText = "SIGN UP"
+    static let signInButtonText = "SIGN IN"
     
     static let usernamePlaceholder = "Username"
     static let emailPlaceholder = "Email"
     static let passwordPlaceholder = "Password"
     struct admob {
-        static let appId = "ca-app-pub-7701962660538609~4342523085"
-        static let bannerViewAdUnitID       = "ca-app-pub-7701962660538609/6756739913"
-        static let bannerViewAdUnitID_test  = "ca-app-pub-3940256099942544/2934735716"
+                          static let appId = "ca-app-pub-7701962660538609~4342523085"
+             static let bannerViewAdUnitID = "ca-app-pub-7701962660538609/6756739913"
+        static let bannerViewAdUnitID_test = "ca-app-pub-3940256099942544/2934735716"
 //        If your app is published to Google Play or the App Store, remember to come back to link your app.
+    }
+    
+    enum segues: String {
+        case AccountCheckToAccount = "toAccountVC"
+       case AccountCheckToRegister = "toRegister"
+         case AccountCheckToSignIn = "toSignIn"
+    }
+    enum cellIdentifiers: String {
+        case AccountDetailsCell = "accountDetails"
+       case QuestionSelectionCell = "selectionCell"
+         case QuestionCell = "questionCell"
     }
     
     enum AlertMessages: String {
@@ -34,7 +45,8 @@ struct Constants {
         case alphaStringWithSpace1 = "Invalid first name"
         case alphaStringWithSpace2 = "Invalid last name"
         case phoneNo = "Invalid Phone"
-        case password = "Invalid Password"
+        case password = "Password must be between 4 to 16 characters"
+        case passwordMismatch = "Mismatch in password and confirmation"
     }
     
     enum RegEx: String {

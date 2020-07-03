@@ -13,9 +13,11 @@ class AccountCheckViewController: UIViewController {
     
     @IBOutlet weak var registerButton: DesignableButton!
     @IBOutlet weak var signInButton: DesignableButton!
-    var userIsSignedIn = Bool() { didSet { print("---userIsSignedIn = \(userIsSignedIn)") } }
+    var userIsSignedIn = Bool()
+    var user: User? { didSet { print("---AccountCheckVC: \(user!)") } }
     
     var handle: AuthStateDidChangeListenerHandle?
+    let usersRef = Firestore.firestore().collection("users")
 
     
 
@@ -27,6 +29,7 @@ class AccountCheckViewController: UIViewController {
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
 //            chechIfUserIsSignedIn()
+            setupEnvironment()
             userIsSignedIn = checkSignInStatus()
         }
     
@@ -43,7 +46,8 @@ class AccountCheckViewController: UIViewController {
 //    }
     private func checkSignInStatus() -> Bool {
         if Auth.auth().currentUser != nil {
-            print("---AccountCheckVC: user is signed in.Segue to AccountVC")
+            print("---AccountCheckVC: user is signed in. Segue to AccountVC")
+//            getUser(with: user.email!)
             performSegue(withIdentifier: "toAccountVC", sender: nil)
             return true
         } else {
@@ -51,9 +55,28 @@ class AccountCheckViewController: UIViewController {
             return false
         }
     }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("---AccountVC: Prepare")
+        if let accountVC = segue.destination as? AccountViewController {
+            while user != nil {
+                accountVC.user = user
+            }
+//            if let user = user {
+//                accountVC.user = user
+//            }
+        }
+    }
+    
+    private func setupEnvironment() {
+        registerButton.setTitle(Constants.registerButtonText, for: .normal)
+        signInButton.setTitle(Constants.signInButtonText, for: .normal)
+    }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool { //if user is not already signed in, then u can create an account or log in
-        if let sendingButton = sender as? UIButton, let title = sendingButton.currentTitle, title == Constants.registerButtonText || title == Constants.signInButtonText {
+        if let sendingButton = sender as? UIButton, let title = sendingButton.currentTitle, title == Constants.registerButtonText || title == Constants.signInButtonText, userIsSignedIn {
             return false
         } else { return true }
     }
@@ -63,16 +86,22 @@ class AccountCheckViewController: UIViewController {
     
     
     @IBAction func prepareForUnwind (segue: UIStoryboardSegue) {
-        
+        if let accountVC = segue.source as? AccountViewController {
+            print("--AccounChecktVC: prepareForUnwind is called by: \(accountVC.description)")
+            signOut()
+            print("--AccounChecktVC: Done signing out")
+        }
     }
-    /*
-    // MARK: - Navigation
+    
+    
+    private func signOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

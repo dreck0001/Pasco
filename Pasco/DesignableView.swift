@@ -13,6 +13,10 @@ import UIKit
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet { self.layer.cornerRadius = cornerRadius }
     }
+}
 
-
+@IBDesignable class DesignableLabel: UILabel {
+    @IBInspectable var cornerRadius: CGFloat = 0 {
+        didSet { self.layer.cornerRadius = cornerRadius }
+    }
 }

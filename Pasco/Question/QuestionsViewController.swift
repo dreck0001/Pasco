@@ -131,7 +131,7 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "selectionCell", for: indexPath) as! SelectionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.QuestionSelectionCell.rawValue, for: indexPath) as! SelectionTableViewCell
             let subjectRow = cell.selectionPicker.selectedRow(inComponent: 0)
             let yearRow    = cell.selectionPicker.selectedRow(inComponent: 1)
             cell.selectionSubjectLabel.text = "\(Constants.Subject.allValues[subjectRow]!.rawValue)    -"
@@ -149,7 +149,7 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "questionCell", for: indexPath) as! QuestionTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.QuestionCell.rawValue, for: indexPath) as! QuestionTableViewCell
             print("okokokok: \(indexPath.row)")
             let theQuestion = questions[indexPath.row]
 //            print("slslss: \(questions.count)")

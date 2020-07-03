@@ -12,37 +12,44 @@ import FirebaseDatabase
 
 
 struct User {
-    let key: String!
+//    let key: String!
     let uid: String!
     let email: String!
-    let userName: String!
+    let username: String!
     let itemRef: DatabaseReference?
 
 
-    init(uid: String, email: String, userName: String, key: String = "") {
-        self.key = key
+    init(uid: String, email: String, userName: String) {
+//        self.key = key
         self.email = email
-        self.userName = userName
+        self.username = userName
         self.itemRef = nil
         self.uid = uid
     }
     
+    init(data: [String : Any]) {
+        uid = data["uid"] as? String
+        email = data["email"] as? String
+        username = data["username"] as? String
+        itemRef = nil
+    }
+    
     init(snapshot: DataSnapshot) {
-        key = snapshot.key
+//        key = snapshot.key
         itemRef = snapshot.ref
         if let snapshotVDict = snapshot.value as? NSDictionary {
-            if let userEmail        = snapshotVDict["Email"] as? String         { email = userEmail }         else { email = "" }
-            if let userUserName     = snapshotVDict["UserName"] as? String      { userName = userUserName }   else { userName = "" }
-            if let userUid          = snapshotVDict["UID"] as? String           { uid = userUid }             else { uid = "" }
+            if let userEmail        = snapshotVDict["emial"] as? String         { email = userEmail }         else { email = "" }
+            if let userUserName     = snapshotVDict["username"] as? String      { username = userUserName }   else { username = "" }
+            if let userUid          = snapshotVDict["uid"] as? String           { uid = userUid }             else { uid = "" }
         }
-        else { uid = ""; email = ""; userName = ""; }
+        else { uid = ""; email = ""; username = ""; }
     }
     
     func toAnyObject() -> Any {
         return [
-            "Email"     : email as Any,
-            "UserName"  : userName as Any,
-            "UID"       : uid as Any
+            "email"     : email as Any,
+            "username"  : username as Any,
+            "uid"       : uid as Any
         ]
     }
     

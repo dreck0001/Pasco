@@ -7,20 +7,29 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LogInViewController: UIViewController {
+    
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    var handle: AuthStateDidChangeListenerHandle?
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("---LogInVC")
+        setupEnvironment()
 
         // Do any additional setup after loading the view.
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        print("i am in \(self.description)")
-//        setUserEnvironment()
-//        performSegue(withIdentifier: "test", sender: nil)
-//        performSegue(withIdentifier: "test2", sender: nil)
+    
+    private func setupEnvironment() {
+        signInButton.setTitle(Constants.signInButtonText, for: .normal)
+        errorLabel.alpha = 0
     }
 
     /*

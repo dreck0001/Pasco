@@ -12,54 +12,40 @@ import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
+    @IBOutlet weak var usernameTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var errorLabel: UILabel!
+    
     var handle: AuthStateDidChangeListenerHandle?
     let db = Firestore.firestore()
-
     //data
     var ref: DatabaseReference!
     var usernames = [String]() //{ didSet { print(usernames)}}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("RegisterViewController view has loaded")
+        print("---RegisterVC")
         ref = Database.database().reference().child("users")
-//        print(ref)
+        setupEnvironment()
+        getUsers()
+    }
+    private func setupEnvironment() {
         usernameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
         confirmPasswordTextField.delegate = self
-        setUserEnvironment()
-        getUsers()
-
-
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBOutlet weak var usernameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var errorLabel: UILabel!
-    
-    
-    private func setUserEnvironment() {
+        signUpButton.setTitle(Constants.registerButtonText, for: .normal)
         errorLabel.alpha = 0
-        //if user is somehow mysteriously signed in, load details
-        handle = Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
-                self.emailTextField.text = user.email
-                self.usernameTextField.text = user.displayName
-            } else { }
-        }
     }
-
     private func showError(_ message: String) {
         errorLabel.text = message
         errorLabel.alpha = 1
         print("description =--= " + message)
     }
     private func getUsers() {
-//        var usernames = [String]()
         let db = Firestore.firestore()
         db.collection("users").getDocuments() { (querySnapshot, err) in
             if let err = err {
@@ -67,72 +53,65 @@ class RegisterViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                     self.usernames.append(document.documentID)
-//                    print("\(document.documentID) => \(document.data())")
                 }
             }
         }
-//        print(usernames)
-//        return usernames
     }
     private func makeText(withText text: String, andString string: String) -> String {
         if string.isEmpty { return String(text.dropLast()) }
         return text + string
     }
-
-    @IBAction func registerAction(_ sender: UIButton) {
-        // create cleaned version od the text fields and create the user
+    @IBAction func signUpAction(_ sender: UIButton) {
+//         create cleaned version od the text fields and create the user
         let userName = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let confirmPassword = confirmPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
 //        validate fields
         if let error = Utilities.validateFields( strings: [
             Constants.RegEx.username            : userName,
             Constants.RegEx.email               : email,
             Constants.RegEx.password            : password
         ]) { showError(error) }
-        else if usernames.contains(userName) { showError(Constants.AlertMessages.username_alreadyTaken.rawValue)}
+        else if confirmPassword != password  { showError(Constants.AlertMessages.passwordMismatch.rawValue) }
+        else if usernames.contains(userName) { showError(Constants.AlertMessages.username_alreadyTaken.rawValue) }
         else {
             Auth.auth().createUser(withEmail: email, password: password) { (result: AuthDataResult?, err1: Error?) in
                 if let err1 = err1 {
                     print("---RegisterVC: Authentication: Error creating user account. show user the error and remain on this scene: \(err1)")
-                    self.showError(err1.localizedDescription.description)
+                    self.showError(Constants.creatingUserError)
                 } else {
 //                    Firebase user created successfully, now save user info in User table
 //                    var docRef: DocumentReference? = nil
                     let user = User(uid: result!.user.uid, email: email, userName: userName)
-                    self.db.collection("users").document(user.userName).setData(user.toAnyObject() as! [String : Any]) { err in
+                    self.db.collection("users").document(user.username).setData(user.toAnyObject() as! [String : Any]) { err in
                         if let err = err {
                             self.showError(Constants.creatingUserError)
                             print("---RegisterVC: Database: Error writing user to users database. Deleting the user now: \(err)")
-                            let user = Auth.auth().currentUser
-                            user?.delete { error in
-                              if let error = error {
-                                self.showError(Constants.creatingUserError)
-                                print("---RegisterVC: Authentication: Error deleting user account. Need to add functionality to try to remove user account later: \(error)")
-                              } else {
-                                print("---RegisterVC: Authentication: User account has been deleted")
-                              }
-                            }
+                            self.deleteUser()
                         } else {
-                            print("---RegisterVC: Database: User added to users database succesfully")
+                            print("---RegisterVC: Database: User created and added to users database succesfully. Unwinding to AccountCheckVC")
+//                            using this method because RegisterVC is presented by a button and not a NavVC
+                            if let navcon = self.parent as? UINavigationController {
+                                navcon.popViewController(animated: true)
+                            }
                         }
                     }
-//                    userChild.setValue(user.toAnyObject()) { (error, DatabaseReference) in
-//                        if let error = error {
-//                            print("description =-+-= " + error.localizedDescription.description)
-//                            print("debugDescription =-+-= " + error.localizedDescription.debugDescription)
-//                            self.showError(error.localizedDescription.description)
-//                        } else {
-////                            user info successfully saved in User table, now transition to root view
-////                            self.presentingViewController?.dismiss(animated: true, completion: nil) //i used to do it this way
-//
-//                            self.performSegue(withIdentifier: "backToAccountCheck", sender: nil)
-//
                 }
             }
         }
     }
-
+    
+    private func deleteUser() {
+        let user = Auth.auth().currentUser
+            user?.delete { error in
+              if let error = error {
+                print("---\(self.description): Error deleting user account. Need to add functionality to try to remove user account later: \(error)")
+              } else {
+                print("---\(self.description): User account has been deleted")
+              }
+            }
+    }
     
 
     /*
