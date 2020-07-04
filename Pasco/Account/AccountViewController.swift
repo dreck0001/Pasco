@@ -74,7 +74,7 @@ class AccountViewController: UIViewController {
 
 extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,15 +82,27 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: "accountDetails", for: indexPath)
-        if let user = user {
-            cell.textLabel?.text = user.username
-            cell.detailTextLabel?.text = user.email
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountDetailsCell.rawValue, for: indexPath)
+            if let user = user {
+                cell.textLabel?.text = user.username
+                cell.detailTextLabel?.text = user.email
+            }
+            return cell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountTestResultsCell.rawValue, for: indexPath)
+            cell.textLabel?.text = "My Test Results"
+            cell.detailTextLabel?.text = "5"
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountQuestionRatings.rawValue, for: indexPath)
+            cell.textLabel?.text = "My Question Ratings"
+            cell.detailTextLabel?.text = "3"
+            return cell
         }
-        return cell
+        
+        
     }
-    
-
 }
 

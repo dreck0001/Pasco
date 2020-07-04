@@ -32,21 +32,23 @@ struct Constants {
          case AccountCheckToSignIn = "toSignIn"
     }
     enum cellIdentifiers: String {
-        case AccountDetailsCell = "accountDetails"
-       case QuestionSelectionCell = "selectionCell"
-         case QuestionCell = "questionCell"
+            case AccountDetailsCell = "accountDetails"
+         case QuestionSelectionCell = "selectionCell"
+                  case QuestionCell = "questionCell"
+        case AccountTestResultsCell = "testResults"
+        case AccountQuestionRatings = "questionRatings"
     }
     
     enum AlertMessages: String {
-        case email = "Invalid Email"
-        case username = "Invalid Username"
-        case username_alreadyTaken = "Username is already taken"
+                             case email = "Invalid Email"
+                          case username = "Invalid Username"
+             case username_alreadyTaken = "Username is already taken"
         case alphaStringFirstLetterCaps = "First letter should be capital"
-        case alphaStringWithSpace1 = "Invalid first name"
-        case alphaStringWithSpace2 = "Invalid last name"
-        case phoneNo = "Invalid Phone"
-        case password = "Password must be between 4 to 16 characters"
-        case passwordMismatch = "Mismatch in password and confirmation"
+             case alphaStringWithSpace1 = "Invalid first name"
+             case alphaStringWithSpace2 = "Invalid last name"
+                           case phoneNo = "Invalid Phone"
+                          case password = "Password must be between 4 to 16 characters"
+                  case passwordMismatch = "Mismatch in password and confirmation"
     }
     
     enum RegEx: String {

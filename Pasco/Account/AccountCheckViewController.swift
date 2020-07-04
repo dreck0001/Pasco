@@ -19,13 +19,6 @@ class AccountCheckViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let usersRef = Firestore.firestore().collection("users")
 
-    
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(true)
 //            chechIfUserIsSignedIn()
