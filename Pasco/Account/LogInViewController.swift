@@ -56,7 +56,6 @@ class LogInViewController: UIViewController {
                 self?.showError(error.localizedDescription)
             }
         }
-        
     }
     
     
