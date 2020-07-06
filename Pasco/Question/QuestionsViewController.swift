@@ -192,6 +192,17 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableView.automaticDimension
         } //question height
     }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.transform = CGAffineTransform(scaleX: 0, y: 1)
+        UIView.animate(withDuration: 0.3, delay: 0, animations: {
+            cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        
+//        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
+//        UIView.animate(withDuration: 0.3, delay: 0, animations: {
+//            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
+//        })
+    }
 }
 extension QuestionsViewController: GADBannerViewDelegate {
     /// Tells the delegate an ad request loaded an ad.

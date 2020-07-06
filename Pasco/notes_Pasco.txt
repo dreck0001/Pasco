@@ -34,6 +34,11 @@ Setup Cocoapods:
 		This creates a .xcworkspace file in the workspace
 Religious & Moral Education
 
+Resolving Expired Certificate Issue when running on iPhone
+  - cd ~/Library/MobileDevice/Provisioning Profiles
+  - remove all certificates
+
+
 
 04/11/2020
 - edit "record" to save questons properly
