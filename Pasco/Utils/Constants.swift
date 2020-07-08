@@ -37,6 +37,9 @@ struct Constants {
                   case QuestionCell = "questionCell"
         case AccountTestResultsCell = "testResults"
         case AccountQuestionRatings = "questionRatings"
+        case TestSubject = "testSubject"
+        case TestYear = "testYear"
+        case TestSubmitSelection = "testSubmit"
     }
     
     enum AlertMessages: String {
