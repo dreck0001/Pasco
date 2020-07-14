@@ -13,8 +13,7 @@ class SelectionTableViewCell: UITableViewCell {
     @IBOutlet weak var selectionSubjectLabel: UILabel!
     @IBOutlet weak var selectionYearLabel: UILabel!
     @IBOutlet weak var selectionPicker: UIPickerView!
-    @IBOutlet weak var expansionIndicatorLabel: UILabel!
-    
+    @IBOutlet weak var expansionIndicatorImage: UIImageView!
     
     var selectedSubjectRow = 0
 

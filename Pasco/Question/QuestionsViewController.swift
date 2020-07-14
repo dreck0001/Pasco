@@ -42,6 +42,8 @@ class QuestionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         //use flexible cell heights
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
@@ -137,15 +139,16 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
             cell.selectionSubjectLabel.text = "\(Constants.Subject.allValues[subjectRow]!.rawValue)    -"
             cell.selectionYearLabel.text    = "    \(Constants.subject_years[subjectRow]![yearRow])"
             if selectionCellExpanded {
-                cell.selectionSubjectLabel.textColor = .red
-                cell.selectionYearLabel.textColor = .red
-                cell.expansionIndicatorLabel.textColor = .red
-                cell.expansionIndicatorLabel.text = "-"
+                cell.selectionSubjectLabel.textColor = Constants.appColor
+                cell.selectionYearLabel.textColor = Constants.appColor
+                cell.expansionIndicatorImage.image = UIImage(systemName: "chevron.up")
+                cell.expansionIndicatorImage.tintColor = Constants.appColor
             } else {
                 cell.selectionSubjectLabel.textColor = .black
                 cell.selectionYearLabel.textColor = .black
-                cell.expansionIndicatorLabel.textColor = .black
-                cell.expansionIndicatorLabel.text = "+"
+//                cell.expansionIndicatorLabel.textColor = .black
+                cell.expansionIndicatorImage.image = UIImage(systemName: "chevron.down")
+                cell.expansionIndicatorImage.tintColor = .black
             }
             return cell
         default:
@@ -193,11 +196,12 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
         } //question height
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.transform = CGAffineTransform(scaleX: 0, y: 1)
-        UIView.animate(withDuration: 0.3, delay: 0, animations: {
-            cell.transform = CGAffineTransform(scaleX: 1, y: 1)
-        })
-        
+        if indexPath.section != 0 {
+            cell.transform = CGAffineTransform(scaleX: 0, y: 1)
+            UIView.animate(withDuration: 0.3, delay: 0, animations: {
+                cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+            })
+        }
 //        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
 //        UIView.animate(withDuration: 0.3, delay: 0, animations: {
 //            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)

@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 struct Constants {
+    static let appColor: UIColor = #colorLiteral(red: 0.9474228024, green: 0.5469378233, blue: 0.0007671079366, alpha: 1)
+    
     static let fillAllFieldsError = "Please fill all fields"
     static let creatingUserError = "An unknown error occurred. Please try again"
 

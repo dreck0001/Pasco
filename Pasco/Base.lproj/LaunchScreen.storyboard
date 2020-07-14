@@ -15,27 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RegisterBackground2" translatesAutoresizingMaskIntoConstraints="NO" id="ZTQ-WN-t0h">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pasco" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Akd-rh-WgJ">
                                 <rect key="frame" x="87.5" y="373" width="239" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="Sz3-Va-fI3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="73"/>
-                                <color key="textColor" red="0.29772937300000002" green="0.39089709519999999" blue="0.61571127179999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo9" translatesAutoresizingMaskIntoConstraints="NO" id="OJc-Af-IYy">
+                                <rect key="frame" x="87" y="734" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="Xdh-sK-xBh"/>
+                                    <constraint firstAttribute="height" constant="128" id="xYb-EJ-65b"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.80076955451866505" green="0.50790233566456056" blue="0.18187250348606512" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="Akd-rh-WgJ" firstAttribute="centerX" secondItem="ZTQ-WN-t0h" secondAttribute="centerX" id="Oec-X7-zYy"/>
-                            <constraint firstItem="ZTQ-WN-t0h" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Ohr-fz-5gp"/>
-                            <constraint firstItem="ZTQ-WN-t0h" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="TtL-bz-fMf"/>
-                            <constraint firstAttribute="bottom" secondItem="ZTQ-WN-t0h" secondAttribute="bottom" id="VyG-9Y-eCU"/>
-                            <constraint firstItem="ZTQ-WN-t0h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fGU-5e-Pml"/>
-                            <constraint firstItem="Akd-rh-WgJ" firstAttribute="centerY" secondItem="ZTQ-WN-t0h" secondAttribute="centerY" id="gOt-2y-TUM"/>
+                            <constraint firstItem="Akd-rh-WgJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Oz5-fq-AQA"/>
+                            <constraint firstItem="Akd-rh-WgJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="e5o-Sq-uQc"/>
+                            <constraint firstItem="OJc-Af-IYy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fyX-U1-lTb"/>
+                            <constraint firstItem="OJc-Af-IYy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="lCK-hd-y0j"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -46,6 +48,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="RegisterBackground2" width="550" height="825"/>
+        <image name="logo9" width="596" height="565"/>
     </resources>
 </document>

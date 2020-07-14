@@ -1,30 +1,35 @@
 //
-//  TestMenuTableViewController.swift
+//  Test3MenuTableViewController.swift
 //  Pasco
 //
-//  Created by denis on 7/8/20.
+//  Created by denis on 7/10/20.
 //  Copyright © 2020 GhanaWare. All rights reserved.
 //
 
 import UIKit
 
-enum MenuType: Int {
-    case home
-    case camera
-    case profile
-}
-class TestMenuTableViewController: UITableViewController {
-    
-    var didTapMenuType: ((MenuType) -> Void)?
+class Test3MenuTableViewController: UITableViewController {
 
+    @IBOutlet weak var subjectPicker: UIPickerView!
+    @IBOutlet weak var yearPicker: UIPickerView!
+    
+    var subject: Int { return subjectPicker.selectedRow(inComponent: 0) }
+    var year: Int { return yearPicker.selectedRow(inComponent: 0) }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//         self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        subjectPicker.delegate = self
+        subjectPicker.dataSource = self
+        yearPicker.delegate = self
+        yearPicker.dataSource = self
+        
     }
 
     // MARK: - Table view data source
@@ -34,10 +39,10 @@ class TestMenuTableViewController: UITableViewController {
 //        return 0
 //    }
 //
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 3
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,13 +53,6 @@ class TestMenuTableViewController: UITableViewController {
         return cell
     }
     */
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        guard let menuType = MenuType(rawValue: indexPath.row) else { return }
-        dismiss(animated: true) { [weak self] in
-            print("Dismissing: \(menuType)")
-            self?.didTapMenuType?(menuType)        }
-    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -91,14 +89,43 @@ class TestMenuTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let test3VC = segue.destination as? Test3ViewController,
+            let button = sender as? UIButton else { return }
+        test3VC.subject = self.subject
+        test3VC.year = self.year
+        
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
 
+}
+
+extension Test3MenuTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView.tag == 0 { return Constants.subject_years.count }
+        else { return Constants.subject_years[subject]!.count}
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView.tag == 0 {
+            return Constants.Subject.allValues[row]?.rawValue
+        } else {
+            return String(Constants.subject_years[subject]![row])
+        }
+//        return String(row)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView.tag == 0 {
+            yearPicker.reloadAllComponents()
+        }
+    }
 }

@@ -11,6 +11,7 @@ Tabs:
         - Sign Up: Email, username, password
         - Score card
             - score and ranking
+            - position: An icon badge that shows position based on (passed tests / tests taken)
 -   More:
         - some user info
         - app appearance
