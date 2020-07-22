@@ -32,6 +32,7 @@ struct Constants {
         case AccountCheckToAccount = "toAccountVC"
        case AccountCheckToRegister = "toRegister"
          case AccountCheckToSignIn = "toSignIn"
+         case TestMenuDone = "doneSegue"
     }
     enum cellIdentifiers: String {
             case AccountDetailsCell = "accountDetails"
@@ -42,6 +43,9 @@ struct Constants {
         case TestSubject = "testSubject"
         case TestYear = "testYear"
         case TestSubmitSelection = "testSubmit"
+        case TestQuestion = "testQuestion"
+        case TestOption = "testOption"
+        case TestNextQuestion = "testNextQuestion"
     }
     
     enum AlertMessages: String {

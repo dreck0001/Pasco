@@ -12,38 +12,40 @@ import Firebase
 class QuestionsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var questions = [Question]() {
-        didSet {
-            // sort by number, add to alreadyLoadedQuestionSets, reload
-            questions.sort(by: { (q1, q2) -> Bool in
-                return q1.number < q2.number
-            }, stable: true)
-            alreadyLoadedQuestionSets[QuestionsViewController.incomingName] = questions
-            tableView.reloadData()
-            displayData()
-        }
-    }
-//    var questions = [Question]()
     @IBOutlet weak var bannerView: GADBannerView!
     private var selectionCellExpanded = false
-    var alreadyLoadedQuestionSets = [String: [Question]]()
+//    static var alreadyLoadedQuestionSets = [String: [Question]]()
     static private var selectedSubject_YearHasChanged = true
     static var selectedSubject_Year: (sub: String, yr: Int)? {
         didSet { print("selectedSubject_Year = \(selectedSubject_Year!)")
             if oldValue?.sub == selectedSubject_Year?.sub && oldValue?.yr == selectedSubject_Year?.yr {
                 selectedSubject_YearHasChanged = false
             } else { selectedSubject_YearHasChanged = true }
-            
-            
         }
     }
-    static var incomingName: String { return "\(QuestionsViewController.selectedSubject_Year!.sub)_\(QuestionsViewController.selectedSubject_Year!.yr)" }
+    static var incomingName: String { return "\(QuestionsViewController.selectedSubject_Year!.sub)_\(QuestionsViewController.selectedSubject_Year!.yr)"
+    }
 
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        NotificationCenter.default.addObserver( self,
+                                           selector: #selector(onDidReceiveData(_:)),
+                                           name: NSNotification.Name(rawValue: "questionsLoaded"),
+                                           object: nil
+        )
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc func onDidReceiveData(_ notification:Notification) {
+        // Do something now
+        print("Notification recieved! Reloading tableView!!")
+        tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         //use flexible cell heights
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
@@ -55,55 +57,13 @@ class QuestionsViewController: UIViewController {
         bannerView.adUnitID = Constants.admob.bannerViewAdUnitID_test
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
-        
         //load quesstions
         QuestionsViewController.selectedSubject_Year = ("English", 1990) //initial load
-        loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
+//        loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
+        Utilities.loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
         // Do any additional setup after loading the view.
     }
     
-    private func loadQuestionSet(sub: String, yr: Int) {
-//        if alreadyLoadedQuestionSets is empty, lead questions from firebase
-        if alreadyLoadedQuestionSets.isEmpty {
-            loadQuestionSetFromFirebase(sub: sub, yr: yr)
-            return
-        } else {  //else if alreadyLoadedQuestionSets contains the questions, display them
-            let incomingName = sub + "_" + String(yr)
-            let loadedNames = Array(alreadyLoadedQuestionSets.keys)
-            for name in loadedNames {
-                print("name: \(incomingName), alreadyLoadedQuestionSets: \(alreadyLoadedQuestionSets)")
-                if String(name) == incomingName { // it already exists so just display it
-                    print("\(name) is found in alreadyLoadedQuestionSets")
-                    questions = alreadyLoadedQuestionSets[incomingName]!
-                    return
-                }
-            }
-        }
-        
-        //else, it doesn't exist so load, display and store it
-        loadQuestionSetFromFirebase(sub: sub, yr: yr)
-//        alreadyLoadedQuestionSets[incomingName] = questions
-    }
-    
-    private func loadQuestionSetFromFirebase(sub: String, yr: Int) {
-        let db = Firestore.firestore()
-        db.collection("BECE/" + sub + "/" + String(yr)).getDocuments { (querySnapshot, error) in
-            if let error = error { print("error getting data: " + error.localizedDescription) }
-            else {
-                if let snapshot = querySnapshot {
-                    let questions = snapshot.documents.compactMap({ (document) in
-                        return Question(data: document.data())
-                    })
-                    self.questions = questions
-                }
-            }
-        }
-    }
-        
-    private func displayData() {
-        
-    }
-
 //     MARK: - Navigation
 
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -127,7 +87,7 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case 0: return 1
         case 1: return 0
-        default: return questions.count
+        default: return Utilities.questions.count
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -154,7 +114,7 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.QuestionCell.rawValue, for: indexPath) as! QuestionTableViewCell
             print("okokokok: \(indexPath.row)")
-            let theQuestion = questions[indexPath.row]
+            let theQuestion = Utilities.questions[indexPath.row]
 //            print("slslss: \(questions.count)")
             cell.questionNumberLabel.text = "\(theQuestion.number). "
             cell.questionLabel.text = theQuestion.question
@@ -174,7 +134,7 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
             if selectionCellExpanded {
 //                chceck and refresh data
                 if QuestionsViewController.selectedSubject_YearHasChanged {
-                    loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
+                    Utilities.loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
                 } else { } //do nothing
                 selectionCellExpanded = false
             }
@@ -195,18 +155,18 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
             return UITableView.automaticDimension
         } //question height
     }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.section != 0 {
-            cell.transform = CGAffineTransform(scaleX: 0, y: 1)
-            UIView.animate(withDuration: 0.3, delay: 0, animations: {
-                cell.transform = CGAffineTransform(scaleX: 1, y: 1)
-            })
-        }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if indexPath.section != 0 {
+//            cell.transform = CGAffineTransform(scaleX: 0, y: 1)
+//            UIView.animate(withDuration: 0.3, delay: 0, animations: {
+//                cell.transform = CGAffineTransform(scaleX: 1, y: 1)
+//            })
+//        }
 //        cell.transform = CGAffineTransform(translationX: 0, y: cell.contentView.frame.height)
 //        UIView.animate(withDuration: 0.3, delay: 0, animations: {
 //            cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
 //        })
-    }
+//    }
 }
 extension QuestionsViewController: GADBannerViewDelegate {
     /// Tells the delegate an ad request loaded an ad.

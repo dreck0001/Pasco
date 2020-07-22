@@ -32,6 +32,9 @@
 		9263096724AE7F9E00E46509 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263096624AE7F9E00E46509 /* Utilities.swift */; };
 		926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7527249FD71C00F4EBEE /* LogInViewController.swift */; };
 		926D752A249FDBB400F4EBEE /* AccountCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */; };
+		92A60D4A24C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A60D4924C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift */; };
+		92A60D4C24C4E7ED00BDA0A2 /* Test3NextQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A60D4B24C4E7ED00BDA0A2 /* Test3NextQuestionTableViewCell.swift */; };
+		92A60D4E24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */; };
 		92B3BC1D24B6988100CA5E81 /* TestMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3BC1C24B6988100CA5E81 /* TestMenuTableViewController.swift */; };
 		92B3BC1F24B698C600CA5E81 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3BC1E24B698C600CA5E81 /* TestViewController.swift */; };
 		92B3BC2124B6A61F00CA5E81 /* SlideOnTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3BC2024B6A61F00CA5E81 /* SlideOnTransition.swift */; };
@@ -99,6 +102,9 @@
 		9263096624AE7F9E00E46509 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../Model/Utilities.swift; sourceTree = "<group>"; };
 		926D7527249FD71C00F4EBEE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCheckViewController.swift; sourceTree = "<group>"; };
+		92A60D4924C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3QuestionTableViewCell.swift; sourceTree = "<group>"; };
+		92A60D4B24C4E7ED00BDA0A2 /* Test3NextQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3NextQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3OptionTableViewCell.swift; sourceTree = "<group>"; };
 		92B3BC1C24B6988100CA5E81 /* TestMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuTableViewController.swift; sourceTree = "<group>"; };
 		92B3BC1E24B698C600CA5E81 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		92B3BC2024B6A61F00CA5E81 /* SlideOnTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideOnTransition.swift; sourceTree = "<group>"; };
@@ -223,6 +229,9 @@
 			children = (
 				9237456924B8FC5500A4A270 /* Test3ViewController.swift */,
 				9237456724B8FC3C00A4A270 /* Test3MenuTableViewController.swift */,
+				92A60D4924C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift */,
+				92A60D4B24C4E7ED00BDA0A2 /* Test3NextQuestionTableViewCell.swift */,
+				92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */,
 			);
 			path = Test3;
 			sourceTree = "<group>";
@@ -592,7 +601,10 @@
 				9237456C24BBAA6200A4A270 /* TabBarVC.swift in Sources */,
 				9210BA7824403C7200F92204 /* Constants.swift in Sources */,
 				9263096724AE7F9E00E46509 /* Utilities.swift in Sources */,
+				92A60D4C24C4E7ED00BDA0A2 /* Test3NextQuestionTableViewCell.swift in Sources */,
 				92CFCBFE24A2C03500912CC1 /* User.swift in Sources */,
+				92A60D4A24C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift in Sources */,
+				92A60D4E24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift in Sources */,
 				9237456524B7FE0300A4A270 /* Test2MenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
