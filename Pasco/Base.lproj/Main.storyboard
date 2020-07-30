@@ -93,7 +93,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject - " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIu-4g-Ibd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="203.5" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="200.5" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="So7-TT-sMO"/>
                                                     </constraints>
@@ -108,15 +108,15 @@
                                                     </constraints>
                                                 </pickerView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Year" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kqJ-vN-gXB">
-                                                    <rect key="frame" x="203.5" y="0.0" width="162.5" height="50"/>
+                                                    <rect key="frame" x="200.5" y="0.0" width="160.5" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aHd-Db-bRk">
-                                                    <rect key="frame" x="374" y="4.5" width="20" height="40.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="minus.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aHd-Db-bRk">
+                                                    <rect key="frame" x="369" y="0.5" width="25" height="49"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="Ig9-jr-Fig"/>
+                                                        <constraint firstAttribute="width" constant="25" id="Ig9-jr-Fig"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
@@ -626,7 +626,7 @@
             </objects>
             <point key="canvasLocation" x="-1014" y="1637"/>
         </scene>
-        <!--Test-->
+        <!--Select a test-->
         <scene sceneID="96k-1g-2cG">
             <objects>
                 <viewController id="QzQ-hy-1zj" customClass="Test3ViewController" customModule="Pasco" customModuleProvider="target" sceneMemberID="viewController">
@@ -638,12 +638,21 @@
                                 <rect key="frame" x="0.0" y="109" width="414" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testQuestion" rowHeight="103" id="trs-P9-OU3" customClass="Test3QuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testQuestion" textLabel="liL-DW-RPL" rowHeight="103" style="IBUITableViewCellStyleDefault" id="trs-P9-OU3" customClass="Test3QuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="trs-P9-OU3" id="yEG-T7-hHX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="liL-DW-RPL">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="103"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testOption" rowHeight="103" id="WGX-9K-Dab" customClass="Test3OptionTableViewCell" customModule="Pasco" customModuleProvider="target">
@@ -654,43 +663,83 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sih-Ur-2AB">
-                                                    <rect key="frame" x="20" y="11" width="374" height="81"/>
+                                                    <rect key="frame" x="51" y="11" width="343" height="81"/>
                                                     <color key="backgroundColor" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="0.15033560739999999" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="gWw-oN-T2u"/>
                                                     </constraints>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3rF-UA-NOk">
+                                                    <rect key="frame" x="8" y="35" width="35" height="32.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="Jsn-U5-Wdp"/>
+                                                        <constraint firstAttribute="width" constant="35" id="etT-lf-ACT"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="3rF-UA-NOk" firstAttribute="leading" secondItem="Rgb-P4-YDh" secondAttribute="leading" constant="8" id="M0c-UX-Vfj"/>
                                                 <constraint firstItem="sih-Ur-2AB" firstAttribute="trailing" secondItem="Rgb-P4-YDh" secondAttribute="trailingMargin" id="OsQ-JF-2bB"/>
-                                                <constraint firstItem="sih-Ur-2AB" firstAttribute="leading" secondItem="Rgb-P4-YDh" secondAttribute="leadingMargin" id="db0-uI-T5E"/>
+                                                <constraint firstItem="sih-Ur-2AB" firstAttribute="leading" secondItem="3rF-UA-NOk" secondAttribute="trailing" constant="8" symbolic="YES" id="Uti-74-Rae"/>
                                                 <constraint firstItem="sih-Ur-2AB" firstAttribute="top" secondItem="Rgb-P4-YDh" secondAttribute="topMargin" id="ePn-U6-kTK"/>
                                                 <constraint firstItem="sih-Ur-2AB" firstAttribute="bottom" secondItem="Rgb-P4-YDh" secondAttribute="bottomMargin" id="qTd-8b-lw6"/>
+                                                <constraint firstItem="3rF-UA-NOk" firstAttribute="centerY" secondItem="Rgb-P4-YDh" secondAttribute="centerY" id="zcb-Jp-vNa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkBoxImage" destination="3rF-UA-NOk" id="Ddc-We-b1p"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testNextQuestion" rowHeight="103" id="Zck-rJ-rWR" customClass="Test3NextQuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="234" width="414" height="103"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testNextQuestion" rowHeight="67" id="Zck-rJ-rWR" customClass="Test3NextQuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="234" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zck-rJ-rWR" id="fnL-ss-v8n">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awo-ZN-GpD">
-                                                    <rect key="frame" x="20" y="11" width="177" height="81"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awo-ZN-GpD" customClass="DesignableButton" customModule="Pasco" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="11" width="177" height="45"/>
                                                     <color key="backgroundColor" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="RB1-zu-LFs"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <state key="normal" title="Previos">
+                                                    <state key="normal" title="&lt; PREVIOUS">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjU-DV-oEE">
-                                                    <rect key="frame" x="217" y="11" width="177" height="81"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjU-DV-oEE" customClass="DesignableButton" customModule="Pasco" customModuleProvider="target">
+                                                    <rect key="frame" x="217" y="11" width="177" height="45"/>
                                                     <color key="backgroundColor" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="0xL-lr-O4C"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <state key="normal" title="Next">
+                                                    <state key="normal" title="NEXT &gt;">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="13"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -742,8 +791,12 @@
                         <viewLayoutGuide key="safeArea" id="aqA-Ia-UtY"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Test" id="gcb-bD-VFe">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Begin!" id="qle-hz-Bzo"/>
+                    <navigationItem key="navigationItem" title="Select a test" id="gcb-bD-VFe">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Begin!" id="qle-hz-Bzo">
+                            <connections>
+                                <action selector="beginAction:" destination="QzQ-hy-1zj" id="Hvl-Nn-hoI"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="BeginBArItem" destination="qle-hz-Bzo" id="mQi-hY-B3k"/>
@@ -851,7 +904,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Make a selection" id="bq1-Zh-5n0">
                         <barButtonItem key="backBarButtonItem" title=" " id="OMM-lS-NfL"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="chevron.right" catalog="system" id="OAA-YQ-wBD">
+                        <barButtonItem key="rightBarButtonItem" image="delete.right" catalog="system" id="OAA-YQ-wBD">
                             <connections>
                                 <segue destination="tmf-V7-cwo" kind="showDetail" id="eLk-Fg-BOb"/>
                             </connections>
@@ -1421,11 +1474,12 @@
     <color key="tintColor" red="0.89306230063265468" green="0.5664406517777002" blue="0.20283423048309701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="RegisterBackground2" width="550" height="825"/>
+        <image name="a.square" catalog="system" width="128" height="114"/>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
-        <image name="chevron.right" catalog="system" width="96" height="128"/>
-        <image name="chevron.up" catalog="system" width="128" height="72"/>
+        <image name="delete.right" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>

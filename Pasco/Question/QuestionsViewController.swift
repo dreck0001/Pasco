@@ -23,8 +23,6 @@ class QuestionsViewController: UIViewController {
             } else { selectedSubject_YearHasChanged = true }
         }
     }
-    static var incomingName: String { return "\(QuestionsViewController.selectedSubject_Year!.sub)_\(QuestionsViewController.selectedSubject_Year!.yr)"
-    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -40,12 +38,14 @@ class QuestionsViewController: UIViewController {
     }
     @objc func onDidReceiveData(_ notification:Notification) {
         // Do something now
-        print("Notification recieved! Reloading tableView!!")
+        print("questionVC: Notification recieved! Reloading tableView!!")
         tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.tabBarItem.image = UIImage(systemName: "rectangle.stack")
+//        self.tabBarItem.selectedImage = UIImage(systemName: "rectangle.stack.fill")
         //use flexible cell heights
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
@@ -58,7 +58,7 @@ class QuestionsViewController: UIViewController {
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         //load quesstions
-        QuestionsViewController.selectedSubject_Year = ("English", 1990) //initial load
+        QuestionsViewController.selectedSubject_Year = ("RME", 1990) //initial load
 //        loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
         Utilities.loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
         // Do any additional setup after loading the view.
@@ -87,7 +87,11 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
         switch section {
         case 0: return 1
         case 1: return 0
-        default: return Utilities.questions.count
+//        default: return Utilities.questions.count
+        default:
+            guard let sel_sub_yr = QuestionsViewController.selectedSubject_Year else { return 0 }
+            let sub_yr = sel_sub_yr.sub + "_" + String(sel_sub_yr.yr)
+            return Utilities.alreadyLoadedQuestionSets[sub_yr]?.count ?? 0
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,34 +105,41 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
             if selectionCellExpanded {
                 cell.selectionSubjectLabel.textColor = Constants.appColor
                 cell.selectionYearLabel.textColor = Constants.appColor
-                cell.expansionIndicatorImage.image = UIImage(systemName: "chevron.up")
+                cell.expansionIndicatorImage.image = UIImage(systemName: "minus.circle")
                 cell.expansionIndicatorImage.tintColor = Constants.appColor
+//                cell.expansionIndicatorImage.tintColor = .black
             } else {
                 cell.selectionSubjectLabel.textColor = .black
                 cell.selectionYearLabel.textColor = .black
 //                cell.expansionIndicatorLabel.textColor = .black
-                cell.expansionIndicatorImage.image = UIImage(systemName: "chevron.down")
+                cell.expansionIndicatorImage.image = UIImage(systemName: "plus.circle")
                 cell.expansionIndicatorImage.tintColor = .black
+                
             }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.QuestionCell.rawValue, for: indexPath) as! QuestionTableViewCell
             print("okokokok: \(indexPath.row)")
-            let theQuestion = Utilities.questions[indexPath.row]
-//            print("slslss: \(questions.count)")
-            cell.questionNumberLabel.text = "\(theQuestion.number). "
-            cell.questionLabel.text = theQuestion.question
-            cell.optionALabel.text = theQuestion.optionA
-            cell.optionBLabel.text = theQuestion.optionB
-            cell.optionCLabel.text = theQuestion.optionC
-            cell.optionDLabel.text = theQuestion.optionD
-            if theQuestion.optionE == "" {
-                cell.optionELetter.isHidden = true
-                cell.optionELabel.isHidden = true
-            } else { cell.optionELabel.text = theQuestion.optionE }
+            guard let sel_sub_yr = QuestionsViewController.selectedSubject_Year else { return cell }
+            let sub_yr = sel_sub_yr.sub + "_" + String(sel_sub_yr.yr)
+            if let theQuestion = Utilities.alreadyLoadedQuestionSets[sub_yr]?[indexPath.row] {
+//                let theQuestion = Utilities.questions[indexPath.row]
+    //            print("slslss: \(questions.count)")
+                cell.questionNumberLabel.text = "\(theQuestion.number). "
+                cell.questionLabel.text = theQuestion.question
+                cell.optionALabel.text = theQuestion.optionA
+                cell.optionBLabel.text = theQuestion.optionB
+                cell.optionCLabel.text = theQuestion.optionC
+                cell.optionDLabel.text = theQuestion.optionD
+                if theQuestion.optionE == "" {
+                    cell.optionELetter.isHidden = true
+                    cell.optionELabel.isHidden = true
+                } else { cell.optionELabel.text = theQuestion.optionE }
+            }
+//
             return cell
         }
-    }    
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0,  indexPath.row == 0 {
             if selectionCellExpanded {

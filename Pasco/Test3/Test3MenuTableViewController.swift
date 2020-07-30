@@ -96,7 +96,11 @@ class Test3MenuTableViewController: UITableViewController {
         guard let doneIdentier = segue.identifier else { return }
         if doneIdentier == Constants.segues.TestMenuDone.rawValue {
             if let testCV = segue.destination.contentViewController as? Test3ViewController {
-
+                if let sub = Constants.Subject.allValues[subject],
+                    let yr = Constants.subject_years[subject]?[year] {
+                        print("segue:   \(sub) - \(yr)")
+                        Utilities.loadQuestionSet(sub: sub.rawValue, yr: yr)
+                }
                 testCV.subjectYear = (subject, year)
             }
         }

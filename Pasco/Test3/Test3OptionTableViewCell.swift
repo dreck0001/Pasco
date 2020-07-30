@@ -9,7 +9,8 @@
 import UIKit
 
 class Test3OptionTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var checkBoxImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

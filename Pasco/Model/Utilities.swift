@@ -12,24 +12,29 @@ import UIKit
 
 
 class Utilities {
-    
+    private static var sub_yr = String()
     static var questions = [Question]() {
         didSet {
             // sort by number, add to alreadyLoadedQuestionSets, reload
             questions.sort(by: { (q1, q2) -> Bool in return q1.number < q2.number }, stable: true)
-            Utilities.alreadyLoadedQuestionSets[QuestionsViewController.incomingName] = questions
-            print("alreadyLoadedQuestionSets.keys: \(Utilities.alreadyLoadedQuestionSets.keys)")
+            alreadyLoadedQuestionSets[sub_yr] = questions
         }
     }
     static var alreadyLoadedQuestionSets = [String: [Question]]() {
         didSet {
+            print("alreadyLoadedQuestionSets: \(alreadyLoadedQuestionSets)")
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "questionsLoaded"), object: nil)
 
         }
     }
+    static func userIsSignedIn() -> Bool {
+        if Auth.auth().currentUser != nil { return true }
+        else { return false }
+    }
     static func loadQuestionSet(sub: String, yr: Int) {
+        sub_yr = sub + "_" + String(yr)
 //        if alreadyLoadedQuestionSets is empty, lead questions from firebase
-        if Utilities.alreadyLoadedQuestionSets.isEmpty {
+        if alreadyLoadedQuestionSets.isEmpty {
             loadQuestionSetFromFirebase(sub: sub, yr: yr)
             return
         } else {  //else if alreadyLoadedQuestionSets contains the questions, do nothing
@@ -47,6 +52,7 @@ class Utilities {
     }
     
     static func loadQuestionSetFromFirebase(sub: String, yr: Int) {
+        print("loadQuestionSetFromFirebase is called:   \(sub) - \(yr)")
         let db = Firestore.firestore()
         db.collection("BECE/" + sub + "/" + String(yr)).getDocuments { (querySnapshot, error) in
             if let error = error { print("error getting data: " + error.localizedDescription) }

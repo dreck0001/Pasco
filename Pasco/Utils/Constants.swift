@@ -17,7 +17,10 @@ struct Constants {
 
     static let registerButtonText = "SIGN UP"
     static let signInButtonText = "SIGN IN"
-    
+    static let testBeginButtonText = "Begin!"
+    static let testStopButtonText = "Stop"
+    static let testContinueButtonText = "Continue"
+
     static let usernamePlaceholder = "Username"
     static let emailPlaceholder = "Email"
     static let passwordPlaceholder = "Password"
