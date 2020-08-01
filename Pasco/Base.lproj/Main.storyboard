@@ -638,7 +638,7 @@
                                 <rect key="frame" x="0.0" y="109" width="414" height="704"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testQuestion" textLabel="liL-DW-RPL" rowHeight="103" style="IBUITableViewCellStyleDefault" id="trs-P9-OU3" customClass="Test3QuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testQuestion" textLabel="liL-DW-RPL" rowHeight="103" style="IBUITableViewCellStyleDefault" id="trs-P9-OU3" customClass="Test3QuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="trs-P9-OU3" id="yEG-T7-hHX">
@@ -655,42 +655,46 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testOption" rowHeight="103" id="WGX-9K-Dab" customClass="Test3OptionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testOption" rowHeight="103" id="Qbu-sG-94D" customClass="Test3OptionTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="131" width="414" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WGX-9K-Dab" id="Rgb-P4-YDh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qbu-sG-94D" id="jwH-Uo-fkl">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sih-Ur-2AB">
-                                                    <rect key="frame" x="51" y="11" width="343" height="81"/>
-                                                    <color key="backgroundColor" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="0.15033560739999999" colorSpace="custom" customColorSpace="displayP3"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="gWw-oN-T2u"/>
-                                                    </constraints>
-                                                </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3rF-UA-NOk">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-vI-eee">
                                                     <rect key="frame" x="8" y="35" width="35" height="32.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="35" id="Jsn-U5-Wdp"/>
-                                                        <constraint firstAttribute="width" constant="35" id="etT-lf-ACT"/>
+                                                        <constraint firstAttribute="height" constant="35" id="9ka-5G-Sq0"/>
+                                                        <constraint firstAttribute="width" constant="35" id="E32-2X-V38"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Option" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tp-fP-Efc">
+                                                    <rect key="frame" x="51" y="11" width="343" height="81"/>
+                                                    <color key="backgroundColor" red="0.79540735480000002" green="0.52196919243388118" blue="0.16522566116346588" alpha="0.17726672535211269" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="voG-5A-fys"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="3rF-UA-NOk" firstAttribute="leading" secondItem="Rgb-P4-YDh" secondAttribute="leading" constant="8" id="M0c-UX-Vfj"/>
-                                                <constraint firstItem="sih-Ur-2AB" firstAttribute="trailing" secondItem="Rgb-P4-YDh" secondAttribute="trailingMargin" id="OsQ-JF-2bB"/>
-                                                <constraint firstItem="sih-Ur-2AB" firstAttribute="leading" secondItem="3rF-UA-NOk" secondAttribute="trailing" constant="8" symbolic="YES" id="Uti-74-Rae"/>
-                                                <constraint firstItem="sih-Ur-2AB" firstAttribute="top" secondItem="Rgb-P4-YDh" secondAttribute="topMargin" id="ePn-U6-kTK"/>
-                                                <constraint firstItem="sih-Ur-2AB" firstAttribute="bottom" secondItem="Rgb-P4-YDh" secondAttribute="bottomMargin" id="qTd-8b-lw6"/>
-                                                <constraint firstItem="3rF-UA-NOk" firstAttribute="centerY" secondItem="Rgb-P4-YDh" secondAttribute="centerY" id="zcb-Jp-vNa"/>
+                                                <constraint firstItem="1Tp-fP-Efc" firstAttribute="top" secondItem="jwH-Uo-fkl" secondAttribute="topMargin" id="HwD-hp-O7A"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="1Tp-fP-Efc" secondAttribute="trailing" id="Uat-Nv-8RM"/>
+                                                <constraint firstItem="T4h-vI-eee" firstAttribute="leading" secondItem="jwH-Uo-fkl" secondAttribute="leading" constant="8" id="eid-vp-E3m"/>
+                                                <constraint firstItem="T4h-vI-eee" firstAttribute="centerY" secondItem="jwH-Uo-fkl" secondAttribute="centerY" id="elN-Ec-9rr"/>
+                                                <constraint firstItem="1Tp-fP-Efc" firstAttribute="bottom" secondItem="jwH-Uo-fkl" secondAttribute="bottomMargin" id="sGz-Sa-BHz"/>
+                                                <constraint firstItem="1Tp-fP-Efc" firstAttribute="leading" secondItem="T4h-vI-eee" secondAttribute="trailing" constant="8" id="vxQ-AR-YUH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="checkBoxImage" destination="3rF-UA-NOk" id="Ddc-We-b1p"/>
+                                            <outlet property="checkBoxImage" destination="T4h-vI-eee" id="FrA-a7-3xW"/>
+                                            <outlet property="optionLabel" destination="1Tp-fP-Efc" id="GfP-oH-eye"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testNextQuestion" rowHeight="67" id="Zck-rJ-rWR" customClass="Test3NextQuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testNextQuestion" rowHeight="67" id="Zck-rJ-rWR" customClass="Test3NextQuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234" width="414" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zck-rJ-rWR" id="fnL-ss-v8n">
@@ -704,7 +708,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="RB1-zu-LFs"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <state key="normal" title="&lt; PREVIOUS">
+                                                    <state key="normal" title="← PREVIOUS">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -726,7 +730,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="0xL-lr-O4C"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <state key="normal" title="NEXT &gt;">
+                                                    <state key="normal" title="NEXT →">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
@@ -1474,7 +1478,6 @@
     <color key="tintColor" red="0.89306230063265468" green="0.5664406517777002" blue="0.20283423048309701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="RegisterBackground2" width="550" height="825"/>
-        <image name="a.square" catalog="system" width="128" height="114"/>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="delete.right" catalog="system" width="128" height="104"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
@@ -1485,6 +1488,7 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.split.3x3" catalog="system" width="128" height="93"/>
         <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
+        <image name="square" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
     </resources>
 </document>

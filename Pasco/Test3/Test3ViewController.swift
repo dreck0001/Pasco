@@ -10,11 +10,14 @@ import UIKit
 import Firebase
 
 class Test3ViewController: UIViewController {
+    var test = Test()
     
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var BeginBArItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    
+        
     private var numOfCells = 6
     private static var questions: [Question]? {
         didSet {
@@ -41,29 +44,33 @@ class Test3ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("testVC: vieeDidLoad")
         // tableview stuff
         tableView.delegate = self
         tableView.dataSource = self
+        Test3ViewController.questions = nil
         // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver( self,
-                                           selector: #selector(onDidReceiveData(_:)),
-                                           name: NSNotification.Name(rawValue: "questionsLoaded"),
-                                           object: nil
-        )
+//        NotificationCenter.default.addObserver( self,
+//                                           selector: #selector(onDidReceiveData(_:)),
+//                                           name: NSNotification.Name(rawValue: "questionsLoaded"),
+//                                           object: nil
+//        )
     }
     override func viewWillAppear(_ animated: Bool) {
         updateUI()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        NotificationCenter.default.removeObserver(self)
+//        Test3ViewController.questions = nil
+//        NotificationCenter.default.removeObserver(self)
+        
     }
-    @objc func onDidReceiveData(_ notification:Notification) {
-        // Do something now
-        print("test3VC: Notification recieved! upating questions")
-        updateQuestions()
+//    @objc func onDidReceiveData(_ notification:Notification) {
+//        Do something now
+//        print("test3VC: Notification recieved! upating questions")
+//        updateQuestions()
 //        tableView.reloadData()
-    }
+//    }
     
     private func updateUI() {
         if Utilities.userIsSignedIn() {
@@ -87,16 +94,54 @@ class Test3ViewController: UIViewController {
     }
     
     @IBAction func beginAction(_ sender: UIBarButtonItem) {
-        tableView.reloadData()
         switch sender.title {
         case Constants.testBeginButtonText:
             BeginBArItem.title = Constants.testStopButtonText
+            updateQuestions()
+            tableView.reloadData()
+            initializeTime()
         case Constants.testStopButtonText:
             BeginBArItem.title = Constants.testBeginButtonText
+            stopTime()
         default:
             BeginBArItem.title = Constants.testContinueButtonText
         }
     }
+    
+    // MARK: - Timer
+    private var timer:Timer?
+    private var mins = 2
+    private var secs = 0
+    private var timeLeft = String() {
+        didSet {
+            print(timeLeft)
+            rightLabel.text = timeLeft
+        }
+    }
+    
+    private func stopTime() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    private func initializeTime() {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
+        }
+        @objc func onTimerFires()
+        {
+            if mins < 0 {
+                stopTime()
+            } else {
+                if secs < 10 { timeLeft = "\(mins):0\(secs)" }
+                else { timeLeft = "\(mins):\(secs)" }
+                
+                if secs <= 0 {
+                    secs = 60
+                    mins -= 1
+                }
+            }
+        secs -= 1
+        }
     
     
 }
@@ -118,14 +163,29 @@ extension Test3ViewController: UITableViewDataSource, UITableViewDelegate {
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.TestOption.rawValue, for: indexPath) as! Test3OptionTableViewCell
             switch indexPath.row {
-            case 1: cell.checkBoxImage.image = UIImage(systemName: "a.square")
-            case 2: cell.checkBoxImage.image = UIImage(systemName: "b.square")
-            case 3: cell.checkBoxImage.image = UIImage(systemName: "c.square")
-            case 4: cell.checkBoxImage.image = UIImage(systemName: "d.square")
-            case 5: cell.checkBoxImage.image = UIImage(systemName: "e.square")
+            case 1:
+                cell.checkBoxImage.image = UIImage(systemName: "a.square")
+                cell.optionLabel.text = Test3ViewController.curQuestion?.optionA
+            case 2:
+                cell.checkBoxImage.image = UIImage(systemName: "b.square")
+                cell.optionLabel.text = Test3ViewController.curQuestion?.optionB
+            case 3:
+                cell.checkBoxImage.image = UIImage(systemName: "c.square")
+                cell.optionLabel.text = Test3ViewController.curQuestion?.optionC
+            case 4:
+                cell.checkBoxImage.image = UIImage(systemName: "d.square")
+                cell.optionLabel.text = Test3ViewController.curQuestion?.optionD
+            case 5:
+                cell.checkBoxImage.image = UIImage(systemName: "e.square")
+                cell.optionLabel.text = Test3ViewController.curQuestion?.optionE
             default:cell.checkBoxImage.image = UIImage(systemName: "square")}
             return cell
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    }
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     }
     
 
