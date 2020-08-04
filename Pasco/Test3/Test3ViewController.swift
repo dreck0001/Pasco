@@ -24,10 +24,14 @@ class Test3ViewController: UIViewController {
             print("questions: \(questions)")
         }
     }
-    private static var curQuestionNumber = 1
+    static var curQuestionNumber = 1 {
+        didSet {
+            print(curQuestionNumber)
+        }
+    }
     private static var curQuestion: Question? {
         if questions?.isEmpty ?? true { return nil }
-        return questions![curQuestionNumber]
+        return questions![ curQuestionNumber - 1 ]
     }
 
     var subjectYear: (sub: Int, yr: Int)? {
@@ -57,20 +61,24 @@ class Test3ViewController: UIViewController {
 //        )
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        Test3ViewController.curQuestionNumber = 1
         updateUI()
+        NotificationCenter.default.addObserver( self, selector: #selector(onPrevNextPressed(_:)), name: NSNotification.Name(rawValue: "prevNextPressed"), object: nil )
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
 //        Test3ViewController.questions = nil
-//        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
         
     }
-//    @objc func onDidReceiveData(_ notification:Notification) {
-//        Do something now
-//        print("test3VC: Notification recieved! upating questions")
-//        updateQuestions()
-//        tableView.reloadData()
-//    }
+    @objc func onPrevNextPressed(_ notification:Notification) {
+        // Do something now
+        print("test3VC: PrevNext pressed! Reloading tableView!!")
+        tableView.reloadData()
+        updateLeftLabel()
+    }
+
     
     private func updateUI() {
         if Utilities.userIsSignedIn() {
@@ -80,6 +88,7 @@ class Test3ViewController: UIViewController {
                     title = "\(subject) - \(year)"
                     if leftLabel != nil { leftLabel.text = "Ready" }
                     BeginBArItem.isEnabled = true
+                    
                 }
             } else {
                 BeginBArItem.isEnabled = false
@@ -99,12 +108,18 @@ class Test3ViewController: UIViewController {
             BeginBArItem.title = Constants.testStopButtonText
             updateQuestions()
             tableView.reloadData()
+            updateLeftLabel()
             initializeTime()
         case Constants.testStopButtonText:
             BeginBArItem.title = Constants.testBeginButtonText
             stopTime()
         default:
             BeginBArItem.title = Constants.testContinueButtonText
+        }
+    }
+    private func updateLeftLabel() {
+        if let questions = Test3ViewController.questions, !questions.isEmpty {
+                leftLabel.text = "\(Test3ViewController.curQuestionNumber) of \(questions.count)"
         }
     }
     
@@ -159,7 +174,13 @@ extension Test3ViewController: UITableViewDataSource, UITableViewDelegate {
             cell.textLabel?.text = Test3ViewController.curQuestion?.question
             return cell
         case numOfCells - 1:
-            return tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.TestNextQuestion.rawValue, for: indexPath)
+            let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.TestNextQuestion.rawValue, for: indexPath) as! Test3PrevNextTableViewCell
+            cell.prevButton.titleLabel?.text = Constants.testPrevButtonText
+            cell.nextButton.titleLabel?.text = Constants.testNextButtonText
+            if let questions = Test3ViewController.questions, !questions.isEmpty {
+                cell.prevButton.isEnabled = true; cell.nextButton.isEnabled = true
+            } else { cell.prevButton.isEnabled = false; cell.nextButton.isEnabled = false }
+            return cell
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.TestOption.rawValue, for: indexPath) as! Test3OptionTableViewCell
             switch indexPath.row {

@@ -20,6 +20,8 @@ struct Constants {
     static let testBeginButtonText = "Begin!"
     static let testStopButtonText = "Stop"
     static let testContinueButtonText = "Continue"
+    static let testPrevButtonText = "← PREVIOUS"
+    static let testNextButtonText = "NEXT →"
 
     static let usernamePlaceholder = "Username"
     static let emailPlaceholder = "Email"
