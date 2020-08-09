@@ -62,18 +62,17 @@ class AccountViewController: UIViewController {
                     if querySnapshot!.count > 1 {
                         print("---AccountVC: email returned more than 1 user. Investigate why!: \(querySnapshot!.documents)")
                     } else {
-    //                    DispatchQueue.main.async {
-                            for document in querySnapshot!.documents {
-                                let data = document.data()
-                                self.user = Pasco.User(data: data)
-                            }
-    //                    }
+                        for document in querySnapshot!.documents {
+                            let data = document.data()
+                            self.user = Pasco.User(data: data)
+                        }
                     }
                 }
             }
         }
-        
     }
+    
+    // MARK: - Navigation
 }
 
 

@@ -48,9 +48,26 @@ class AccountCheckViewController: UIViewController {
             return false
         }
     }
+    private func setupEnvironment() {
+        registerButton.setTitle(Constants.registerButtonText, for: .normal)
+        signInButton.setTitle(Constants.signInButtonText, for: .normal)
+    }
+    
 
+    @IBAction func RegisterAction(_ sender: UIButton) {
+        
+    }
+  
+    private func signOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("---AccountVC: Prepare")
         if let accountVC = segue.destination as? AccountViewController {
@@ -62,22 +79,11 @@ class AccountCheckViewController: UIViewController {
 //            }
         }
     }
-    
-    private func setupEnvironment() {
-        registerButton.setTitle(Constants.registerButtonText, for: .normal)
-        signInButton.setTitle(Constants.signInButtonText, for: .normal)
-    }
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool { //if user is not already signed in, then u can create an account or log in
         if let sendingButton = sender as? UIButton, let title = sendingButton.currentTitle, title == Constants.registerButtonText || title == Constants.signInButtonText, userIsSignedIn {
             return false
         } else { return true }
     }
-    @IBAction func RegisterAction(_ sender: UIButton) {
-        
-    }
-    
-    
     @IBAction func prepareForUnwind (segue: UIStoryboardSegue) {
         if let accountVC = segue.source as? AccountViewController {
             print("--AccounChecktVC: prepareForUnwind is called by: \(accountVC.description)")
@@ -86,15 +92,6 @@ class AccountCheckViewController: UIViewController {
         }
     }
     
-    
-    private func signOut() {
-        let firebaseAuth = Auth.auth()
-        do {
-          try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-          print ("Error signing out: %@", signOutError)
-        }
-    }
 
 
 }

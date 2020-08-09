@@ -16,6 +16,12 @@ class Test3ViewController: UIViewController {
     @IBOutlet weak var rightLabel: UILabel!
     @IBOutlet weak var BeginBArItem: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    private enum PrevNextDisableText: String { case None, All, Prev, Next }
+    private var disableText = PrevNextDisableText.None {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
         
     private var numOfCells = 6
@@ -48,7 +54,6 @@ class Test3ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("testVC: vieeDidLoad")
         // tableview stuff
         tableView.delegate = self
         tableView.dataSource = self
@@ -68,9 +73,8 @@ class Test3ViewController: UIViewController {
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-//        Test3ViewController.questions = nil
+        print("test3VC: viewWillDisappear")
         NotificationCenter.default.removeObserver(self)
-        
     }
     @objc func onPrevNextPressed(_ notification:Notification) {
         // Do something now
@@ -101,6 +105,12 @@ class Test3ViewController: UIViewController {
             if leftLabel != nil { leftLabel.text = "" }
         }
     }
+    private func updateLeftLabel() {
+        if let questions = Test3ViewController.questions, !questions.isEmpty {
+                leftLabel.text = "\(Test3ViewController.curQuestionNumber) of \(questions.count)"
+        }
+    }
+
     
     @IBAction func beginAction(_ sender: UIBarButtonItem) {
         switch sender.title {
@@ -111,21 +121,60 @@ class Test3ViewController: UIViewController {
             updateLeftLabel()
             initializeTime()
         case Constants.testStopButtonText:
-            BeginBArItem.title = Constants.testBeginButtonText
-            stopTime()
+            presentStopAlert()
+        case Constants.testContinueButtonText:
+            BeginBArItem.title = Constants.testStopButtonText
+            initializeTime()
+            disableText = .None
         default:
             BeginBArItem.title = Constants.testContinueButtonText
         }
     }
-    private func updateLeftLabel() {
-        if let questions = Test3ViewController.questions, !questions.isEmpty {
-                leftLabel.text = "\(Test3ViewController.curQuestionNumber) of \(questions.count)"
+    private func presentStopAlert() {
+        let alert = UIAlertController(title: "Finish Testing?", message: "You may want to double-check your answers before submitting.", preferredStyle: .alert)
+        let doubleCheckAction = UIAlertAction(title: "Double-check", style: .default) { (_) in
+            if self.timerIsStopped {
+                Test.status = .Stopped
+                self.test.gradeTest()
+            }
         }
+        let pauseAction = UIAlertAction(title: "Pause Test", style: .default) { (_) in
+            if self.timerIsStopped {
+                self.disableText = .None
+                Test.status = .Stopped
+                self.test.gradeTest()
+            }
+            else {
+                self.stopTime()
+                Test.status = .Paused
+                self.BeginBArItem.title = Constants.testContinueButtonText
+                self.disableText = .All
+            }
+        }
+        let finishCheckAction = UIAlertAction(title: "Finish!", style: .destructive) { (_) in
+            self.stopTime()
+            self.disableText = .None
+            self.test.gradeTest()
+            self.BeginBArItem.title = Constants.testBeginButtonText
+            self.BeginBArItem.isEnabled = false
+        }
+        
+        alert.addAction(doubleCheckAction)
+        alert.addAction(pauseAction)
+        alert.addAction(finishCheckAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Timer
     private var timer:Timer?
-    private var mins = 2
+    private var mins = 40 {
+        didSet {
+            if mins < 0 {
+                BeginBArItem.isEnabled = false
+            }
+        }
+    }
     private var secs = 0
     private var timeLeft = String() {
         didSet {
@@ -137,11 +186,18 @@ class Test3ViewController: UIViewController {
     private func stopTime() {
         timer?.invalidate()
         timer = nil
+        Test.status = .Stopped
+    }
+    private var timerIsStopped: Bool {
+        return mins < 0
     }
     
     private func initializeTime() {
-            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
+        Test.status = .Started
         }
+    
         @objc func onTimerFires()
         {
             if mins < 0 {
@@ -157,7 +213,8 @@ class Test3ViewController: UIViewController {
             }
         secs -= 1
         }
-    
+    // MARK: - Navigation
+
     
 }
 extension Test3ViewController: UITableViewDataSource, UITableViewDelegate {
@@ -180,6 +237,18 @@ extension Test3ViewController: UITableViewDataSource, UITableViewDelegate {
             if let questions = Test3ViewController.questions, !questions.isEmpty {
                 cell.prevButton.isEnabled = true; cell.nextButton.isEnabled = true
             } else { cell.prevButton.isEnabled = false; cell.nextButton.isEnabled = false }
+            
+            switch disableText {
+            case .All:
+                cell.prevButton.isEnabled = false; cell.nextButton.isEnabled = false
+            case .Prev:
+                cell.prevButton.isEnabled = false; cell.nextButton.isEnabled = true
+            case .Next:
+                cell.prevButton.isEnabled = true; cell.nextButton.isEnabled = false
+            case .None:
+                cell.prevButton.isEnabled = true; cell.nextButton.isEnabled = true
+
+            }
             return cell
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.TestOption.rawValue, for: indexPath) as! Test3OptionTableViewCell
@@ -211,3 +280,4 @@ extension Test3ViewController: UITableViewDataSource, UITableViewDelegate {
     
 
 }
+// test

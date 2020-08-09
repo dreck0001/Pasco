@@ -16,9 +16,13 @@ class Test3MenuTableViewController: UITableViewController {
     var subject: Int { return subjectPicker.selectedRow(inComponent: 0) }
     var year: Int { return yearPicker.selectedRow(inComponent: 0) }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("testMenu: viewWillAppear")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("testMenu: viewDidLoad")
         // Uncomment the following line to preserve selection between presentations
 //         self.clearsSelectionOnViewWillAppear = false
 
@@ -103,7 +107,7 @@ class Test3MenuTableViewController: UITableViewController {
                 }
                 testCV.subjectYear = (subject, year)
             }
-        }
+        } //else { Test3ViewController.}
         
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.

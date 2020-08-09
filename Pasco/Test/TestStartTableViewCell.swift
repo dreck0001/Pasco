@@ -1,13 +1,14 @@
 //
-//  Test3OptionTableViewCell.swift
-//  
+//  TestStartTableViewCell.swift
+//  Pasco
 //
-//  Created by denis on 7/19/20.
+//  Created by Denis on 8/7/20.
+//  Copyright © 2020 GhanaWare. All rights reserved.
 //
 
 import UIKit
 
-class Test3OptionTableViewCell: UITableViewCell {
+class TestStartTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

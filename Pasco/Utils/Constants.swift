@@ -75,6 +75,8 @@ struct Constants {
         case password = "^.{4,15}$"                                     // Password length 4-15
     }
     
+    static let exam = ["BECE", "WASSCE"]
+    
     enum Subject: String {
         case RME
         case French
