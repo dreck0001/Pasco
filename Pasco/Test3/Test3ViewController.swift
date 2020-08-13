@@ -25,11 +25,7 @@ class Test3ViewController: UIViewController {
     
         
     private var numOfCells = 6
-    private static var questions: [Question]? {
-        didSet {
-            print("questions: \(questions)")
-        }
-    }
+    private static var questions: [Question]?
     static var curQuestionNumber = 1 {
         didSet {
             print(curQuestionNumber)

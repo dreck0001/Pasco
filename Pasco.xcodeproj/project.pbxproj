@@ -38,8 +38,11 @@
 		92728E5824DE15490048CB95 /* TestMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92728E5724DE15490048CB95 /* TestMenuViewController.swift */; };
 		92A60D4A24C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A60D4924C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift */; };
 		92A60D4E24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */; };
+		92A77F1624DF9CF900C63A1D /* TestSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */; };
+		92A77F1824DF9D7E00C63A1D /* TestYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */; };
 		92C7EF96249F13BB00E2BFA4 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */; };
 		92C7EF97249F13BC00E2BFA4 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C7EF95249F13BB00E2BFA4 /* DesignableButton.swift */; };
+		92C8132224E4DC600095C8DB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C8132124E4DC600095C8DB /* TestViewController.swift */; };
 		92CFCBF924A1538D00912CC1 /* ScaleSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFCBF824A1538D00912CC1 /* ScaleSegue.swift */; };
 		92CFCBFB24A17BAB00912CC1 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFCBFA24A17BAB00912CC1 /* RegisterViewController.swift */; };
 		92CFCBFE24A2C03500912CC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CFCBFD24A2C03500912CC1 /* User.swift */; };
@@ -107,8 +110,11 @@
 		92728E5724DE15490048CB95 /* TestMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuViewController.swift; sourceTree = "<group>"; };
 		92A60D4924C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3QuestionTableViewCell.swift; sourceTree = "<group>"; };
 		92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3OptionTableViewCell.swift; sourceTree = "<group>"; };
+		92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSubjectTableViewCell.swift; sourceTree = "<group>"; };
+		92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestYearTableViewCell.swift; sourceTree = "<group>"; };
 		92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		92C7EF95249F13BB00E2BFA4 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
+		92C8132124E4DC600095C8DB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		92CFCBF824A1538D00912CC1 /* ScaleSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleSegue.swift; sourceTree = "<group>"; };
 		92CFCBFA24A17BAB00912CC1 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		92CFCBFD24A2C03500912CC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -256,8 +262,11 @@
 			isa = PBXGroup;
 			children = (
 				92728E5724DE15490048CB95 /* TestMenuViewController.swift */,
-				92609D1624DE5216007E7B42 /* TestStartTableViewCell.swift */,
+				92C8132124E4DC600095C8DB /* TestViewController.swift */,
 				92609D1824DF771D007E7B42 /* TestExamTableViewCell.swift */,
+				92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */,
+				92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */,
+				92609D1624DE5216007E7B42 /* TestStartTableViewCell.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -575,12 +584,15 @@
 				9210BA742440301F00F92204 /* AccountViewController.swift in Sources */,
 				9210891E24D33D5E004FD140 /* Test.swift in Sources */,
 				92E57AF1246A0A3300BC4C90 /* Question.swift in Sources */,
+				92A77F1624DF9CF900C63A1D /* TestSubjectTableViewCell.swift in Sources */,
 				926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */,
 				92CFCBFB24A17BAB00912CC1 /* RegisterViewController.swift in Sources */,
 				9210F8C62415DD3200682574 /* AppDelegate.swift in Sources */,
 				926D752A249FDBB400F4EBEE /* AccountCheckViewController.swift in Sources */,
+				92A77F1824DF9D7E00C63A1D /* TestYearTableViewCell.swift in Sources */,
 				92C7EF97249F13BC00E2BFA4 /* DesignableButton.swift in Sources */,
 				9210BA7024402FC000F92204 /* QuestionsViewController.swift in Sources */,
+				92C8132224E4DC600095C8DB /* TestViewController.swift in Sources */,
 				92F0564924953417009B3900 /* QuestionTableViewCell.swift in Sources */,
 				9237456824B8FC3C00A4A270 /* Test3MenuTableViewController.swift in Sources */,
 				92CFCBF924A1538D00912CC1 /* ScaleSegue.swift in Sources */,

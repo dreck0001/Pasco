@@ -10,13 +10,13 @@ import UIKit
 
 class TestExamTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var yearPicker: UIPickerView!
+    @IBOutlet weak var examPicker: UIPickerView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        yearPicker.delegate = self
-        yearPicker.dataSource = self
+        examPicker.delegate = self
+        examPicker.dataSource = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,5 +39,11 @@ extension TestExamTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return Constants.exam[row]
     }
-
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // update TestMenuViewController.exam
+        TestMenuViewController.selection.exam = Constants.exam[row]
+        // send notification to TestSubjectTableViewCell
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "examSelected"), object: nil)
+    }
 }

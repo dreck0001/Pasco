@@ -362,7 +362,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="oyW-dG-J9v" kind="relationship" relationship="viewControllers" id="Fsd-Ky-wfD"/>
-                        <segue destination="lje-C1-xLJ" kind="relationship" relationship="viewControllers" id="CQa-7k-0gW"/>
                         <segue destination="Mz3-cJ-ASJ" kind="relationship" relationship="viewControllers" id="Pr4-Zf-6LT"/>
                         <segue destination="8AQ-9G-IxP" kind="relationship" relationship="viewControllers" id="a2n-8u-Vd4"/>
                         <segue destination="1Za-TU-Gno" kind="relationship" relationship="viewControllers" id="uIJ-PS-pn2"/>
@@ -499,7 +498,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Y2B-lk-1VY">
-                                <rect key="frame" x="0.0" y="109" width="414" height="704"/>
+                                <rect key="frame" x="0.0" y="161" width="414" height="652"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="testQuestion" textLabel="liL-DW-RPL" rowHeight="103" style="IBUITableViewCellStyleDefault" id="trs-P9-OU3" customClass="Test3QuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
@@ -635,7 +634,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a test" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ3-8E-a7c">
-                                <rect key="frame" x="0.0" y="88" width="264" height="21"/>
+                                <rect key="frame" x="0.0" y="140" width="264" height="21"/>
                                 <color key="backgroundColor" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Heg-1u-ew4"/>
@@ -645,7 +644,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ycw-C4-PT1">
-                                <rect key="frame" x="264" y="88" width="150" height="21"/>
+                                <rect key="frame" x="264" y="140" width="150" height="21"/>
                                 <color key="backgroundColor" red="0.89306230060000003" green="0.56644065180000003" blue="0.20283423049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <nil key="textColor"/>
@@ -685,7 +684,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQL-aP-I4N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2497.1014492753625" y="991.74107142857133"/>
+            <point key="canvasLocation" x="3928" y="291"/>
         </scene>
         <!--Select a Test-->
         <scene sceneID="dyJ-hQ-aFI">
@@ -695,11 +694,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hr0-Gw-TlT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hr0-Gw-TlT">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="examCell" rowHeight="200" id="Esc-6G-Q7I" customClass="TestExamTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="examCell" rowHeight="200" id="Esc-6G-Q7I" customClass="TestExamTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Esc-6G-Q7I" id="Cb2-iV-QPZ">
@@ -721,10 +720,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="yearPicker" destination="Onq-og-Aj5" id="J7b-iH-OTj"/>
+                                            <outlet property="examPicker" destination="Onq-og-Aj5" id="qze-cI-Fb0"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subjectCell" rowHeight="200" id="kx5-WV-31e" customClass="TestSelectionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="subjectCell" rowHeight="200" id="kx5-WV-31e" customClass="TestSubjectTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="228" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kx5-WV-31e" id="c3a-xp-Teb">
@@ -745,8 +744,11 @@
                                                 <constraint firstItem="gVg-nD-1Zt" firstAttribute="bottom" secondItem="c3a-xp-Teb" secondAttribute="bottomMargin" id="yvg-xm-PLb"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="subjectPicker" destination="gVg-nD-1Zt" id="foT-ng-jnD"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yearCell" rowHeight="200" id="To2-HP-KYa" customClass="TestSelectionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="yearCell" rowHeight="200" id="To2-HP-KYa" customClass="TestYearTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="428" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="To2-HP-KYa" id="Cgx-UK-WvS">
@@ -767,6 +769,9 @@
                                                 <constraint firstItem="sVc-ON-7a6" firstAttribute="top" secondItem="Cgx-UK-WvS" secondAttribute="topMargin" id="mgI-Dv-fn3"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="yearPicker" destination="sVc-ON-7a6" id="B7d-zY-JnB"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -795,6 +800,9 @@
                                                 <color key="value" red="0.94626110789999995" green="0.54962646959999995" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="QzQ-hy-1zj" kind="show" id="Zlz-PX-oXX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -901,9 +909,6 @@
                                                             <real key="value" value="24"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="tmf-V7-cwo" kind="showDetail" identifier="doneSegue" id="yVs-Uz-dLm"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -923,11 +928,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Make a selection" id="bq1-Zh-5n0">
                         <barButtonItem key="backBarButtonItem" title=" " id="OMM-lS-NfL"/>
-                        <barButtonItem key="rightBarButtonItem" image="delete.right" catalog="system" id="OAA-YQ-wBD">
-                            <connections>
-                                <segue destination="tmf-V7-cwo" kind="showDetail" id="eLk-Fg-BOb"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="delete.right" catalog="system" id="OAA-YQ-wBD"/>
                     </navigationItem>
                     <connections>
                         <outlet property="subjectPicker" destination="Cwh-ye-nPe" id="gWs-53-DXU"/>
@@ -937,36 +938,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HII-dM-0Dx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1586.9565217391305" y="290.625"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="194-q6-gU6">
-            <objects>
-                <navigationController id="OTQ-Ip-qPD" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="line.horizontal.3" catalog="system" backIndicatorTransitionMaskImage="square.and.arrow.down.fill" id="pW7-z1-Mj9">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="d7I-aw-Nqe" kind="relationship" relationship="rootViewController" id="Fkx-XH-xqs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g65-bp-Q6s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="683" y="291"/>
-        </scene>
-        <!--Test-->
-        <scene sceneID="3sN-d9-2PJ">
-            <objects>
-                <splitViewController id="lje-C1-xLJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Test" image="pencil.and.ellipsis.rectangle" catalog="system" id="xOT-NY-kM2"/>
-                    <connections>
-                        <segue destination="OTQ-Ip-qPD" kind="relationship" relationship="masterViewController" id="dUJ-pj-xe7"/>
-                        <segue destination="tmf-V7-cwo" kind="relationship" relationship="detailViewController" id="t7d-b6-uP1"/>
-                    </connections>
-                </splitViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pXG-UJ-AKk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-245" y="611"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="EMs-eN-TSe">
@@ -1453,24 +1424,6 @@
             </objects>
             <point key="canvasLocation" x="-13" y="1618"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cNh-eu-IRe">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tmf-V7-cwo" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="00S-Uc-jHY">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="QzQ-hy-1zj" kind="relationship" relationship="rootViewController" id="JBo-BX-Muy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="w39-n4-uYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1586.9565217391305" y="991.74107142857133"/>
-        </scene>
         <!--Test-->
         <scene sceneID="qus-vn-CtO">
             <objects>
@@ -1491,14 +1444,10 @@
             <point key="canvasLocation" x="2400" y="290.625"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="yVs-Uz-dLm"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.89306230063265468" green="0.5664406517777002" blue="0.20283423048309701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="RegisterBackground2" width="550" height="825"/>
         <image name="delete.right" catalog="system" width="128" height="104"/>
-        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
         <image name="person" catalog="system" width="128" height="117"/>
@@ -1506,6 +1455,5 @@
         <image name="rectangle.split.3x3" catalog="system" width="128" height="93"/>
         <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
         <image name="square" catalog="system" width="128" height="114"/>
-        <image name="square.and.arrow.down.fill" catalog="system" width="121" height="128"/>
     </resources>
 </document>
