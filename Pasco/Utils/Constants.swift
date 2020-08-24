@@ -37,7 +37,7 @@ struct Constants {
         case AccountCheckToAccount = "toAccountVC"
        case AccountCheckToRegister = "toRegister"
          case AccountCheckToSignIn = "toSignIn"
-         case TestMenuDone = "doneSegue"
+         case TestMenuStart = "startSegue"
     }
     enum cellIdentifiers: String {
             case AccountDetailsCell = "accountDetails"
@@ -100,7 +100,6 @@ struct Constants {
             }
             return -1
         }
-
     }
     
     static let subject_years = [
@@ -175,4 +174,10 @@ struct Constants {
             return -1
         }
     }
+}
+
+class ExamSubjectYear {
+    var exams: String?
+    var subject: String?
+    var year: Int?
 }

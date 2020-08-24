@@ -98,7 +98,7 @@ class Test3MenuTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let doneIdentier = segue.identifier else { return }
-        if doneIdentier == Constants.segues.TestMenuDone.rawValue {
+        if doneIdentier == Constants.segues.TestMenuStart.rawValue {
             if let testCV = segue.destination.contentViewController as? Test3ViewController {
                 if let sub = Constants.Subject.allValues[subject],
                     let yr = Constants.subject_years[subject]?[year] {

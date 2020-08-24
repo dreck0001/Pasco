@@ -15,6 +15,7 @@ class TestMenuViewController: UIViewController {
     static var selection = (exam: "BECE", subject: "RME", year: 1990) {
         didSet { print("TestMenuVC: \(TestMenuViewController.selection)")}
     }
+
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -35,13 +36,24 @@ class TestMenuViewController: UIViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        print("testMenuVC: selection: \(TestMenuViewController.selection)")
+        if segue.identifier == Constants.segues.TestMenuStart.rawValue {
+            if let testVC = segue.destination.contentViewController as? TestViewController {
+                Utilities.loadQuestionSet(sub: TestMenuViewController.selection.subject, yr: TestMenuViewController.selection.year)
+                testVC.examSubjectYear = TestMenuViewController.selection
+            }
+        }
     }
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        print("testMenuVC: shouldPerformSegue")
+        return true
+    }
+    
     
     // MARK: - Functions
     private func updateUI() {
         if Utilities.userIsSignedIn() {
-            navigationItem.title = "Select a Test"
+            navigationItem.title = "Take an Exam"
             startTestButton.isEnabled = true
             startTestButton.alpha = 1
         } else {

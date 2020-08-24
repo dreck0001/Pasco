@@ -10,7 +10,6 @@
 		1194BB124117344A894E07E2 /* Pods_Pasco_PascoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D64BEAA74702C39D3B1D0C29 /* Pods_Pasco_PascoUITests.framework */; };
 		1729B68425A55C4D03534343 /* Pods_Pasco.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AAF99A3456B7CD6FC9DBA82 /* Pods_Pasco.framework */; };
 		5DA59B0F53AEB528910703F2 /* Pods_PascoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80CCF113ED35AA5982C89907 /* Pods_PascoTests.framework */; };
-		9210891E24D33D5E004FD140 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210891D24D33D5E004FD140 /* Test.swift */; };
 		9210BA6E2440276500F92204 /* notes_Pasco.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9210BA6D2440276500F92204 /* notes_Pasco.txt */; };
 		9210BA7024402FC000F92204 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210BA6F24402FC000F92204 /* QuestionsViewController.swift */; };
 		9210BA742440301F00F92204 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210BA732440301F00F92204 /* AccountViewController.swift */; };
@@ -40,6 +39,10 @@
 		92A60D4E24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */; };
 		92A77F1624DF9CF900C63A1D /* TestSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */; };
 		92A77F1824DF9D7E00C63A1D /* TestYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */; };
+		92A77F1C24E76E1C00C63A1D /* TestQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1B24E76E1C00C63A1D /* TestQuestionTableViewCell.swift */; };
+		92A77F1E24E76E4100C63A1D /* TestOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1D24E76E4100C63A1D /* TestOptionTableViewCell.swift */; };
+		92A77F2024E76E9D00C63A1D /* TestPrevNextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1F24E76E9D00C63A1D /* TestPrevNextTableViewCell.swift */; };
+		92A77F2224E7719000C63A1D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F2124E7719000C63A1D /* Test.swift */; };
 		92C7EF96249F13BB00E2BFA4 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */; };
 		92C7EF97249F13BC00E2BFA4 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C7EF95249F13BB00E2BFA4 /* DesignableButton.swift */; };
 		92C8132224E4DC600095C8DB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C8132124E4DC600095C8DB /* TestViewController.swift */; };
@@ -76,7 +79,6 @@
 		5101567EE0DFA09BE78517CF /* Pods-Pasco.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pasco.debug.xcconfig"; path = "Target Support Files/Pods-Pasco/Pods-Pasco.debug.xcconfig"; sourceTree = "<group>"; };
 		80CCF113ED35AA5982C89907 /* Pods_PascoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PascoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F59F48459994B61602CCE79 /* Pods-PascoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PascoTests.debug.xcconfig"; path = "Target Support Files/Pods-PascoTests/Pods-PascoTests.debug.xcconfig"; sourceTree = "<group>"; };
-		9210891D24D33D5E004FD140 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		9210BA6D2440276500F92204 /* notes_Pasco.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = notes_Pasco.txt; sourceTree = "<group>"; };
 		9210BA6F24402FC000F92204 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
 		9210BA732440301F00F92204 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,10 @@
 		92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3OptionTableViewCell.swift; sourceTree = "<group>"; };
 		92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestYearTableViewCell.swift; sourceTree = "<group>"; };
+		92A77F1B24E76E1C00C63A1D /* TestQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionTableViewCell.swift; sourceTree = "<group>"; };
+		92A77F1D24E76E4100C63A1D /* TestOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOptionTableViewCell.swift; sourceTree = "<group>"; };
+		92A77F1F24E76E9D00C63A1D /* TestPrevNextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPrevNextTableViewCell.swift; sourceTree = "<group>"; };
+		92A77F2124E7719000C63A1D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		92C7EF95249F13BB00E2BFA4 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		92C8132124E4DC600095C8DB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -234,7 +240,6 @@
 				9237456724B8FC3C00A4A270 /* Test3MenuTableViewController.swift */,
 				92A60D4924C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift */,
 				92A60D4D24C55DB200BDA0A2 /* Test3OptionTableViewCell.swift */,
-				9210891D24D33D5E004FD140 /* Test.swift */,
 				92609D1224D5D3D2007E7B42 /* Test3PrevNextTableViewCell.swift */,
 			);
 			path = Test3;
@@ -261,14 +266,34 @@
 		92728E5424DE042B0048CB95 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				92A77F1924E76B1F00C63A1D /* Menu */,
+				92A77F1A24E76B3500C63A1D /* Exam */,
+				92A77F2124E7719000C63A1D /* Test.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		92A77F1924E76B1F00C63A1D /* Menu */ = {
+			isa = PBXGroup;
+			children = (
 				92728E5724DE15490048CB95 /* TestMenuViewController.swift */,
-				92C8132124E4DC600095C8DB /* TestViewController.swift */,
 				92609D1824DF771D007E7B42 /* TestExamTableViewCell.swift */,
 				92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */,
 				92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */,
 				92609D1624DE5216007E7B42 /* TestStartTableViewCell.swift */,
 			);
-			path = Test;
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		92A77F1A24E76B3500C63A1D /* Exam */ = {
+			isa = PBXGroup;
+			children = (
+				92C8132124E4DC600095C8DB /* TestViewController.swift */,
+				92A77F1B24E76E1C00C63A1D /* TestQuestionTableViewCell.swift */,
+				92A77F1D24E76E4100C63A1D /* TestOptionTableViewCell.swift */,
+				92A77F1F24E76E9D00C63A1D /* TestPrevNextTableViewCell.swift */,
+			);
+			path = Exam;
 			sourceTree = "<group>";
 		};
 		92C7EF93249EFBCB00E2BFA4 /* Account */ = {
@@ -582,14 +607,16 @@
 				92609D1324D5D3D2007E7B42 /* Test3PrevNextTableViewCell.swift in Sources */,
 				9210F8D02415DD3200682574 /* Pasco.xcdatamodeld in Sources */,
 				9210BA742440301F00F92204 /* AccountViewController.swift in Sources */,
-				9210891E24D33D5E004FD140 /* Test.swift in Sources */,
 				92E57AF1246A0A3300BC4C90 /* Question.swift in Sources */,
+				92A77F1E24E76E4100C63A1D /* TestOptionTableViewCell.swift in Sources */,
 				92A77F1624DF9CF900C63A1D /* TestSubjectTableViewCell.swift in Sources */,
 				926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */,
 				92CFCBFB24A17BAB00912CC1 /* RegisterViewController.swift in Sources */,
 				9210F8C62415DD3200682574 /* AppDelegate.swift in Sources */,
+				92A77F1C24E76E1C00C63A1D /* TestQuestionTableViewCell.swift in Sources */,
 				926D752A249FDBB400F4EBEE /* AccountCheckViewController.swift in Sources */,
 				92A77F1824DF9D7E00C63A1D /* TestYearTableViewCell.swift in Sources */,
+				92A77F2224E7719000C63A1D /* Test.swift in Sources */,
 				92C7EF97249F13BC00E2BFA4 /* DesignableButton.swift in Sources */,
 				9210BA7024402FC000F92204 /* QuestionsViewController.swift in Sources */,
 				92C8132224E4DC600095C8DB /* TestViewController.swift in Sources */,
@@ -602,6 +629,7 @@
 				9237456C24BBAA6200A4A270 /* TabBarVC.swift in Sources */,
 				9210BA7824403C7200F92204 /* Constants.swift in Sources */,
 				92728E5824DE15490048CB95 /* TestMenuViewController.swift in Sources */,
+				92A77F2024E76E9D00C63A1D /* TestPrevNextTableViewCell.swift in Sources */,
 				9263096724AE7F9E00E46509 /* Utilities.swift in Sources */,
 				92CFCBFE24A2C03500912CC1 /* User.swift in Sources */,
 				92A60D4A24C4E7B800BDA0A2 /* Test3QuestionTableViewCell.swift in Sources */,
