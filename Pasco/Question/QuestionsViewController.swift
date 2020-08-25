@@ -77,6 +77,7 @@ class QuestionsViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         NotificationCenter.default.removeObserver(self)
+        //hello
     }
 
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
