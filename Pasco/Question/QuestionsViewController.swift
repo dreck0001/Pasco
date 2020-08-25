@@ -13,6 +13,8 @@ class QuestionsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bannerView: GADBannerView!
+    @IBOutlet weak var showAnswersButton: UIBarButtonItem!
+    private var showAnswers = false
     private var selectionCellExpanded = false
 //    static var alreadyLoadedQuestionSets = [String: [Question]]()
     static private var selectedSubject_YearHasChanged = true
@@ -23,7 +25,47 @@ class QuestionsViewController: UIViewController {
             } else { selectedSubject_YearHasChanged = true }
         }
     }
+    
+    @IBAction func ShowAnswersAction(_ sender: UIBarButtonItem) {
+        showAnswers = !showAnswers
+        if showAnswers {
+            showAnswersButton.image = UIImage(systemName: "eye.slash")
+        } else {
+            showAnswersButton.image = UIImage(systemName: "eye")
+        }
+        tableView.reloadData()
+    }
+    
 
+
+    @objc func onDidReceiveData(_ notification:Notification) {
+        // Do something now
+        print("questionVC: Notification recieved! Reloading tableView!!")
+        tableView.reloadData()
+    }
+
+    //     MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        showAnswersButton.image = UIImage(systemName: "eye")
+        //use flexible cell heights
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableView.automaticDimension
+        // tableview stuff
+        tableView.delegate = self
+        tableView.dataSource = self
+        //adMod stuff
+        bannerView.delegate = self
+        bannerView.adUnitID = Constants.admob.bannerViewAdUnitID_test
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        //load quesstions
+        QuestionsViewController.selectedSubject_Year = ("RME", 1990) //initial load
+//        loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
+        Utilities.loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
+        // Do any additional setup after loading the view.
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         NotificationCenter.default.addObserver( self,
@@ -36,35 +78,6 @@ class QuestionsViewController: UIViewController {
         super.viewWillDisappear(true)
         NotificationCenter.default.removeObserver(self)
     }
-    @objc func onDidReceiveData(_ notification:Notification) {
-        // Do something now
-        print("questionVC: Notification recieved! Reloading tableView!!")
-        tableView.reloadData()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        self.tabBarItem.image = UIImage(systemName: "rectangle.stack")
-//        self.tabBarItem.selectedImage = UIImage(systemName: "rectangle.stack.fill")
-        //use flexible cell heights
-        tableView.estimatedRowHeight = tableView.rowHeight
-        tableView.rowHeight = UITableView.automaticDimension
-        // tableview stuff
-        tableView.delegate = self
-        tableView.dataSource = self
-        //        adMod stuff
-        bannerView.delegate = self
-        bannerView.adUnitID = Constants.admob.bannerViewAdUnitID_test
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
-        //load quesstions
-        QuestionsViewController.selectedSubject_Year = ("RME", 1990) //initial load
-//        loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
-        Utilities.loadQuestionSet(sub: QuestionsViewController.selectedSubject_Year!.sub, yr: QuestionsViewController.selectedSubject_Year!.yr)
-        // Do any additional setup after loading the view.
-    }
-    
-//     MARK: - Navigation
 
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //
@@ -131,10 +144,23 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.optionBLabel.text = theQuestion.optionB
                 cell.optionCLabel.text = theQuestion.optionC
                 cell.optionDLabel.text = theQuestion.optionD
+//                handle possibility of having option E
                 if theQuestion.optionE == "" {
                     cell.optionELetter.isHidden = true
                     cell.optionELabel.isHidden = true
                 } else { cell.optionELabel.text = theQuestion.optionE }
+//                Show or hide answers
+                cell.optionALabel.backgroundColor = (showAnswers && theQuestion.answerLetter == "A") ? Constants.correctColor : .none
+                cell.optionALetter.backgroundColor = (showAnswers && theQuestion.answerLetter == "A") ? Constants.correctColor : .none
+                cell.optionBLabel.backgroundColor = (showAnswers && theQuestion.answerLetter == "B") ? Constants.correctColor : .none
+                cell.optionBLetter.backgroundColor = (showAnswers && theQuestion.answerLetter == "B") ? Constants.correctColor : .none
+                cell.optionCLabel.backgroundColor = (showAnswers && theQuestion.answerLetter == "C") ? Constants.correctColor : .none
+                cell.optionCLetter.backgroundColor = (showAnswers && theQuestion.answerLetter == "C") ? Constants.correctColor : .none
+                cell.optionDLabel.backgroundColor = (showAnswers && theQuestion.answerLetter == "D") ? Constants.correctColor : .none
+                cell.optionDLetter.backgroundColor = (showAnswers && theQuestion.answerLetter == "D") ? Constants.correctColor : .none
+                cell.optionELabel.backgroundColor = (showAnswers && theQuestion.answerLetter == "E") ? Constants.correctColor : .none
+                cell.optionELetter.backgroundColor = (showAnswers && theQuestion.answerLetter == "E") ? Constants.correctColor : .none
+
             }
 //
             return cell

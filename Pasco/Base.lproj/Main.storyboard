@@ -85,7 +85,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectionCell" rowHeight="243" id="JCp-YI-C5K" customClass="SelectionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="selectionCell" rowHeight="243" id="JCp-YI-C5K" customClass="SelectionTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="243"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JCp-YI-C5K" id="bHn-B9-rID">
@@ -148,7 +148,7 @@
                                             <outlet property="selectionYearLabel" destination="kqJ-vN-gXB" id="rH9-nN-cB5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" rowHeight="206" id="YsL-pT-nEC" customClass="QuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="questionCell" rowHeight="206" id="YsL-pT-nEC" customClass="QuestionTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="271" width="414" height="206"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YsL-pT-nEC" id="cA7-RO-WIM">
@@ -341,9 +341,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bAJ-0G-Ru8"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Questions" id="Ndi-5Q-61F"/>
+                    <navigationItem key="navigationItem" title="Questions" id="Ndi-5Q-61F">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="eye" catalog="system" id="pBA-rI-wUg">
+                            <connections>
+                                <action selector="ShowAnswersAction:" destination="nCw-Fs-gsj" id="xBp-Jk-4PG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bannerView" destination="bPw-4r-q0t" id="vbU-vN-hZV"/>
+                        <outlet property="showAnswersButton" destination="pBA-rI-wUg" id="LUD-MT-Xf7"/>
                         <outlet property="tableView" destination="FfW-21-KLP" id="71x-HP-hOI"/>
                     </connections>
                 </viewController>
@@ -791,7 +798,7 @@
                                             <constraint firstAttribute="height" constant="50" id="eo1-uD-pIp"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <state key="normal" title="Done">
+                                        <state key="normal" title="Select">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -1474,6 +1481,7 @@
     <resources>
         <image name="RegisterBackground2" width="550" height="825"/>
         <image name="delete.right" catalog="system" width="128" height="104"/>
+        <image name="eye" catalog="system" width="128" height="81"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
         <image name="person" catalog="system" width="128" height="117"/>
