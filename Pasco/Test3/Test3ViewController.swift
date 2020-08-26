@@ -128,19 +128,19 @@ class Test3ViewController: UIViewController {
         let alert = UIAlertController(title: "Finish Testing?", message: "You may want to double-check your answers before submitting.", preferredStyle: .alert)
         let doubleCheckAction = UIAlertAction(title: "Double-check", style: .default) { (_) in
             if self.timerIsStopped {
-                Test.status = .Stopped
+                self.test.status = .Stopped
                 self.test.gradeTest()
             }
         }
         let pauseAction = UIAlertAction(title: "Pause Test", style: .default) { (_) in
             if self.timerIsStopped {
                 self.disableText = .None
-                Test.status = .Stopped
+                self.test.status = .Stopped
                 self.test.gradeTest()
             }
             else {
                 self.stopTime()
-                Test.status = .Paused
+                self.test.status = .Paused
                 self.BeginBArItem.title = Constants.testContinueButtonText
                 self.disableText = .All
             }
@@ -180,7 +180,7 @@ class Test3ViewController: UIViewController {
     private func stopTime() {
         timer?.invalidate()
         timer = nil
-        Test.status = .Stopped
+        test.status = .Stopped
     }
     private var timerIsStopped: Bool {
         return mins < 0
@@ -189,7 +189,7 @@ class Test3ViewController: UIViewController {
     private func initializeTime() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
-        Test.status = .Started
+        test.status = .Started
         }
     
         @objc func onTimerFires()

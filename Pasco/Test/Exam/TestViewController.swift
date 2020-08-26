@@ -51,7 +51,7 @@ class TestViewController: UIViewController {
     
     // MARK: - IBActions
     @IBAction func cancelAction(_ sender: UIBarButtonItem) {
-        switch Test.status {
+        switch test.status {
         case .Started, .Paused:
             presentStartedAlert()
         case .NotStarted, .Stopped:
@@ -124,19 +124,19 @@ class TestViewController: UIViewController {
         let alert = UIAlertController(title: "Finish Testing?", message: "You may want to double-check your answers before submitting.", preferredStyle: .alert)
         let doubleCheckAction = UIAlertAction(title: "Double-check", style: .default) { (_) in
             if self.timerIsStopped {
-                Test.status = .Stopped
+                self.test.status = .Stopped
                 self.test.gradeTest()
             }
         }
         let pauseAction = UIAlertAction(title: "Pause Test", style: .default) { (_) in
             if self.timerIsStopped {
                 self.disableText = .None
-                Test.status = .Stopped
+                self.test.status = .Stopped
                 self.test.gradeTest()
             }
             else {
                 self.stopTime()
-                Test.status = .Paused
+                self.test.status = .Paused
                 self.beginBarItem.title = Constants.testContinueButtonText
                 self.disableText = .All
             }
@@ -160,22 +160,20 @@ class TestViewController: UIViewController {
         let alert = UIAlertController(title: "Exam in Progress", message: "Are you sure you want to discard this exam?", preferredStyle: .alert)
         let noAction = UIAlertAction(title: "No", style: .default) { (_) in
             if self.timerIsStopped {
-                Test.status = .Stopped
+                self.test.status = .Stopped
                 self.test.gradeTest()
             }
         }
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { (_) in
             self.stopTime()
             self.disableText = .None
-            self.test.gradeTest()
-            self.beginBarItem.title = Constants.testBeginButtonText
-            self.beginBarItem.isEnabled = false
+//            self.test.gradeTest()
+//            self.beginBarItem.title = Constants.testBeginButtonText
+//            self.beginBarItem.isEnabled = false
             self.dismiss(animated: true, completion: nil)
         }
-        
         alert.addAction(yesAction)
         alert.addAction(noAction)
-        
         present(alert, animated: true, completion: nil)
     }
     
@@ -199,7 +197,8 @@ class TestViewController: UIViewController {
     private func stopTime() {
         timer?.invalidate()
         timer = nil
-        Test.status = .Stopped
+        test.status = .Stopped
+        test.totalTime = (mins, secs)
     }
     private var timerIsStopped: Bool {
         return mins < 0
@@ -208,7 +207,7 @@ class TestViewController: UIViewController {
     private func initializeTime() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
-        Test.status = .Started
+        test.status = .Started
         }
     
         @objc func onTimerFires()
