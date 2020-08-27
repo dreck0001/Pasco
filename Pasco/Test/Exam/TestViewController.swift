@@ -9,7 +9,11 @@
 import UIKit
 
 class TestViewController: UIViewController {
-    var test = Test()
+    var test = Test() {
+        didSet {
+            
+        }
+    }
 
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
@@ -66,6 +70,7 @@ class TestViewController: UIViewController {
             tableView.reloadData()
             updateLeftLabel()
             initializeTime()
+            initializeGradeBook()
         case Constants.testStopButtonText:
             presentStopAlert()
         case Constants.testContinueButtonText:
@@ -78,25 +83,37 @@ class TestViewController: UIViewController {
     }
     
     @IBAction func prevNextAction(_ sender: UIButton) {
-        if sender.titleLabel?.text == Constants.testPrevButtonText {
-            if TestViewController.curQuestionNumber > 1 {
-                TestViewController.curQuestionNumber -= 1
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "prevNextPressed"), object: nil)
+        if test.status != .NotStarted {
+            if sender.titleLabel?.text == Constants.testPrevButtonText {
+                if TestViewController.curQuestionNumber > 1 {
+                    TestViewController.curQuestionNumber -= 1
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "prevNextPressed"), object: nil)
+                }
             }
-        }
-        if sender.titleLabel?.text == Constants.testNextButtonText {
-            if TestViewController.curQuestionNumber < 40 {
-                TestViewController.curQuestionNumber += 1
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "prevNextPressed"), object: nil)
+            if sender.titleLabel?.text == Constants.testNextButtonText {
+                if TestViewController.curQuestionNumber < 40 {
+                    TestViewController.curQuestionNumber += 1
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "prevNextPressed"), object: nil)
+                }
             }
+            tableView.reloadData()
+            updateLeftLabel()
         }
-        tableView.reloadData()
-        updateLeftLabel()
     }
     
     
     
     // MARK: - My Fuctions
+    private func initializeGradeBook() {
+        if let questions = TestViewController.questions {
+            for question in questions {
+                test.answers[question.number] = question.answerLetter
+                test.chosen[question.number] = "No Answer"
+                test.results[question.number] = false
+            }
+        }
+    }
+
     private func updateQuestions() {
         if let exam = examSubjectYear?.exam, let subject = examSubjectYear?.subject, let year = examSubjectYear?.year {
             TestViewController.questions = Utilities.alreadyLoadedQuestionSets[subject + "_" + String(year)]
@@ -123,23 +140,16 @@ class TestViewController: UIViewController {
     private func presentStopAlert() {
         let alert = UIAlertController(title: "Finish Testing?", message: "You may want to double-check your answers before submitting.", preferredStyle: .alert)
         let doubleCheckAction = UIAlertAction(title: "Double-check", style: .default) { (_) in
-            if self.timerIsStopped {
-                self.test.status = .Stopped
-                self.test.gradeTest()
-            }
+//            if self.timerIsStopped {
+//                self.test.status = .Stopped
+//                self.test.gradeTest()
+//            }
         }
-        let pauseAction = UIAlertAction(title: "Pause Test", style: .default) { (_) in
-            if self.timerIsStopped {
-                self.disableText = .None
-                self.test.status = .Stopped
-                self.test.gradeTest()
-            }
-            else {
-                self.stopTime()
-                self.test.status = .Paused
-                self.beginBarItem.title = Constants.testContinueButtonText
-                self.disableText = .All
-            }
+        let pauseAction = UIAlertAction(title: "Pause Exam", style: .default) { (_) in
+            self.stopTime()
+            self.test.status = .Paused
+            self.beginBarItem.title = Constants.testContinueButtonText
+            self.disableText = .All
         }
         let finishCheckAction = UIAlertAction(title: "Finish!", style: .destructive) { (_) in
             self.stopTime()
@@ -159,10 +169,10 @@ class TestViewController: UIViewController {
     private func presentStartedAlert() {
         let alert = UIAlertController(title: "Exam in Progress", message: "Are you sure you want to discard this exam?", preferredStyle: .alert)
         let noAction = UIAlertAction(title: "No", style: .default) { (_) in
-            if self.timerIsStopped {
-                self.test.status = .Stopped
-                self.test.gradeTest()
-            }
+//            if self.timerIsStopped {
+//                self.test.status = .Stopped
+//                self.test.gradeTest()
+//            }
         }
         let yesAction = UIAlertAction(title: "Yes", style: .destructive) { (_) in
             self.stopTime()
@@ -179,10 +189,13 @@ class TestViewController: UIViewController {
     
     // MARK: - Timer
     private var timer:Timer?
-    private var mins = 40 {
+    private var mins = 1 {
         didSet {
             if mins < 0 {
                 beginBarItem.isEnabled = false
+                disableText = .None
+                test.status = .Stopped
+                test.gradeTest()
             }
         }
     }
@@ -214,6 +227,7 @@ class TestViewController: UIViewController {
         {
             if mins < 0 {
                 stopTime()
+//                test.gradeTest()
             } else {
                 if secs < 10 { timeLeft = "\(mins):0\(secs)" }
                 else { timeLeft = "\(mins):\(secs)" }
@@ -288,9 +302,28 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        if test.status == .Started {
+            let firstCell = 0
+            let lastCell = tableView.numberOfRows(inSection: 0) - 1
+            if indexPath.row > firstCell && indexPath.row < lastCell {
+                var chosenAnswer: String
+                switch indexPath.row {
+                case 1: chosenAnswer = "A"
+                case 2: chosenAnswer = "B"
+                case 3: chosenAnswer = "C"
+                case 4: chosenAnswer = "D"
+                case 5: chosenAnswer = "E"
+                default: chosenAnswer = "Error"
+                }
+                test.chosen[TestViewController.curQuestionNumber] = chosenAnswer
+                test.results[TestViewController.curQuestionNumber] = (chosenAnswer == test.answers[TestViewController.curQuestionNumber]) ? true : false
+            }
+        }
+        
+        
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     }
+    
 }
 

@@ -116,18 +116,17 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
             let yearRow    = cell.selectionPicker.selectedRow(inComponent: 1)
             cell.selectionSubjectLabel.text = "\(Constants.Subject.allValues[subjectRow]!.rawValue)    -"
             cell.selectionYearLabel.text    = "    \(Constants.subject_years[subjectRow]![yearRow])"
+            cell.selectionSubjectLabel.textColor = Constants.appColor
+            cell.selectionYearLabel.textColor = Constants.appColor
+            cell.expansionIndicatorImage.tintColor = Constants.appColor
             if selectionCellExpanded {
-                cell.selectionSubjectLabel.textColor = Constants.appColor
-                cell.selectionYearLabel.textColor = Constants.appColor
                 cell.expansionIndicatorImage.image = UIImage(systemName: "minus.circle")
-                cell.expansionIndicatorImage.tintColor = Constants.appColor
+//                cell.expansionIndicatorImage.tintColor = Constants.appColor
 //                cell.expansionIndicatorImage.tintColor = .black
             } else {
-                cell.selectionSubjectLabel.textColor = .black
-                cell.selectionYearLabel.textColor = .black
 //                cell.expansionIndicatorLabel.textColor = .black
                 cell.expansionIndicatorImage.image = UIImage(systemName: "plus.circle")
-                cell.expansionIndicatorImage.tintColor = .black
+//                cell.expansionIndicatorImage.tintColor = .black
                 
             }
             return cell
