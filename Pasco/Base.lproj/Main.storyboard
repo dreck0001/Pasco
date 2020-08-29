@@ -532,7 +532,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-vI-eee">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="a.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="T4h-vI-eee">
                                                     <rect key="frame" x="8" y="35" width="35" height="32.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="9ka-5G-Sq0"/>
@@ -549,18 +549,31 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPh-m3-6Lh">
+                                                    <rect key="frame" x="8" y="48" width="35" height="11"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="11" id="JkE-ed-4QT"/>
+                                                        <constraint firstAttribute="width" constant="35" id="m9W-8v-WMc"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="oPh-m3-6Lh" firstAttribute="top" secondItem="jwH-Uo-fkl" secondAttribute="top" constant="48" id="4AZ-Pd-vKs"/>
+                                                <constraint firstItem="oPh-m3-6Lh" firstAttribute="leading" secondItem="jwH-Uo-fkl" secondAttribute="leading" constant="8" id="7mD-0n-Iiw"/>
                                                 <constraint firstItem="1Tp-fP-Efc" firstAttribute="top" secondItem="jwH-Uo-fkl" secondAttribute="topMargin" id="HwD-hp-O7A"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="1Tp-fP-Efc" secondAttribute="trailing" id="Uat-Nv-8RM"/>
+                                                <constraint firstAttribute="bottom" secondItem="oPh-m3-6Lh" secondAttribute="bottom" constant="44" id="bTg-sj-arD"/>
                                                 <constraint firstItem="T4h-vI-eee" firstAttribute="leading" secondItem="jwH-Uo-fkl" secondAttribute="leading" constant="8" id="eid-vp-E3m"/>
                                                 <constraint firstItem="T4h-vI-eee" firstAttribute="centerY" secondItem="jwH-Uo-fkl" secondAttribute="centerY" id="elN-Ec-9rr"/>
                                                 <constraint firstItem="1Tp-fP-Efc" firstAttribute="bottom" secondItem="jwH-Uo-fkl" secondAttribute="bottomMargin" id="sGz-Sa-BHz"/>
+                                                <constraint firstItem="1Tp-fP-Efc" firstAttribute="leading" secondItem="oPh-m3-6Lh" secondAttribute="trailing" constant="8" id="vTr-xD-Kv9"/>
                                                 <constraint firstItem="1Tp-fP-Efc" firstAttribute="leading" secondItem="T4h-vI-eee" secondAttribute="trailing" constant="8" id="vxQ-AR-YUH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkBoxImage" destination="T4h-vI-eee" id="FrA-a7-3xW"/>
+                                            <outlet property="checkOptionView" destination="oPh-m3-6Lh" id="k1f-ff-qPj"/>
                                             <outlet property="optionLabel" destination="1Tp-fP-Efc" id="GfP-oH-eye"/>
                                         </connections>
                                     </tableViewCell>
@@ -696,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQL-aP-I4N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1946" y="384"/>
+            <point key="canvasLocation" x="1944.9275362318842" y="383.70535714285711"/>
         </scene>
         <!--Take an Exam-->
         <scene sceneID="dyJ-hQ-aFI">
@@ -1480,6 +1493,7 @@
     <color key="tintColor" red="0.89306230063265468" green="0.5664406517777002" blue="0.20283423048309701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="RegisterBackground2" width="550" height="825"/>
+        <image name="a.square" catalog="system" width="128" height="114"/>
         <image name="delete.right" catalog="system" width="128" height="104"/>
         <image name="eye" catalog="system" width="128" height="81"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
@@ -1488,7 +1502,6 @@
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.split.3x3" catalog="system" width="128" height="93"/>
         <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
-        <image name="square" catalog="system" width="128" height="114"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

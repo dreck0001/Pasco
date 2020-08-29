@@ -11,6 +11,8 @@ import UIKit
 class TestOptionTableViewCell: UITableViewCell {
     @IBOutlet weak var checkBoxImage: UIImageView!
     @IBOutlet weak var optionLabel: UILabel!
+    @IBOutlet weak var checkOptionView: UIView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

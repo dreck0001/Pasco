@@ -19,7 +19,7 @@ class Test {
     func gradeTest() {
         print("Test: gradeTest called")
         for num in 1...answers.count {
-            print("\(chosen[num]!) --- \(answers[num]!) = \(results[num]!)")
+            print("\(num): \(chosen[num]!) --- \(answers[num]!) = \(results[num]!)")
         }
 //        print("answers: \(answers)")
 //        print("chosen: \(chosen)")

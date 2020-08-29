@@ -23,6 +23,8 @@ struct Constants {
     static let testContinueButtonText = "Continue"
     static let testPrevButtonText = "← PREVIOUS"
     static let testNextButtonText = "NEXT →"
+    static let testNoAnswerOption = "No Answer"
+
 
     static let usernamePlaceholder = "Username"
     static let emailPlaceholder = "Email"
@@ -78,7 +80,9 @@ struct Constants {
     
     static let bece = "BECE"
     static let wassce = "WASSCE"
-    static let exam = [bece, wassce]
+    static let ssce = "SSCE"
+    static let jamb = "JAMB"
+    static let exam = [bece, wassce, ssce, jamb]
 
     enum Subject: String {
         case RME
