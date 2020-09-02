@@ -34,7 +34,7 @@ class TestViewController: UIViewController {
             updateQuestions()
         }
     }
-    private var displayGrade = false { didSet { print("displayGrade: \(displayGrade)"); tableView.reloadData() } }
+    private var shouldDisplayAnswers = false { didSet { print("shouldDisplayAnswers: \(shouldDisplayAnswers)"); tableView.reloadData() } }
     
     
     
@@ -66,6 +66,7 @@ class TestViewController: UIViewController {
         }
     }
     @IBAction func beginAction(_ sender: UIBarButtonItem) {
+        Utilities.vibrate()
         switch sender.title {
         case Constants.testBeginButtonText:
             beginBarItem.title = Constants.testStopButtonText
@@ -87,6 +88,7 @@ class TestViewController: UIViewController {
     
     @IBAction func prevNextAction(_ sender: UIButton) {
         if test.status != .NotStarted {
+            Utilities.vibrate()
             if sender.titleLabel?.text == Constants.testPrevButtonText {
                 if TestViewController.curQuestionNumber > 1 {
                     TestViewController.curQuestionNumber -= 1
@@ -107,6 +109,27 @@ class TestViewController: UIViewController {
     
     
     // MARK: - My Fuctions
+    private func showGrade() {
+        func calcGrade() -> (percent: Double, correct: Int, total: Int) {
+            var correct = 0.0
+            for result in test.results { if result.value == true { correct += 1 } }
+            let total = Double(test.results.count)
+            let percent = (correct / total) * 100
+//            print("Grade: \(percent)%\n\(correct) out of \(total) correct")
+            return (percent, Int(correct), Int(total))
+        }
+        func presentGradeAlert() {
+            let grade = calcGrade()
+            let alert = UIAlertController(title: "\(grade.percent)%", message: "\(grade.correct) correct out of \(grade.total) questions", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+
+            }
+            
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
+        presentGradeAlert()
+    }
 
     private func initializeGradeBook() {
         if let questions = TestViewController.questions {
@@ -156,7 +179,8 @@ class TestViewController: UIViewController {
             self.stopTime()
             self.disableText = .None
             self.test.gradeTest()
-            if self.displayGrade == false { self.displayGrade = true }
+            self.showGrade()
+            if self.shouldDisplayAnswers == false { self.shouldDisplayAnswers = true }
             self.beginBarItem.title = Constants.testBeginButtonText
             self.beginBarItem.isEnabled = false
         }
@@ -169,7 +193,7 @@ class TestViewController: UIViewController {
     }
     
     private func presentStartedAlert() {
-        let alert = UIAlertController(title: "Exam in Progress", message: "Are you sure you want to discard this exam?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Close Exam?", message: "All progress will be discarded", preferredStyle: .alert)
         let noAction = UIAlertAction(title: "No", style: .default) { (_) in
 
         }
@@ -193,7 +217,8 @@ class TestViewController: UIViewController {
                 disableText = .None
                 test.status = .Stopped
                 test.gradeTest()
-                if displayGrade == false { displayGrade = true }
+                showGrade()
+                if shouldDisplayAnswers == false { shouldDisplayAnswers = true }
             }
         }
     }
@@ -223,16 +248,20 @@ class TestViewController: UIViewController {
     
         @objc func onTimerFires()
         {
+//            stop timer if mins is < 0
             if mins < 0 {
                 stopTime()
             } else {
+//                set the timeLeft string appropriately
                 if secs < 10 { timeLeft = "\(mins):0\(secs)" }
                 else { timeLeft = "\(mins):\(secs)" }
-                
+//                decrement min and reset secs when secs reaches 0
                 if secs <= 0 {
                     secs = 60
                     mins -= 1
                 }
+//                vibrate each sec in the last 10 secs
+                if mins < 1 && secs < 11 { Utilities.vibrate() }
             }
         secs -= 1
         }
@@ -284,13 +313,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.optionLabel.text = TestViewController.curQuestion?.optionA
                 if test.chosen[TestViewController.curQuestionNumber] == "A" {
                     cell.checkOptionView.isHidden = false
-                    if displayGrade {
+                    if shouldDisplayAnswers {
                         cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "A") ? .green : .red
                         cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "A") ? .green : .red
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
-                    if displayGrade && test.answers[TestViewController.curQuestionNumber] == "A" {
+                    if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "A" {
                         cell.optionLabel.backgroundColor = .green
                     }
                 }
@@ -299,13 +328,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.optionLabel.text = TestViewController.curQuestion?.optionB
                 if test.chosen[TestViewController.curQuestionNumber] == "B" {
                     cell.checkOptionView.isHidden = false
-                    if displayGrade {
+                    if shouldDisplayAnswers {
                         cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "B") ? .green : .red
                         cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "B") ? .green : .red
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
-                    if displayGrade && test.answers[TestViewController.curQuestionNumber] == "B" {
+                    if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "B" {
                         cell.optionLabel.backgroundColor = .green
                     }
                 }
@@ -314,13 +343,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.optionLabel.text = TestViewController.curQuestion?.optionC
                 if test.chosen[TestViewController.curQuestionNumber] == "C" {
                     cell.checkOptionView.isHidden = false
-                    if displayGrade {
+                    if shouldDisplayAnswers {
                         cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "C") ? .green : .red
                         cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "C") ? .green : .red
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
-                    if displayGrade && test.answers[TestViewController.curQuestionNumber] == "C" {
+                    if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "C" {
                         cell.optionLabel.backgroundColor = .green
                     }
                 }
@@ -329,13 +358,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.optionLabel.text = TestViewController.curQuestion?.optionD
                 if test.chosen[TestViewController.curQuestionNumber] == "D" {
                     cell.checkOptionView.isHidden = false
-                    if displayGrade {
+                    if shouldDisplayAnswers {
                         cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "D") ? .green : .red
                         cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "D") ? .green : .red
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
-                    if displayGrade && test.answers[TestViewController.curQuestionNumber] == "D" {
+                    if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "D" {
                         cell.optionLabel.backgroundColor = .green
                     }
                 }
@@ -344,13 +373,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 cell.optionLabel.text = TestViewController.curQuestion?.optionE
                 if test.chosen[TestViewController.curQuestionNumber] == "E" {
                     cell.checkOptionView.isHidden = false
-                    if displayGrade {
+                    if shouldDisplayAnswers {
                         cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "E") ? .green : .red
                         cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "E") ? .green : .red
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
-                    if displayGrade && test.answers[TestViewController.curQuestionNumber] == "E" {
+                    if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "E" {
                         cell.optionLabel.backgroundColor = .green
                     }
                 }

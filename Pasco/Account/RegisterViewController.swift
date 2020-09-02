@@ -62,6 +62,7 @@ class RegisterViewController: UIViewController {
         return text + string
     }
     @IBAction func signUpAction(_ sender: UIButton) {
+        Utilities.vibrate()
 //         create cleaned version od the text fields and create the user
         let userName = usernameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)

@@ -15,14 +15,14 @@ class TestPrevNextTableViewCell: UITableViewCell {
     
     @IBAction func prevNextAction(_ sender: UIButton) {
         if sender.titleLabel?.text == Constants.testPrevButtonText {
-            if Test3ViewController.curQuestionNumber > 1 {
-                Test3ViewController.curQuestionNumber -= 1
+            if TestViewController.curQuestionNumber > 1 {
+                TestViewController.curQuestionNumber -= 1
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "prevNextPressed"), object: nil)
             }
         }
         if sender.titleLabel?.text == Constants.testNextButtonText {
-            if Test3ViewController.curQuestionNumber < 40 {
-                Test3ViewController.curQuestionNumber += 1
+            if TestViewController.curQuestionNumber < 40 {
+                TestViewController.curQuestionNumber += 1
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "prevNextPressed"), object: nil)
             }
         }

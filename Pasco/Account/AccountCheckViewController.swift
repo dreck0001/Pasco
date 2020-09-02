@@ -69,7 +69,8 @@ class AccountCheckViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("---AccountVC: Prepare")
+        Utilities.vibrate()
+        print("---AccountCheckVC: Prepare")
         if let accountVC = segue.destination as? AccountViewController {
             while user != nil {
                 accountVC.user = user
@@ -85,6 +86,7 @@ class AccountCheckViewController: UIViewController {
         } else { return true }
     }
     @IBAction func prepareForUnwind (segue: UIStoryboardSegue) {
+        Utilities.vibrate()
         if let accountVC = segue.source as? AccountViewController {
             print("--AccounChecktVC: prepareForUnwind is called by: \(accountVC.description)")
             signOut()

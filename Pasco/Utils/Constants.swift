@@ -40,7 +40,7 @@ struct Constants {
         case AccountCheckToAccount = "toAccountVC"
        case AccountCheckToRegister = "toRegister"
          case AccountCheckToSignIn = "toSignIn"
-         case TestMenuStart = "startSegue"
+            case TestMenuSelect = "selectSegue"
     }
     enum cellIdentifiers: String {
             case AccountDetailsCell = "accountDetails"

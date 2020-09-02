@@ -39,6 +39,7 @@ class LogInViewController: UIViewController {
         print("description =--= " + message)
     }
     @IBAction func signInAction(_ sender: UIButton) {
+        Utilities.vibrate()
     //create cleaned version od the text fields and create the user
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)

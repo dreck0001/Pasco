@@ -27,6 +27,10 @@ class Utilities {
 
         }
     }
+    static func vibrate() {
+        let gen = UIImpactFeedbackGenerator(style: .heavy)
+        gen.impactOccurred()
+    }
     static func userIsSignedIn() -> Bool {
         if Auth.auth().currentUser != nil { return true }
         else { return false }

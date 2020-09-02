@@ -37,7 +37,8 @@ class TestMenuViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("testMenuVC: selection: \(TestMenuViewController.selection)")
-        if segue.identifier == Constants.segues.TestMenuStart.rawValue {
+        if segue.identifier == Constants.segues.TestMenuSelect.rawValue {
+            Utilities.vibrate()
             if let testVC = segue.destination.contentViewController as? TestViewController {
                 Utilities.loadQuestionSet(sub: TestMenuViewController.selection.subject, yr: TestMenuViewController.selection.year)
                 testVC.examSubjectYear = TestMenuViewController.selection
