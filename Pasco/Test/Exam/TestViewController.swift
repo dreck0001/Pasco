@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class TestViewController: UIViewController {
     var test = Test() {
@@ -42,6 +43,7 @@ class TestViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        test.getUser()
         tableView.delegate = self
         tableView.dataSource = self
         TestViewController.questions = nil
@@ -109,17 +111,30 @@ class TestViewController: UIViewController {
     
     
     // MARK: - My Fuctions
-    private func showGrade() {
-        func calcGrade() -> (percent: Double, correct: Int, total: Int) {
-            var correct = 0.0
-            for result in test.results { if result.value == true { correct += 1 } }
-            let total = Double(test.results.count)
-            let percent = (correct / total) * 100
-//            print("Grade: \(percent)%\n\(correct) out of \(total) correct")
-            return (percent, Int(correct), Int(total))
+    private func uploadGrade() {
+        var results = [Bool]()
+        for num in 1...test.results.count { results.append(test.results[num] ?? false) }
+        if let user = test.user {
+            print("Uploading grade for user: \(user)")
+            let gradeRef = Firestore.firestore().collection("users").document(user.username).collection("grades")
+            gradeRef.document("\(Date())").setData(
+                [
+                          "exam" : examSubjectYear?.exam as Any,
+                       "subject" : examSubjectYear?.subject as Any,
+                          "year" : examSubjectYear?.year as Any,
+                       "results" : results,
+                       "percent" : test.percent,
+                      "duration" : "\(test.totalTime)",
+                "completionTime" : "\(test.completionTime)"
+                ]
+            )
         }
+    }
+    
+    private func showGrade() {
+        
         func presentGradeAlert() {
-            let grade = calcGrade()
+            let grade = test.calcGrade()
             let alert = UIAlertController(title: "\(grade.percent)%", message: "\(grade.correct) correct out of \(grade.total) questions", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
 
@@ -180,6 +195,7 @@ class TestViewController: UIViewController {
             self.disableText = .None
             self.test.gradeTest()
             self.showGrade()
+            self.uploadGrade()
             if self.shouldDisplayAnswers == false { self.shouldDisplayAnswers = true }
             self.beginBarItem.title = Constants.testBeginButtonText
             self.beginBarItem.isEnabled = false
@@ -218,6 +234,7 @@ class TestViewController: UIViewController {
                 test.status = .Stopped
                 test.gradeTest()
                 showGrade()
+                uploadGrade()
                 if shouldDisplayAnswers == false { shouldDisplayAnswers = true }
             }
         }

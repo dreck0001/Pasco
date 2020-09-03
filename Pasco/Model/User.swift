@@ -53,7 +53,12 @@ struct User {
         ]
     }
     
-    
+    static func uploadGrade() {
+        if let user = Auth.auth().currentUser {
+//            user.
+        }
+    }
+
     
 //    static func getUsers() -> [String] {
 //        var usernames = [String]()
