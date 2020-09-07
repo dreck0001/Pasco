@@ -126,7 +126,7 @@ class TestViewController: UIViewController {
                        "percent" : test.percent,
                    "durationMin" : test.totalTime.min,
                    "durationSec" : test.totalTime.sec,
-                "completionTime" : "\(test.completionTime)"
+                "completionTime" : test.completionTime
                 ]
             )
         }

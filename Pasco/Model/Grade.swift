@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct Grade {
     let exam: String!
@@ -16,7 +17,7 @@ struct Grade {
     let percent: Double!
     let durationMin: Int!
     let durationSec: Int!
-    let completionTime: String!
+    let completionTime: Timestamp!
 
     init(data: [String : Any]) {
         exam = data["exam"] as? String
@@ -26,7 +27,7 @@ struct Grade {
         percent = data["percent"] as? Double
         durationMin = data["durationMin"] as? Int
         durationSec = data["durationSec"] as? Int
-        completionTime = data["completionTime"] as? String
+        completionTime = data["completionTime"] as? Timestamp
     }
     
 }

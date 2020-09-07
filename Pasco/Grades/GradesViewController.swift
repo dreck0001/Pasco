@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SwiftDate
 
 class GradesViewController: UIViewController {
     
@@ -61,13 +62,13 @@ extension GradesViewController: UITableViewDataSource, UITableViewDelegate {
             cell.examSubjectYearLabel.text = "\(grade.exam!) | \(grade.subject!) | \(grade.year!)"
             cell.percentLabel.text = "\(grade.percent!)%"
             cell.durationLabel.text = "Duration: \(grade.durationMin!) mins, \(grade.durationSec!) secs"
-            cell.completionTimeLabel.text = "\(grade.completionTime!)"
+            cell.completionTimeLabel.text = grade.completionTime.dateValue().toRelative()
             let correct = grade.results.filter { (result) in return result } //get correct answers for ratio label
             cell.ratioLabel.text = "\(correct.count)/\(grade.results.count)"
             
             //set cell background color based on grade percentage
 //            let perc = grade.percent! * 4
-            let perc = grade.percent! * 4
+            let perc = grade.percent!
             if perc > 90      { cell.backgroundColor = #colorLiteral(red: 0.1845552325, green: 0.7995246053, blue: 0.4384316206, alpha: 1) }
             else if perc > 80 { cell.backgroundColor = #colorLiteral(red: 0.2051456571, green: 0.5948371291, blue: 0.8570869565, alpha: 1) }
             else if perc > 70 { cell.backgroundColor = #colorLiteral(red: 0.5107483864, green: 0.810282886, blue: 0.8842687011, alpha: 1) }

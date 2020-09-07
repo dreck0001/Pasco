@@ -31,7 +31,8 @@ Setup Cocoapods:
   		pod 'Firebase/Analytics'
   		# add pods for any other desired Firebase products
   		# https://firebase.google.com/docs/ios/setup#available-pods
-	pod install
+	pod repo update
+    pod install
 		This creates a .xcworkspace file in the workspace
 Religious & Moral Education
 
@@ -54,5 +55,5 @@ How to setup TextFieldEffects for enhanced textfields.
 Add the following to pod file:
     use_frameworks!
     pod 'TextFieldEffects'
-    enter "pod install" in terminal
+    enter "pod repo update" then "pod install" in terminal
 https://github.com/raulriera/TextFieldEffects

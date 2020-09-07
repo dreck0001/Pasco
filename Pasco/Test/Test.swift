@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+
 class Test {
     var user: Pasco.User?
     enum Status { case NotStarted, Started, Paused, Stopped }
@@ -16,7 +17,7 @@ class Test {
     var chosen = [Int : String]()
     var results = [Int : Bool]()
     var totalTime = (min: 0, sec: 0)
-    var completionTime = Date()
+    var completionTime = Timestamp()
     var percent = Double()
 //    var exam: String!
 //    var sub: String?
