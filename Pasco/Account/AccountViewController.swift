@@ -90,7 +90,7 @@ class AccountViewController: UIViewController {
                     theGrades.append(grade)
 //                    print("\(document.documentID) => \(document.data())")
                 }
-                self.grades = theGrades
+                self.grades = theGrades.reversed()
             }
         }
     }

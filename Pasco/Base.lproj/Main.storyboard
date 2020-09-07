@@ -1459,17 +1459,22 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="675"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="examCell" rowHeight="118" id="Hd9-Gl-9VP" customClass="ExamTableViewCell" customModule="Pasco" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="examCell" rowHeight="118" id="Hd9-Gl-9VP" customClass="ExamTableViewCell" customModule="Pasco" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Hd9-Gl-9VP" id="wKx-UL-tKx">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="118"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exam | Subject | Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGH-5t-vcs">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RGH-5t-vcs">
                                                     <rect key="frame" x="20" y="11" width="374" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                    <nil key="textColor"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Exam | Subject | Year">
+                                                            <attributes>
+                                                                <font key="NSFont" size="17" name="Arial-BoldMT"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-Zg-eX3">
@@ -1559,7 +1564,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LiX-jr-iAG"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ht6-uQ-nB0"/>
+                    <navigationItem key="navigationItem" id="ht6-uQ-nB0">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="old-fs-i6n">
+                            <connections>
+                                <action selector="CloseButton:" destination="pN9-Vd-K3C" id="7Vl-X8-QfQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="BannerView" destination="Rtp-Hc-EUm" id="7Sp-fd-3zO"/>
                         <outlet property="tableView" destination="oSA-Os-gzI" id="dfx-vA-fSb"/>
