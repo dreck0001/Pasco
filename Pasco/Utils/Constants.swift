@@ -24,6 +24,8 @@ struct Constants {
     static let testPrevButtonText = "← PREVIOUS"
     static let testNextButtonText = "NEXT →"
     static let testNoAnswerOption = "No Answer"
+    static let accountGradesTitle = "My Grades"
+    static let accountRatingsTitle = "My Ratings"
 
 
     static let usernamePlaceholder = "Username"
@@ -41,19 +43,22 @@ struct Constants {
        case AccountCheckToRegister = "toRegister"
          case AccountCheckToSignIn = "toSignIn"
             case TestMenuSelect = "selectSegue"
+        case accountToGrades = "accountToGrades"
     }
     enum cellIdentifiers: String {
             case AccountDetailsCell = "accountDetails"
          case QuestionSelectionCell = "selectionCell"
                   case QuestionCell = "questionCell"
-        case AccountTestResultsCell = "testResults"
+        case AccountTestResultsCell = "gradesCell"
         case AccountQuestionRatings = "questionRatings"
+        case AccountDeveloperCell = "developerCell"
         case TestSubject = "testSubject"
         case TestYear = "testYear"
         case TestSubmitSelection = "testSubmit"
         case TestQuestion = "testQuestion"
         case TestOption = "testOption"
         case TestNextQuestion = "testNextQuestion"
+        case GradesExamCell = "examCell"
     }
     
     enum AlertMessages: String {

@@ -17,18 +17,18 @@ class AccountViewController: UIViewController {
     let usersRef = Firestore.firestore().collection("users")
     var user: Pasco.User? {
         didSet {
-            print("---AccountVC: \(user!)")
+//            print("---AccountVC: \(user!)")
+            getGrades()
             tableView.reloadData()
         }
     }
-
-    //    @IBAction func dismissAction(_ sender: UIButton) {
-////        presentingViewController?.dismiss(animated: true, completion: nil)
-//        dismiss(animated: true, completion: nil)
-//    }
+    private var grades: [Grade]? {
+        didSet { tableView.reloadData() }
+    }
+    // MARK: - Lifecyle
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUser()
+//        getUser()
 
         setupNavigationBar()
         // tableview stuff
@@ -40,7 +40,12 @@ class AccountViewController: UIViewController {
        bannerView.rootViewController = self
        bannerView.load(GADRequest())
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getUser()
+    }
     
+    // MARK: - My functions
     private func setupNavigationBar() {
         myNavBar.isTranslucent = false
         //        navigationBar.barTintColor = UIColor.black
@@ -71,15 +76,38 @@ class AccountViewController: UIViewController {
             }
         }
     }
+    private func getGrades() {
+        let ref = Firestore.firestore().collection("users").document((user?.username)!).collection("grades")
+        ref.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("AccountVC: Error getting grades: \(err)")
+            } else {
+                var theGrades = [Grade]()
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    let grade = Grade(data: data)
+//                    print("grade => \(grade)")
+                    theGrades.append(grade)
+//                    print("\(document.documentID) => \(document.data())")
+                }
+                self.grades = theGrades
+            }
+        }
+    }
     
     // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.segues.accountToGrades.rawValue {
+            if let gradesVC = segue.destination.contentViewController as? GradesViewController {
+                gradesVC.grades = grades
+            }
+        }
+    }
 }
-
-
 
 extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -97,13 +125,18 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountTestResultsCell.rawValue, for: indexPath)
-            cell.textLabel?.text = "My Test Results"
-            cell.detailTextLabel?.text = "5"
+            cell.textLabel?.text = Constants.accountGradesTitle
+            cell.detailTextLabel?.text = grades == nil ? "0" : "\(grades!.count)"
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountQuestionRatings.rawValue, for: indexPath)
+            cell.textLabel?.text = Constants.accountRatingsTitle
+            cell.detailTextLabel?.text = "3"
             return cell
         default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountQuestionRatings.rawValue, for: indexPath)
-            cell.textLabel?.text = "My Question Ratings"
-            cell.detailTextLabel?.text = "3"
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountDeveloperCell.rawValue, for: indexPath)
+            cell.textLabel?.text = "Developer"
+            cell.detailTextLabel?.text = "GhanaWare"
             return cell
         }
         

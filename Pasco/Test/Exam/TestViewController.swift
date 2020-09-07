@@ -124,7 +124,8 @@ class TestViewController: UIViewController {
                           "year" : examSubjectYear?.year as Any,
                        "results" : results,
                        "percent" : test.percent,
-                      "duration" : "\(test.totalTime)",
+                   "durationMin" : test.totalTime.min,
+                   "durationSec" : test.totalTime.sec,
                 "completionTime" : "\(test.completionTime)"
                 ]
             )
@@ -251,7 +252,7 @@ class TestViewController: UIViewController {
         timer?.invalidate()
         timer = nil
         test.status = .Stopped
-        test.totalTime = (mins, secs)
+        test.totalTime = (39 - mins, 60 - secs)
     }
     private var timerIsStopped: Bool {
         return mins < 0
@@ -323,7 +324,7 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         default:
             let cell =  tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.TestOption.rawValue, for: indexPath) as! TestOptionTableViewCell
-            cell.optionLabel.backgroundColor = #colorLiteral(red: 0.9744176269, green: 0.9129154086, blue: 0.8256582022, alpha: 1)
+            cell.optionLabel.backgroundColor = nil //reset color to avoid multiple colored cells
             switch indexPath.row {
             case 1:
                 cell.checkBoxImage.image = UIImage(systemName: "a.square")

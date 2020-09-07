@@ -36,7 +36,7 @@ class Test {
         let total = Double(results.count)
         percent = (correct / total) * 100
 //            print("Grade: \(percent)%\n\(correct) out of \(total) correct")
-        return (percent, Int(correct), Int(total))
+        return (percent.round(to: 2), Int(correct), Int(total))
     }
     
     func getUser(){

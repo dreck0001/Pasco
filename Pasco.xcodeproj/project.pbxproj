@@ -24,6 +24,8 @@
 		9210F8E02415DD3300682574 /* PascoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210F8DF2415DD3300682574 /* PascoTests.swift */; };
 		9210F8EB2415DD3300682574 /* PascoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9210F8EA2415DD3300682574 /* PascoUITests.swift */; };
 		9210F8F92415E30D00682574 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9210F8F82415E30D00682574 /* GoogleService-Info.plist */; };
+		92133B6D25017C8A008A8FE4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92133B6C25017C8A008A8FE4 /* Extensions.swift */; };
+		92133B702502C03C008A8FE4 /* GradesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92133B6F2502C03C008A8FE4 /* GradesViewController.swift */; };
 		9229A68B2441788600E86DA5 /* CSVUploaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9229A68A2441788600E86DA5 /* CSVUploaderViewController.swift */; };
 		9237456C24BBAA6200A4A270 /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9237456B24BBAA6200A4A270 /* TabBarVC.swift */; };
 		92609D1724DE5216007E7B42 /* TestStartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92609D1624DE5216007E7B42 /* TestStartTableViewCell.swift */; };
@@ -32,6 +34,8 @@
 		926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7527249FD71C00F4EBEE /* LogInViewController.swift */; };
 		926D752A249FDBB400F4EBEE /* AccountCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */; };
 		92728E5824DE15490048CB95 /* TestMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92728E5724DE15490048CB95 /* TestMenuViewController.swift */; };
+		92769C242501E37000261A54 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92769C232501E37000261A54 /* Grade.swift */; };
+		92769C262504953E00261A54 /* ExamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92769C252504953E00261A54 /* ExamTableViewCell.swift */; };
 		92A77F1624DF9CF900C63A1D /* TestSubjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */; };
 		92A77F1824DF9D7E00C63A1D /* TestYearTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */; };
 		92A77F1C24E76E1C00C63A1D /* TestQuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1B24E76E1C00C63A1D /* TestQuestionTableViewCell.swift */; };
@@ -94,6 +98,8 @@
 		9210F8EA2415DD3300682574 /* PascoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PascoUITests.swift; sourceTree = "<group>"; };
 		9210F8EC2415DD3300682574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9210F8F82415E30D00682574 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		92133B6C25017C8A008A8FE4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		92133B6F2502C03C008A8FE4 /* GradesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesViewController.swift; sourceTree = "<group>"; };
 		9229A68A2441788600E86DA5 /* CSVUploaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVUploaderViewController.swift; sourceTree = "<group>"; };
 		9237456B24BBAA6200A4A270 /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		92609D1624DE5216007E7B42 /* TestStartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStartTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 		926D7527249FD71C00F4EBEE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCheckViewController.swift; sourceTree = "<group>"; };
 		92728E5724DE15490048CB95 /* TestMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuViewController.swift; sourceTree = "<group>"; };
+		92769C232501E37000261A54 /* Grade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grade.swift; sourceTree = "<group>"; };
+		92769C252504953E00261A54 /* ExamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamTableViewCell.swift; sourceTree = "<group>"; };
 		92A77F1524DF9CF900C63A1D /* TestSubjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSubjectTableViewCell.swift; sourceTree = "<group>"; };
 		92A77F1724DF9D7E00C63A1D /* TestYearTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestYearTableViewCell.swift; sourceTree = "<group>"; };
 		92A77F1B24E76E1C00C63A1D /* TestQuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestQuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +186,7 @@
 				9237456B24BBAA6200A4A270 /* TabBarVC.swift */,
 				92F0564A249535E5009B3900 /* Question */,
 				92728E5424DE042B0048CB95 /* Test */,
+				92133B6E2502C020008A8FE4 /* Grades */,
 				92C7EF93249EFBCB00E2BFA4 /* Account */,
 				9263096D24B3E74800E46509 /* More */,
 				92CFCBFC24A2BFF000912CC1 /* Model */,
@@ -212,6 +221,15 @@
 				9210F8EC2415DD3300682574 /* Info.plist */,
 			);
 			path = PascoUITests;
+			sourceTree = "<group>";
+		};
+		92133B6E2502C020008A8FE4 /* Grades */ = {
+			isa = PBXGroup;
+			children = (
+				92133B6F2502C03C008A8FE4 /* GradesViewController.swift */,
+				92769C252504953E00261A54 /* ExamTableViewCell.swift */,
+			);
+			path = Grades;
 			sourceTree = "<group>";
 		};
 		9229A68E244179BC00E86DA5 /* CSV */ = {
@@ -289,6 +307,7 @@
 			children = (
 				92E57AF0246A0A3300BC4C90 /* Question.swift */,
 				92CFCBFD24A2C03500912CC1 /* User.swift */,
+				92769C232501E37000261A54 /* Grade.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -308,6 +327,7 @@
 			children = (
 				9263096624AE7F9E00E46509 /* Utilities.swift */,
 				9210BA7724403C7200F92204 /* Constants.swift */,
+				92133B6C25017C8A008A8FE4 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -585,6 +605,8 @@
 				9210BA742440301F00F92204 /* AccountViewController.swift in Sources */,
 				92E57AF1246A0A3300BC4C90 /* Question.swift in Sources */,
 				92A77F1E24E76E4100C63A1D /* TestOptionTableViewCell.swift in Sources */,
+				92769C242501E37000261A54 /* Grade.swift in Sources */,
+				92769C262504953E00261A54 /* ExamTableViewCell.swift in Sources */,
 				92A77F1624DF9CF900C63A1D /* TestSubjectTableViewCell.swift in Sources */,
 				926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */,
 				92CFCBFB24A17BAB00912CC1 /* RegisterViewController.swift in Sources */,
@@ -595,6 +617,8 @@
 				92A77F2224E7719000C63A1D /* Test.swift in Sources */,
 				92C7EF97249F13BC00E2BFA4 /* DesignableButton.swift in Sources */,
 				9210BA7024402FC000F92204 /* QuestionsViewController.swift in Sources */,
+				92133B6D25017C8A008A8FE4 /* Extensions.swift in Sources */,
+				92133B702502C03C008A8FE4 /* GradesViewController.swift in Sources */,
 				92C8132224E4DC600095C8DB /* TestViewController.swift in Sources */,
 				92F0564924953417009B3900 /* QuestionTableViewCell.swift in Sources */,
 				92CFCBF924A1538D00912CC1 /* ScaleSegue.swift in Sources */,

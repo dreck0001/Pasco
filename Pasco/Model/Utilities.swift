@@ -101,18 +101,3 @@ class Utilities {
     }
 
 }
-extension UIViewController{
-    var contentViewController: UIViewController?{
-        if let navcon = self as? UINavigationController{
-            return navcon.visibleViewController ?? self
-        } else {return self }
-    }
-}
-extension UIView {
-    func addShadow(){
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOpacity = 0.5
-        self.layer.shadowRadius = 2.0
-//        self.layer.shadowOffset = CGSizeMake(1.0, 1.0)
-    }
-}

@@ -19,12 +19,12 @@ class AccountCheckViewController: UIViewController {
     var handle: AuthStateDidChangeListenerHandle?
     let usersRef = Firestore.firestore().collection("users")
 
-        override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(true)
-//            chechIfUserIsSignedIn()
-            setupEnvironment()
-            userIsSignedIn = checkSignInStatus()
-        }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("---AccountCheckVC: viewWillAppear")
+        setupEnvironment()
+        userIsSignedIn = checkSignInStatus()
+    }
     
 //    private func chechIfUserIsSignedIn() {
 //        handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
@@ -37,17 +37,7 @@ class AccountCheckViewController: UIViewController {
 //            }
 //        })
 //    }
-    private func checkSignInStatus() -> Bool {
-        if Auth.auth().currentUser != nil {
-            print("---AccountCheckVC: user is signed in. Segue to AccountVC")
-//            getUser(with: user.email!)
-            performSegue(withIdentifier: "toAccountVC", sender: nil)
-            return true
-        } else {
-            print("---AccountCheckVC: user is not signed in. Staying here")
-            return false
-        }
-    }
+    
     private func setupEnvironment() {
         registerButton.setTitle(Constants.registerButtonText, for: .normal)
         signInButton.setTitle(Constants.signInButtonText, for: .normal)
@@ -68,16 +58,30 @@ class AccountCheckViewController: UIViewController {
     }
     
     // MARK: - Navigation
+    private func checkSignInStatus() -> Bool {
+            if Auth.auth().currentUser != nil {
+                print("---AccountCheckVC: user is signed in. Segue to AccountVC")
+    //            getUser(with: user.email!)
+                performSegue(withIdentifier: "toAccountVC", sender: nil)
+//                present(AccountViewController(), animated: true)
+                return true
+            } else {
+                print("---AccountCheckVC: user is not signed in. Staying here")
+                return false
+            }
+        }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         Utilities.vibrate()
         print("---AccountCheckVC: Prepare")
-        if let accountVC = segue.destination as? AccountViewController {
+        if let accountVC = segue.destination.contentViewController as? AccountViewController {
+//            let navcon = segue.destination
+//            navcon.modalPresentationStyle = .fullScreen
+//            segue.destination.modalPresentationStyle = .fullScreen
+//            accountVC.modalPresentationStyle = .currentContext
             while user != nil {
                 accountVC.user = user
             }
-//            if let user = user {
-//                accountVC.user = user
-//            }
         }
     }
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool { //if user is not already signed in, then u can create an account or log in
