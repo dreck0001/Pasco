@@ -226,8 +226,8 @@ class TestViewController: UIViewController {
     
     // MARK: - Timer
     private var timer:Timer?
-//    private var mins = 40 {
-    private var mins = 1 {
+    private var mins = 40 {
+//    private var mins = 1 {
         didSet {
             if mins < 0 {
                 beginBarItem.isEnabled = false
@@ -252,7 +252,7 @@ class TestViewController: UIViewController {
         timer?.invalidate()
         timer = nil
         test.status = .Stopped
-        test.totalTime = (39 - mins, 60 - secs)
+        test.totalTime = mins < 40 ? (39 - mins, 60 - secs) : (0, 0)
     }
     private var timerIsStopped: Bool {
         return mins < 0

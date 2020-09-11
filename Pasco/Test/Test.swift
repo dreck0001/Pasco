@@ -13,7 +13,7 @@ class Test {
     var user: Pasco.User?
     enum Status { case NotStarted, Started, Paused, Stopped }
     var status: Status = .NotStarted { didSet { print(status) } }
-    var answers = [Int : String]()
+    var answers = [Int : String]() { didSet{ print(answers)}}
     var chosen = [Int : String]()
     var results = [Int : Bool]()
     var totalTime = (min: 0, sec: 0)

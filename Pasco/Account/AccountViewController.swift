@@ -96,11 +96,11 @@ class AccountViewController: UIViewController {
     }
     
     private func presentShareSheet() {
-//        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let txt = "Hey, Download Pasco and start preparing for your exam today!\nSee link below:\n<<Place link here>>"
         let sheet = UIAlertController()
-        let mail = UIAlertAction(title: "Mail", style: .default) { (_) in self.presentMailVC() }
-        let message = UIAlertAction(title: "Message", style: .default) { (_) in }
-        let more = UIAlertAction(title: "More", style: .default) { (_) in }
+        let mail = UIAlertAction(title: "Mail", style: .default) { (_) in self.presentMailVCWith(text: txt) }
+        let message = UIAlertAction(title: "Message", style: .default) { (_) in self.presentMessageVCWith(text: txt) }
+        let more = UIAlertAction(title: "More", style: .default) { (_) in self.presentMoreVCWith(text: txt) }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         sheet.addAction(mail)
         sheet.addAction(message)
@@ -109,11 +109,10 @@ class AccountViewController: UIViewController {
         present(sheet, animated: true, completion: nil)
     }
     
-    private func presentMailVC() {
+    private func presentMailVCWith(text: String) {
         let subject = "Share Pasco"
-        let body = "Hey\n Download Pasco and start using today!\nSee link below"
+        let body = text
         let coded = "mailto:snizzer0001.com?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
         if let emailURL: NSURL = NSURL(string: coded!) {
             if UIApplication.shared.canOpenURL(emailURL as URL) {
                 if #available(iOS 10.0, *) {
@@ -121,9 +120,17 @@ class AccountViewController: UIViewController {
                 } else { UIApplication.shared.openURL(emailURL as URL) }
             }
         }
-
     }
-    
+    private func presentMessageVCWith(text: String) {
+        let sms: String = "sms:&body=\(text)"
+        let strURL: String = sms.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        UIApplication.shared.open(URL.init(string: strURL)!, options: [:], completionHandler: nil)
+    }
+    private func presentMoreVCWith(text: String) {
+        let items = [text]
+        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(ac, animated: true)
+    }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.segues.accountToGrades.rawValue {
