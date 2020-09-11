@@ -95,6 +95,35 @@ class AccountViewController: UIViewController {
         }
     }
     
+    private func presentShareSheet() {
+//        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let sheet = UIAlertController()
+        let mail = UIAlertAction(title: "Mail", style: .default) { (_) in self.presentMailVC() }
+        let message = UIAlertAction(title: "Message", style: .default) { (_) in }
+        let more = UIAlertAction(title: "More", style: .default) { (_) in }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        sheet.addAction(mail)
+        sheet.addAction(message)
+        sheet.addAction(more)
+        sheet.addAction(cancel)
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    private func presentMailVC() {
+        let subject = "Share Pasco"
+        let body = "Hey\n Download Pasco and start using today!\nSee link below"
+        let coded = "mailto:snizzer0001.com?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+        if let emailURL: NSURL = NSURL(string: coded!) {
+            if UIApplication.shared.canOpenURL(emailURL as URL) {
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(emailURL as URL)
+                } else { UIApplication.shared.openURL(emailURL as URL) }
+            }
+        }
+
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Constants.segues.accountToGrades.rawValue {
@@ -107,39 +136,58 @@ class AccountViewController: UIViewController {
 
 extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+            switch section {
+            case 0: return 2
+            case 1: return 2
+            default: return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountDetailsCell.rawValue, for: indexPath)
-            if let user = user {
-                cell.textLabel?.text = user.username
-                cell.detailTextLabel?.text = user.email
+        case 0: // ACCOUNT
+            switch indexPath.row {
+            case 0: //USERNAME
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountDetailsCell.rawValue, for: indexPath)
+                if let user = user {
+                    cell.textLabel?.text = user.username
+                    cell.detailTextLabel?.text = user.email
+                }
+                return cell
+            default: //GRADES
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountTestResultsCell.rawValue, for: indexPath)
+                cell.textLabel?.text = Constants.accountGradesTitle
+                cell.detailTextLabel?.text = grades == nil ? "0" : "\(grades!.count)"
+                return cell
             }
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountTestResultsCell.rawValue, for: indexPath)
-            cell.textLabel?.text = Constants.accountGradesTitle
-            cell.detailTextLabel?.text = grades == nil ? "0" : "\(grades!.count)"
-            return cell
-        case 2:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountQuestionRatings.rawValue, for: indexPath)
-            cell.textLabel?.text = Constants.accountRatingsTitle
-            cell.detailTextLabel?.text = "3"
-            return cell
+        case 1: //HELP
+            switch indexPath.row {
+            case 0: //HELP
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountHelp.rawValue, for: indexPath)
+                cell.textLabel?.text = Constants.accountHelp
+                return cell
+            default: //FRIEND
+                let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountTellAFriend.rawValue, for: indexPath)
+                cell.textLabel?.text = Constants.accountFriend
+                cell.detailTextLabel?.text = Constants.accountFriendDetail
+                return cell
+            }
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellIdentifiers.AccountDeveloperCell.rawValue, for: indexPath)
             cell.textLabel?.text = "Developer"
             cell.detailTextLabel?.text = "GhanaWare"
             return cell
         }
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)  //deselect cell
+        //present stylesheet
+        if indexPath.section == 1 && indexPath.row == 1 { presentShareSheet()}
         
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class TestMenuViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var startTestButton: UIButton!
+    @IBOutlet weak var selectTestButton: UIButton!
     static var selection = (exam: "BECE", subject: "RME", year: 1990) {
         didSet { print("TestMenuVC: \(TestMenuViewController.selection)")}
     }
@@ -28,9 +28,7 @@ class TestMenuViewController: UIViewController {
         super.viewWillAppear(true)
         updateUI()
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-    }
+
     
 
     // MARK: - Navigation
@@ -55,12 +53,12 @@ class TestMenuViewController: UIViewController {
     private func updateUI() {
         if Utilities.userIsSignedIn() {
             navigationItem.title = "Take an Exam"
-            startTestButton.isEnabled = true
-            startTestButton.alpha = 1
+            selectTestButton.isEnabled = true
+            selectTestButton.alpha = 1
         } else {
             navigationItem.title = "Sign in to Continue"
-            startTestButton.isEnabled = false
-            startTestButton.alpha = 0.5
+            selectTestButton.isEnabled = false
+            selectTestButton.alpha = 0.5
         }
     }
 }
@@ -84,10 +82,8 @@ extension TestMenuViewController: UITableViewDataSource, UITableViewDelegate {
         
         }
     }
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-    }
+
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        NotificationCenter.default.removeObserver(cell)
+//        NotificationCenter.default.removeObserver(cell)
     }
 }

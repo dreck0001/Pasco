@@ -25,6 +25,12 @@ class QuestionsViewController: UIViewController {
             } else { selectedSubject_YearHasChanged = true }
         }
     }
+//    var examSubjectYear: (exam: String, subject: String, year: Int)? {
+//        didSet {
+//            updateUI()
+//            updateQuestions()
+//        }
+//    }
     
     @IBAction func ShowAnswersAction(_ sender: UIBarButtonItem) {
         showAnswers = !showAnswers
@@ -80,9 +86,6 @@ class QuestionsViewController: UIViewController {
         //hello
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//
-//    }
 
 }
 

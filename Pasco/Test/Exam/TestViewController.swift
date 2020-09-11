@@ -332,13 +332,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 if test.chosen[TestViewController.curQuestionNumber] == "A" {
                     cell.checkOptionView.isHidden = false
                     if shouldDisplayAnswers {
-                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "A") ? .green : .red
-                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "A") ? .green : .red
+                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "A") ? Constants.correctColor : Constants.wrongColor
+                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "A") ? Constants.correctColor : Constants.wrongColor
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
                     if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "A" {
-                        cell.optionLabel.backgroundColor = .green
+                        cell.optionLabel.backgroundColor = Constants.correctColor
                     }
                 }
             case 2:
@@ -347,13 +347,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 if test.chosen[TestViewController.curQuestionNumber] == "B" {
                     cell.checkOptionView.isHidden = false
                     if shouldDisplayAnswers {
-                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "B") ? .green : .red
-                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "B") ? .green : .red
+                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "B") ? Constants.correctColor : Constants.wrongColor
+                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "B") ? Constants.correctColor : Constants.wrongColor
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
                     if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "B" {
-                        cell.optionLabel.backgroundColor = .green
+                        cell.optionLabel.backgroundColor = Constants.correctColor
                     }
                 }
             case 3:
@@ -362,13 +362,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 if test.chosen[TestViewController.curQuestionNumber] == "C" {
                     cell.checkOptionView.isHidden = false
                     if shouldDisplayAnswers {
-                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "C") ? .green : .red
-                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "C") ? .green : .red
+                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "C") ? Constants.correctColor : Constants.wrongColor
+                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "C") ? Constants.correctColor : Constants.wrongColor
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
                     if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "C" {
-                        cell.optionLabel.backgroundColor = .green
+                        cell.optionLabel.backgroundColor = Constants.correctColor
                     }
                 }
             case 4:
@@ -377,13 +377,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 if test.chosen[TestViewController.curQuestionNumber] == "D" {
                     cell.checkOptionView.isHidden = false
                     if shouldDisplayAnswers {
-                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "D") ? .green : .red
-                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "D") ? .green : .red
+                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "D") ? Constants.correctColor : Constants.wrongColor
+                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "D") ? Constants.correctColor : Constants.wrongColor
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
                     if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "D" {
-                        cell.optionLabel.backgroundColor = .green
+                        cell.optionLabel.backgroundColor = Constants.correctColor
                     }
                 }
             case 5:
@@ -392,13 +392,13 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
                 if test.chosen[TestViewController.curQuestionNumber] == "E" {
                     cell.checkOptionView.isHidden = false
                     if shouldDisplayAnswers {
-                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "E") ? .green : .red
-                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "E") ? .green : .red
+                        cell.checkOptionView.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "E") ? Constants.correctColor : Constants.wrongColor
+                        cell.optionLabel.backgroundColor = (test.answers[TestViewController.curQuestionNumber] == "E") ? Constants.correctColor : Constants.wrongColor
                     }
                 } else {
                     cell.checkOptionView.isHidden = true
                     if shouldDisplayAnswers && test.answers[TestViewController.curQuestionNumber] == "E" {
-                        cell.optionLabel.backgroundColor = .green
+                        cell.optionLabel.backgroundColor = Constants.correctColor
                     }
                 }
 

@@ -11,7 +11,8 @@ import UIKit
 
 struct Constants {
     static let appColor: UIColor = #colorLiteral(red: 0.9474228024, green: 0.5469378233, blue: 0.0007671079366, alpha: 1)
-    static let correctColor: UIColor = .green
+    static let correctColor: UIColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+    static let wrongColor: UIColor = #colorLiteral(red: 0.4392156899, green: 0.01176470611, blue: 0.1921568662, alpha: 1)
 
     static let fillAllFieldsError = "Please fill all fields"
     static let creatingUserError = "An unknown error occurred. Please try again"
@@ -24,8 +25,10 @@ struct Constants {
     static let testPrevButtonText = "← PREVIOUS"
     static let testNextButtonText = "NEXT →"
     static let testNoAnswerOption = "No Answer"
-    static let accountGradesTitle = "My Grades"
-    static let accountRatingsTitle = "My Ratings"
+    static let accountGradesTitle = "My grades"
+    static let accountHelp = "Help"
+    static let accountFriend = "Tell a friend"
+    static let accountFriendDetail = "Share"
 
 
     static let usernamePlaceholder = "Username"
@@ -43,6 +46,7 @@ struct Constants {
        case AccountCheckToRegister = "toRegister"
          case AccountCheckToSignIn = "toSignIn"
             case TestMenuSelect = "selectSegue"
+        case QuestionsMenuSelect = "selectSegue1"
         case accountToGrades = "accountToGrades"
     }
     enum cellIdentifiers: String {
@@ -50,7 +54,7 @@ struct Constants {
          case QuestionSelectionCell = "selectionCell"
                   case QuestionCell = "questionCell"
         case AccountTestResultsCell = "gradesCell"
-        case AccountQuestionRatings = "questionRatings"
+        case AccountHelp = "helpCell"
         case AccountDeveloperCell = "developerCell"
         case TestSubject = "testSubject"
         case TestYear = "testYear"
@@ -59,6 +63,7 @@ struct Constants {
         case TestOption = "testOption"
         case TestNextQuestion = "testNextQuestion"
         case GradesExamCell = "examCell"
+        case AccountTellAFriend = "friendCell"
     }
     
     enum AlertMessages: String {

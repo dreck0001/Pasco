@@ -19,7 +19,6 @@ class TestYearTableViewCell: UITableViewCell {
         yearPicker.dataSource = self
         
         NotificationCenter.default.addObserver( self, selector: #selector(onDidSelectSubject(_:)), name: NSNotification.Name(rawValue: "subjectSelected"), object: nil )
-
     }
     
     @objc func onDidSelectSubject(_ notification:Notification) {
@@ -40,16 +39,7 @@ class TestYearTableViewCell: UITableViewCell {
             TestMenuViewController.selection.year = yrs![selectedYrRow]
             
         }
-        // send notification to TestYearTableViewCell
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "subjectSelected"), object: nil)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
 extension TestYearTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -23,7 +23,6 @@ class TestSubjectTableViewCell: UITableViewCell {
     
     
     @objc func onDidSelectExam(_ notification:Notification) {
-//        print("TestSubVC:  examSelected recieved! Reloading cell!!")
         // reset the picker to first element
         subjectPicker.selectRow(0, inComponent: 0, animated: true)
         subjectPicker.reloadAllComponents()
@@ -40,12 +39,6 @@ class TestSubjectTableViewCell: UITableViewCell {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "subjectSelected"), object: nil)
     }
     
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 }
 
 extension TestSubjectTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {

@@ -1,14 +1,14 @@
 //
-//  TestExamTableViewCell.swift
+//  QuestionsExamTableViewCell.swift
 //  Pasco
 //
-//  Created by Denis on 8/8/20.
+//  Created by denis on 9/9/20.
 //  Copyright © 2020 GhanaWare. All rights reserved.
 //
 
 import UIKit
 
-class TestExamTableViewCell: UITableViewCell {
+class QuestionsExamTableViewCell: UITableViewCell {
 
     @IBOutlet weak var examPicker: UIPickerView!
     
@@ -17,11 +17,11 @@ class TestExamTableViewCell: UITableViewCell {
         // Initialization code
         examPicker.delegate = self
         examPicker.dataSource = self
+        
     }
-
 }
 
-extension TestExamTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
+extension QuestionsExamTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -36,8 +36,8 @@ extension TestExamTableViewCell: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // update TestMenuViewController.exam
-        TestMenuViewController.selection.exam = Constants.exam[row]
+        QuestionsMenuViewController.selection.exam = Constants.exam[row]
         // send notification to TestSubjectTableViewCell
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "examSelected"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "examSelected1"), object: nil)
     }
 }
