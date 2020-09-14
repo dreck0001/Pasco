@@ -1523,6 +1523,145 @@
             </objects>
             <point key="canvasLocation" x="1587" y="2328"/>
         </scene>
+        <!--Developer-->
+        <scene sceneID="mKS-tv-yaP">
+            <objects>
+                <viewController id="pAb-Vy-IXB" customClass="DeveloperViewController" customModule="Pasco" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TXp-TG-fbr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wjs-dI-APS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="developerImage" rowHeight="189" id="6Qr-wm-fde">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="189"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6Qr-wm-fde" id="bZD-b4-vzc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="189"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo9" translatesAutoresizingMaskIntoConstraints="NO" id="qpx-cb-3fj">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="189"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="200" id="12Q-V7-pdf"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qpx-cb-3fj" firstAttribute="leading" secondItem="bZD-b4-vzc" secondAttribute="leading" id="Igl-49-ciY"/>
+                                                <constraint firstItem="qpx-cb-3fj" firstAttribute="top" secondItem="bZD-b4-vzc" secondAttribute="top" id="ItV-L1-eyp"/>
+                                                <constraint firstAttribute="trailing" secondItem="qpx-cb-3fj" secondAttribute="trailing" id="Zue-a9-ckf"/>
+                                                <constraint firstAttribute="bottom" secondItem="qpx-cb-3fj" secondAttribute="bottom" id="kGR-AZ-KU1"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="developerDescription" textLabel="fLd-Dh-tGT" style="IBUITableViewCellStyleDefault" id="MuG-OX-73m">
+                                        <rect key="frame" x="0.0" y="217" width="414" height="98"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MuG-OX-73m" id="mGs-cf-YCm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="98"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" alpha="0.69999999999999996" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fLd-Dh-tGT">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="98"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment>
+                                                            <string key="content">GhanaWare is an emerging software developer focused on delivering high quality software products relevant to the Ghanaian people. Use the links below to read about our mission and explore our products. Icons by Icons8.</string>
+                                                            <attributes>
+                                                                <font key="NSFont" size="14" name="Courier"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="developerLinks" rowHeight="130" id="J44-C6-fLW">
+                                        <rect key="frame" x="0.0" y="315" width="414" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J44-C6-fLW" id="WfV-yM-Tib">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8or-uZ-kgp">
+                                                    <rect key="frame" x="20" y="11" width="374" height="108"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RPl-af-uD4">
+                                                            <rect key="frame" x="0.0" y="19" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="oxR-tD-aKr"/>
+                                                                <constraint firstAttribute="width" constant="70" id="vIe-zU-Lol"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="fb_144"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnz-Rf-heh">
+                                                            <rect key="frame" x="101.5" y="19" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="70" id="78i-J9-Rd1"/>
+                                                                <constraint firstAttribute="width" constant="70" id="GzM-YA-chB"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="insta_144"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bk-3V-Rz2">
+                                                            <rect key="frame" x="202.5" y="19" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="40r-za-6iy"/>
+                                                                <constraint firstAttribute="height" constant="70" id="6ZM-dZ-v8U"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="twitter_144"/>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCH-6e-ece">
+                                                            <rect key="frame" x="304" y="19" width="70" height="70"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="70" id="6jg-xW-xSx"/>
+                                                                <constraint firstAttribute="height" constant="70" id="zAv-Yj-iXm"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Button" image="web_96"/>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8or-uZ-kgp" firstAttribute="leading" secondItem="WfV-yM-Tib" secondAttribute="leadingMargin" id="MCh-VC-UDO"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8or-uZ-kgp" secondAttribute="bottom" id="ZT9-Gg-er6"/>
+                                                <constraint firstItem="8or-uZ-kgp" firstAttribute="top" secondItem="WfV-yM-Tib" secondAttribute="topMargin" id="ZeV-4j-s39"/>
+                                                <constraint firstItem="8or-uZ-kgp" firstAttribute="trailing" secondItem="WfV-yM-Tib" secondAttribute="trailingMargin" id="r4w-UW-Nhh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wjs-dI-APS" firstAttribute="leading" secondItem="QhU-EZ-All" secondAttribute="leading" id="GjI-xQ-rnH"/>
+                            <constraint firstItem="wjs-dI-APS" firstAttribute="bottom" secondItem="QhU-EZ-All" secondAttribute="bottom" id="N6Y-4m-897"/>
+                            <constraint firstItem="wjs-dI-APS" firstAttribute="top" secondItem="QhU-EZ-All" secondAttribute="top" id="Pxg-cL-l8h"/>
+                            <constraint firstItem="wjs-dI-APS" firstAttribute="trailing" secondItem="QhU-EZ-All" secondAttribute="trailing" id="y3d-cc-oQ8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QhU-EZ-All"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Developer" id="tZM-82-zbj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="xmark" catalog="system" id="oUi-SQ-Vdu">
+                            <connections>
+                                <action selector="cancelAction:" destination="pAb-Vy-IXB" id="fFX-ZP-9d7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="wjs-dI-APS" id="BzQ-yR-igK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RFR-vv-N70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3298.5507246376815" y="2327.0089285714284"/>
+        </scene>
         <!--fgbfgfgbnf-->
         <scene sceneID="rzC-FM-QPh">
             <objects>
@@ -1700,6 +1839,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qAU-VE-oIq" kind="presentation" modalPresentationStyle="fullScreen" id="vRh-Ua-uj3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -2111,6 +2253,25 @@
             </objects>
             <point key="canvasLocation" x="1250.7246376811595" y="-313.39285714285711"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Enl-yS-Wec">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qAU-VE-oIq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="RVF-Rb-IlJ"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nLB-9N-ccQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pAb-Vy-IXB" kind="relationship" relationship="rootViewController" id="2Tl-4J-KRL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ynz-c3-9Yu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537.68115942029" y="2327.6785714285711"/>
+        </scene>
     </scenes>
     <color key="tintColor" red="0.89306230063265468" green="0.5664406517777002" blue="0.20283423048309701" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
@@ -2119,13 +2280,18 @@
         <image name="a.square.fill" catalog="system" width="128" height="114"/>
         <image name="desktopcomputer" catalog="system" width="128" height="101"/>
         <image name="eye" catalog="system" width="128" height="81"/>
+        <image name="fb_144" width="144" height="144"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="insta_144" width="144" height="144"/>
+        <image name="logo9" width="596" height="565"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="128" height="81"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="rectangle.split.3x3" catalog="system" width="128" height="93"/>
         <image name="rectangle.stack.fill" catalog="system" width="128" height="122"/>
+        <image name="twitter_144" width="144" height="144"/>
+        <image name="web_96" width="96" height="96"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

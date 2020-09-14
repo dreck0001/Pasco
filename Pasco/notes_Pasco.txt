@@ -57,3 +57,19 @@ Add the following to pod file:
     pod 'TextFieldEffects'
     enter "pod repo update" then "pod install" in terminal
 https://github.com/raulriera/TextFieldEffects
+
+
+09/13/2020 - Icon8 icons used:
+------------------------------
+https://icons8.com/license
+MOBILE APPS
+For smartphone apps, please set a link to https://icons8.com in the About dialog or settings.
+Also, please credit our work in your App Store or Google Play description (something like "Icons by Icons8" is fine).
+
+tasks left
+----------
+1. create social media accounts and links in DeveloperVC
+2. fix issue with percentage not displaying in 2 decimal points
+3. get materials for FAQ, Contact Us and Terms
+4. fix issue with ShareVC where it's not displaying on iPad
+5. IMPORT DATA EXAM DATA INTO FIREBASE

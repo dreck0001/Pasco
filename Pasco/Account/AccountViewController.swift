@@ -95,29 +95,43 @@ class AccountViewController: UIViewController {
         }
     }
     
-    private func presentShareSheet() {
-        let txt = "Hey, Download Pasco and start preparing for your exam today!\nSee link below:\n<<Place link here>>"
-        let sheet = UIAlertController()
+    private func presentShareSheet(from cell: UITableViewCell) {
+        let txt = "Hey, Download Pasco and start preparing for your exam today!\nUse the link below to download:\n<<Place link here>>"
+        let alertController = UIAlertController()
         let mail = UIAlertAction(title: "Mail", style: .default) { (_) in self.presentMailVCWith(text: txt) }
         let message = UIAlertAction(title: "Message", style: .default) { (_) in self.presentMessageVCWith(text: txt) }
         let more = UIAlertAction(title: "More", style: .default) { (_) in self.presentMoreVCWith(text: txt) }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        sheet.addAction(mail)
-        sheet.addAction(message)
-        sheet.addAction(more)
-        sheet.addAction(cancel)
-        present(sheet, animated: true, completion: nil)
+        alertController.addAction(mail)
+        alertController.addAction(message)
+        alertController.addAction(more)
+        alertController.addAction(cancel)
+        // For iPad: before presenting alertController, alertController's popoverPresentationController needs to be set to avoid ipad errors
+        // https://medium.com/@nickmeehan/actionsheet-popover-on-ipad-in-swift-5768dfa82094
+        if let popoverController = alertController.popoverPresentationController {
+            popoverController.sourceView = parent?.view
+            popoverController.sourceRect = CGRect(x: cell.frame.midX, y: cell.frame.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     private func presentMailVCWith(text: String) {
         let subject = "Share Pasco"
         let body = text
-        let coded = "mailto:snizzer0001.com?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let coded = "mailto:?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         if let emailURL: NSURL = NSURL(string: coded!) {
             if UIApplication.shared.canOpenURL(emailURL as URL) {
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(emailURL as URL)
                 } else { UIApplication.shared.openURL(emailURL as URL) }
+            } else {
+                // send alert to tell user to enable email to procede
+                let alertController = UIAlertController(title: "Cannot Send Message", message: "Please enable email in settings to allow this action", preferredStyle: .alert)
+                let ok = UIAlertAction(title: "Ok", style: .default)
+                alertController.addAction(ok)
+                present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -128,8 +142,14 @@ class AccountViewController: UIViewController {
     }
     private func presentMoreVCWith(text: String) {
         let items = [text]
-        let ac = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        present(ac, animated: true)
+        let activityController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        if let popoverController = activityController.popoverPresentationController {
+            popoverController.sourceView = parent?.view
+//            popoverController.sourceRect = CGRect(x: cell.frame.midX, y: cell.frame.midY, width: 0, height: 0)
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        present(activityController, animated: true)
     }
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -194,7 +214,9 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)  //deselect cell
         //present stylesheet
-        if indexPath.section == 1 && indexPath.row == 1 { presentShareSheet()}
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if indexPath.section == 1 && indexPath.row == 1 { presentShareSheet(from: cell)}
+        }
         
     }
 }

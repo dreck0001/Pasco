@@ -36,6 +36,7 @@
 		9263096724AE7F9E00E46509 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9263096624AE7F9E00E46509 /* Utilities.swift */; };
 		92688F5B2507451700405317 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92688F5A2507451700405317 /* HelpViewController.swift */; };
 		92688F5F25088BD100405317 /* Questions1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92688F5E25088BD100405317 /* Questions1ViewController.swift */; };
+		92688F61250D824600405317 /* DeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92688F60250D824600405317 /* DeveloperViewController.swift */; };
 		926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7527249FD71C00F4EBEE /* LogInViewController.swift */; };
 		926D752A249FDBB400F4EBEE /* AccountCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */; };
 		92728E5824DE15490048CB95 /* TestMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92728E5724DE15490048CB95 /* TestMenuViewController.swift */; };
@@ -115,6 +116,7 @@
 		9263096624AE7F9E00E46509 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = ../Model/Utilities.swift; sourceTree = "<group>"; };
 		92688F5A2507451700405317 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		92688F5E25088BD100405317 /* Questions1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Questions1ViewController.swift; sourceTree = "<group>"; };
+		92688F60250D824600405317 /* DeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperViewController.swift; sourceTree = "<group>"; };
 		926D7527249FD71C00F4EBEE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCheckViewController.swift; sourceTree = "<group>"; };
 		92728E5724DE15490048CB95 /* TestMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMenuViewController.swift; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 				9210BA732440301F00F92204 /* AccountViewController.swift */,
 				926D7527249FD71C00F4EBEE /* LogInViewController.swift */,
 				92CFCBFA24A17BAB00912CC1 /* RegisterViewController.swift */,
+				92688F60250D824600405317 /* DeveloperViewController.swift */,
 				92133B6E2502C020008A8FE4 /* Grades */,
 				92688F59250744EE00405317 /* Help */,
 			);
@@ -664,6 +667,7 @@
 				92728E5824DE15490048CB95 /* TestMenuViewController.swift in Sources */,
 				92A77F2024E76E9D00C63A1D /* TestPrevNextTableViewCell.swift in Sources */,
 				9263096724AE7F9E00E46509 /* Utilities.swift in Sources */,
+				92688F61250D824600405317 /* DeveloperViewController.swift in Sources */,
 				92CFCBFE24A2C03500912CC1 /* User.swift in Sources */,
 				92688F5F25088BD100405317 /* Questions1ViewController.swift in Sources */,
 			);
