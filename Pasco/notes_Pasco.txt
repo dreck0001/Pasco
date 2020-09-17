@@ -69,7 +69,10 @@ Also, please credit our work in your App Store or Google Play description (somet
 tasks left
 ----------
 1. create social media accounts and links in DeveloperVC
-2. fix issue with percentage not displaying in 2 decimal points
-3. get materials for FAQ, Contact Us and Terms
+2. Done: fix issue with percentage not displaying in 2 decimal points
+3. get materials for
+    Started: FAQ,
+    Done: Contact Us
+    Not Done: Terms
 4. Done: fix issue with ShareVC where it's not displaying on iPad
 5. IMPORT DATA EXAM DATA INTO FIREBASE

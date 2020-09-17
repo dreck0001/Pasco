@@ -48,6 +48,7 @@
 		92A77F1E24E76E4100C63A1D /* TestOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1D24E76E4100C63A1D /* TestOptionTableViewCell.swift */; };
 		92A77F2024E76E9D00C63A1D /* TestPrevNextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F1F24E76E9D00C63A1D /* TestPrevNextTableViewCell.swift */; };
 		92A77F2224E7719000C63A1D /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A77F2124E7719000C63A1D /* Test.swift */; };
+		92C45A9625101A4800C14C88 /* FAQTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C45A9525101A4800C14C88 /* FAQTableViewController.swift */; };
 		92C7EF96249F13BB00E2BFA4 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */; };
 		92C7EF97249F13BC00E2BFA4 /* DesignableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C7EF95249F13BB00E2BFA4 /* DesignableButton.swift */; };
 		92C8132224E4DC600095C8DB /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C8132124E4DC600095C8DB /* TestViewController.swift */; };
@@ -128,6 +129,7 @@
 		92A77F1D24E76E4100C63A1D /* TestOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestOptionTableViewCell.swift; sourceTree = "<group>"; };
 		92A77F1F24E76E9D00C63A1D /* TestPrevNextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPrevNextTableViewCell.swift; sourceTree = "<group>"; };
 		92A77F2124E7719000C63A1D /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
+		92C45A9525101A4800C14C88 /* FAQTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQTableViewController.swift; sourceTree = "<group>"; };
 		92C7EF94249F13BA00E2BFA4 /* DesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		92C7EF95249F13BB00E2BFA4 /* DesignableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		92C8132124E4DC600095C8DB /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				92688F5A2507451700405317 /* HelpViewController.swift */,
+				92C45A9525101A4800C14C88 /* FAQTableViewController.swift */,
 			);
 			path = Help;
 			sourceTree = "<group>";
@@ -323,16 +326,24 @@
 			path = Exam;
 			sourceTree = "<group>";
 		};
+		92C45A94251010E200C14C88 /* AccountVC */ = {
+			isa = PBXGroup;
+			children = (
+				9210BA732440301F00F92204 /* AccountViewController.swift */,
+				92688F60250D824600405317 /* DeveloperViewController.swift */,
+				92133B6E2502C020008A8FE4 /* Grades */,
+				92688F59250744EE00405317 /* Help */,
+			);
+			path = AccountVC;
+			sourceTree = "<group>";
+		};
 		92C7EF93249EFBCB00E2BFA4 /* Account */ = {
 			isa = PBXGroup;
 			children = (
 				926D7529249FDBB400F4EBEE /* AccountCheckViewController.swift */,
-				9210BA732440301F00F92204 /* AccountViewController.swift */,
+				92C45A94251010E200C14C88 /* AccountVC */,
 				926D7527249FD71C00F4EBEE /* LogInViewController.swift */,
 				92CFCBFA24A17BAB00912CC1 /* RegisterViewController.swift */,
-				92688F60250D824600405317 /* DeveloperViewController.swift */,
-				92133B6E2502C020008A8FE4 /* Grades */,
-				92688F59250744EE00405317 /* Help */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -642,6 +653,7 @@
 				92A77F1E24E76E4100C63A1D /* TestOptionTableViewCell.swift in Sources */,
 				92769C242501E37000261A54 /* Grade.swift in Sources */,
 				92769C262504953E00261A54 /* ExamTableViewCell.swift in Sources */,
+				92C45A9625101A4800C14C88 /* FAQTableViewController.swift in Sources */,
 				92133B7B2509674B008A8FE4 /* QuestionsExamTableViewCell.swift in Sources */,
 				92A77F1624DF9CF900C63A1D /* TestSubjectTableViewCell.swift in Sources */,
 				926D7528249FD71C00F4EBEE /* LogInViewController.swift in Sources */,

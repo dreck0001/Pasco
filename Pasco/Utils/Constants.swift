@@ -29,11 +29,21 @@ struct Constants {
     static let accountHelp = "Help"
     static let accountFriend = "Tell a friend"
     static let accountFriendDetail = "Share"
-
-
     static let usernamePlaceholder = "Username"
     static let emailPlaceholder = "Email"
     static let passwordPlaceholder = "Password"
+    
+
+    static let faq: [Int : (question: String, answer: String)] = [
+        0: ("What is Pasco?", "Pasco is an educational app that helps prepare students for exams."),
+        1: ("Who is Pasco for?", "Pasco is for student preparing for an exam or teachers and parents helping students prepare"),
+        2: ("What does it cost to download the app?", "Pasco is free to download")
+    ]
+    static let helpCells = [
+        0: "faqCell",
+        1: "contactUsCell",
+        2: "termsCell"
+    ]
     struct admob {
                           static let appId = "ca-app-pub-7701962660538609~4342523085"
              static let bannerViewAdUnitID = "ca-app-pub-7701962660538609/6756739913"
