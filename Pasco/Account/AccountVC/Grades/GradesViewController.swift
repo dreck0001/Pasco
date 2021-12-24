@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftDate
+import GoogleMobileAds
 
 class GradesViewController: UIViewController {
     

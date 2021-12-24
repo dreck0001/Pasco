@@ -26,9 +26,50 @@ class DeveloperViewController: UIViewController {
     }
     
     // MARK: - Navigation
-
     
+//    func follow
 
+    @IBAction func facebookPresed(_ sender: UIButton) {
+        guard let facebookAppURL = URL(string: "fb://profile/105446761056284") else { return }
+        guard let facebookWebURL = URL(string: "https://www.facebook.com/ghanaware") else { return }
+
+        if UIApplication.shared.canOpenURL(facebookAppURL) {
+            UIApplication.shared.open(facebookAppURL, options: [:], completionHandler: nil)
+        }
+        else { UIApplication.shared.open(facebookWebURL, options: [:], completionHandler: nil) }
+    }
+    
+    @IBAction func instagramPressed(_ sender: UIButton) {
+        let screenName =  "ghanaware"
+        guard let instagramAppURL = URL(string: "instagram://user?username=\(screenName)") else { return }
+        guard let instagramWebURL = URL(string:  "https://instagram.com/\(screenName)") else { return }
+
+        if UIApplication.shared.canOpenURL(instagramAppURL) {
+            UIApplication.shared.open(instagramAppURL, options: [:], completionHandler: nil)
+        }
+        else { UIApplication.shared.open(instagramWebURL, options: [:], completionHandler: nil) }
+    }
+    
+    @IBAction func twitterPressed(_ sender: UIButton) {
+        let screenName =  "ghanaware"
+        guard let twitterAppURL = URL(string: "twitter://user?screen_name=\(screenName)") else { return }
+        guard let twitterWebURL = URL(string:  "https://twitter.com/\(screenName)") else { return }
+
+        if UIApplication.shared.canOpenURL(twitterAppURL) {
+            UIApplication.shared.open(twitterAppURL, options: [:], completionHandler: nil)
+        }
+        else { UIApplication.shared.open(twitterWebURL, options: [:], completionHandler: nil) }
+    }
+    
+    @IBAction func webPressed(_ sender: UIButton) {
+        
+    }
+    
+    
+    
+    
+    
+    
 }
 
 extension DeveloperViewController: UITableViewDataSource, UITableViewDelegate {
