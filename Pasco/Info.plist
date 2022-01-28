@@ -62,5 +62,11 @@
 	</array>
 	<key>GADIsAdManagerApp</key>
 	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fb</string>
+		<string>instagram</string>
+		<string>twitter</string>
+	</array>
 </dict>
 </plist>

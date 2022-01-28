@@ -768,9 +768,112 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5s-81-auH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="O95-nE-zwe" userLabel="verify/resend/refresh">
+                                        <rect key="frame" x="50" y="640" width="314" height="108"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r6i-9p-olb" customClass="DesignableButton" customModule="Pasco" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="314" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="TfD-7l-SgO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                <state key="normal" title="Verify email">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="0.29772937300000002" green="0.39089709519999999" blue="0.61571127179999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="verifyButtonPressed:" destination="FWh-5n-x0e" eventType="touchUpInside" id="dFe-FM-79c"/>
+                                                </connections>
+                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="8Eb-bd-rMQ" userLabel="Resend/Refresh stack">
+                                                <rect key="frame" x="0.0" y="58" width="314" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nK9-Ku-QD0" customClass="DesignableButton" customModule="Pasco" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="139.5" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <state key="normal" title="Resend">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="resendButtonPressed:" destination="FWh-5n-x0e" eventType="touchUpInside" id="MdF-Of-Rsv"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bYb-3s-P8i" customClass="DesignableButton" customModule="Pasco" customModuleProvider="target">
+                                                        <rect key="frame" x="174.5" y="0.0" width="139.5" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                        <state key="normal" title="Refresh">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="13"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="refreshButtonPressed:" destination="FWh-5n-x0e" eventType="touchUpInside" id="Dhj-E7-ndk"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="nK9-Ku-QD0" firstAttribute="height" secondItem="r6i-9p-olb" secondAttribute="height" id="0N4-q5-GwC"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A verification link was sent to your email. Please use it to verify your account." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03y-vs-iJk">
+                                        <rect key="frame" x="50" y="94" width="314" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4uT-I1-er3">
+                                        <rect key="frame" x="369" y="44" width="25" height="25"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="InL-xk-pNh"/>
+                                            <constraint firstAttribute="width" constant="25" id="eDY-IY-77x"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="xmark" catalog="system"/>
+                                        <connections>
+                                            <action selector="cancelEmailVerificationPressed:" destination="FWh-5n-x0e" eventType="touchUpInside" id="MUA-4c-xpj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.80076955449999998" green="0.50790233569999998" blue="0.1818725035" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-6Y-Wgl">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="bkH-6Y-Wgl" userLabel="register/signIn stack">
                                 <rect key="frame" x="50" y="640" width="314" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WGz-x5-Oyd" customClass="DesignableButton" customModule="Pasco" customModuleProvider="target">
@@ -795,7 +898,6 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="RegisterAction:" destination="FWh-5n-x0e" eventType="touchUpInside" id="7JX-wP-Sll"/>
                                             <segue destination="xui-Xr-K7F" kind="show" identifier="toRegister" id="gLW-ql-vA6"/>
                                         </connections>
                                     </button>
@@ -841,19 +943,33 @@
                         <constraints>
                             <constraint firstItem="x5s-81-auH" firstAttribute="trailing" secondItem="O9v-TK-5vh" secondAttribute="trailing" id="0gZ-4r-PJJ"/>
                             <constraint firstItem="Lbi-fC-Ckl" firstAttribute="centerY" secondItem="O9v-TK-5vh" secondAttribute="centerY" id="6dZ-mB-QNA"/>
+                            <constraint firstItem="O9v-TK-5vh" firstAttribute="trailing" secondItem="O95-nE-zwe" secondAttribute="trailing" constant="50" id="7Zr-b4-wCS"/>
+                            <constraint firstItem="03y-vs-iJk" firstAttribute="leading" secondItem="O9v-TK-5vh" secondAttribute="leading" constant="50" id="9TW-W2-9My"/>
                             <constraint firstItem="x5s-81-auH" firstAttribute="bottom" secondItem="O9v-TK-5vh" secondAttribute="bottom" id="A0j-hQ-LQm"/>
                             <constraint firstItem="Lbi-fC-Ckl" firstAttribute="centerX" secondItem="O9v-TK-5vh" secondAttribute="centerX" id="LDB-dH-IAs"/>
+                            <constraint firstItem="O9v-TK-5vh" firstAttribute="trailing" secondItem="03y-vs-iJk" secondAttribute="trailing" constant="50" id="OUB-V3-sRw"/>
+                            <constraint firstItem="4uT-I1-er3" firstAttribute="top" secondItem="O9v-TK-5vh" secondAttribute="top" id="PG3-r4-cMZ"/>
+                            <constraint firstItem="03y-vs-iJk" firstAttribute="top" secondItem="O9v-TK-5vh" secondAttribute="top" constant="50" id="cuX-sv-sUH"/>
+                            <constraint firstItem="O9v-TK-5vh" firstAttribute="bottom" secondItem="O95-nE-zwe" secondAttribute="bottom" constant="65" id="ewM-7h-t3c"/>
                             <constraint firstItem="x5s-81-auH" firstAttribute="leading" secondItem="O9v-TK-5vh" secondAttribute="leading" id="gl8-EG-DLU"/>
+                            <constraint firstItem="O95-nE-zwe" firstAttribute="leading" secondItem="O9v-TK-5vh" secondAttribute="leading" constant="50" id="hlw-t0-XIK"/>
                             <constraint firstItem="O9v-TK-5vh" firstAttribute="bottom" secondItem="bkH-6Y-Wgl" secondAttribute="bottom" constant="65" id="hvx-WC-96G"/>
+                            <constraint firstItem="O9v-TK-5vh" firstAttribute="trailing" secondItem="4uT-I1-er3" secondAttribute="trailing" constant="20" id="jUN-oQ-6oV"/>
                             <constraint firstItem="x5s-81-auH" firstAttribute="top" secondItem="6Tq-wQ-CbQ" secondAttribute="top" id="kWF-86-3Cc"/>
                             <constraint firstItem="O9v-TK-5vh" firstAttribute="trailing" secondItem="bkH-6Y-Wgl" secondAttribute="trailing" constant="50" id="kdH-Ce-kuA"/>
+                            <constraint firstItem="O95-nE-zwe" firstAttribute="width" secondItem="bkH-6Y-Wgl" secondAttribute="width" id="qL1-We-rsH"/>
                             <constraint firstItem="bkH-6Y-Wgl" firstAttribute="leading" secondItem="O9v-TK-5vh" secondAttribute="leading" constant="50" id="yJq-nL-Zz2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="iM8-r5-dqC"/>
                     <connections>
+                        <outlet property="cancelEmailVerificationButton" destination="4uT-I1-er3" id="Wbj-lu-Kbd"/>
+                        <outlet property="refreshButton" destination="bYb-3s-P8i" id="A2v-Pe-s31"/>
                         <outlet property="registerButton" destination="WGz-x5-Oyd" id="Ypr-OG-uhQ"/>
+                        <outlet property="resendButton" destination="nK9-Ku-QD0" id="mRb-p2-U8J"/>
                         <outlet property="signInButton" destination="SQs-Wo-VFG" id="o48-Tn-71Y"/>
+                        <outlet property="verifyButton" destination="r6i-9p-olb" id="XHv-YI-bOl"/>
+                        <outlet property="verifyLabel" destination="03y-vs-iJk" id="tqh-wu-cwo"/>
                         <segue destination="ej2-VM-TRt" kind="show" identifier="toAccountVC" id="Re6-Aj-tjW"/>
                     </connections>
                 </viewController>
@@ -1749,8 +1865,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3tD-rc-vbI">
-                                                    <rect key="frame" x="58" y="45" width="44" height="14.5"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3tD-rc-vbI">
+                                                    <rect key="frame" x="58" y="45" width="30" height="14.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" systemColor="systemBlueColor"/>
@@ -1914,7 +2030,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWE-P5-DsO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="BRZ-Kh-Hwi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1730" y="1618"/>
+            <point key="canvasLocation" x="1643" y="1618"/>
         </scene>
         <!--Help-->
         <scene sceneID="zt4-I2-QqS">
@@ -2378,6 +2494,9 @@
         <designable name="awo-ZN-GpD">
             <size key="intrinsicContentSize" width="88" height="29"/>
         </designable>
+        <designable name="bYb-3s-P8i">
+            <size key="intrinsicContentSize" width="53" height="29"/>
+        </designable>
         <designable name="c4H-Eg-WQb">
             <size key="intrinsicContentSize" width="44" height="29"/>
         </designable>
@@ -2390,8 +2509,14 @@
         <designable name="nCF-iy-HtE">
             <size key="intrinsicContentSize" width="154.5" height="29"/>
         </designable>
+        <designable name="nK9-Ku-QD0">
+            <size key="intrinsicContentSize" width="51" height="29"/>
+        </designable>
         <designable name="nZQ-Nd-r5e">
             <size key="intrinsicContentSize" width="93.5" height="29"/>
+        </designable>
+        <designable name="r6i-9p-olb">
+            <size key="intrinsicContentSize" width="80" height="29"/>
         </designable>
         <designable name="r7r-mS-BIs">
             <size key="intrinsicContentSize" width="69" height="30.5"/>

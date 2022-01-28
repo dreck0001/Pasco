@@ -82,8 +82,8 @@ class RegisterViewController: UIViewController {
                     print("---RegisterVC: Authentication: Error creating user account. show user the error and remain on this scene: \(err1)")
                     self.showError(Constants.creatingUserError)
                 } else {
+
 //                    Firebase user created successfully, now save user info in User table
-//                    var docRef: DocumentReference? = nil
                     let user = User(uid: result!.user.uid, email: email, userName: userName)
                     self.db.collection("users").document(user.username).setData(user.toAnyObject() as! [String : Any]) { err in
                         if let err = err {
@@ -91,7 +91,10 @@ class RegisterViewController: UIViewController {
                             print("---RegisterVC: Database: Error writing user to users database. Deleting the user now: \(err)")
                             self.deleteUser()
                         } else {
-                            print("---RegisterVC: Database: User created and added to users database succesfully. Unwinding to AccountCheckVC")
+                            print("---RegisterVC: Database: User created and added to users database succesfully. Check and send emial verification")
+                            self.sendEmailVerification()
+                            
+                            print("---RegisterVC: Unwinding to AccountCheckVC")
 //                            using this method because RegisterVC is presented by a button and not a NavVC
                             if let navcon = self.parent as? UINavigationController {
                                 navcon.popViewController(animated: true)
@@ -103,15 +106,23 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    private func sendEmailVerification() {
+        guard let user = Auth.auth().currentUser else { return }
+        user.sendEmailVerification{ (emailError) in
+            if emailError != nil { print("---\(self.description): sendEmailVerification error: \(emailError)") }
+            else { print("---\(self.description): sendEmailVerification email sent") }
+        }
+    }
+    
     private func deleteUser() {
         let user = Auth.auth().currentUser
-            user?.delete { error in
-              if let error = error {
-                print("---\(self.description): Error deleting user account. Need to add functionality to try to remove user account later: \(error)")
-              } else {
-                print("---\(self.description): User account has been deleted")
-              }
-            }
+        user?.delete { error in
+          if let error = error {
+            print("---\(self.description): Error deleting user account. Need to add functionality to try to remove user account later: \(error)")
+          } else {
+            print("---\(self.description): User account has been deleted")
+          }
+        }
     }
     
 

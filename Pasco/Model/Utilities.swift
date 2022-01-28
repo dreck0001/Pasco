@@ -32,8 +32,13 @@ class Utilities {
         gen.impactOccurred()
     }
     static func userIsSignedIn() -> Bool {
-        if Auth.auth().currentUser != nil { return true }
-        else { return false }
+        return Auth.auth().currentUser != nil
+    }
+    static func userEmailIsVerified() -> Bool {
+        if let user = Auth.auth().currentUser {
+            return user.isEmailVerified
+        }
+        return false
     }
     static func loadQuestionSet(sub: String, yr: Int) {
         sub_yr = sub + "_" + String(yr)
@@ -99,5 +104,4 @@ class Utilities {
         }
         return nil
     }
-
 }

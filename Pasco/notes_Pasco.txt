@@ -69,6 +69,7 @@ Also, please credit our work in your App Store or Google Play description (somet
 tasks left
 ----------
 1. create social media accounts and links in DeveloperVC
+    web versions work but app versions dont work
 2. Done: fix issue with percentage not displaying in 2 decimal points
 3. get materials for
     Started: FAQ,
@@ -76,3 +77,6 @@ tasks left
     Not Done: Terms
 4. Done: fix issue with ShareVC where it's not displaying on iPad
 5. IMPORT DATA EXAM DATA INTO FIREBASE
+6. firebase user
+    Done: create
+    Done: sign in

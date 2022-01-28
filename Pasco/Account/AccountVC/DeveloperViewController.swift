@@ -32,7 +32,6 @@ class DeveloperViewController: UIViewController {
     @IBAction func facebookPresed(_ sender: UIButton) {
         guard let facebookAppURL = URL(string: "fb://profile/105446761056284") else { return }
         guard let facebookWebURL = URL(string: "https://www.facebook.com/ghanaware") else { return }
-
         if UIApplication.shared.canOpenURL(facebookAppURL) {
             UIApplication.shared.open(facebookAppURL, options: [:], completionHandler: nil)
         }
@@ -54,7 +53,6 @@ class DeveloperViewController: UIViewController {
         let screenName =  "ghanaware"
         guard let twitterAppURL = URL(string: "twitter://user?screen_name=\(screenName)") else { return }
         guard let twitterWebURL = URL(string:  "https://twitter.com/\(screenName)") else { return }
-
         if UIApplication.shared.canOpenURL(twitterAppURL) {
             UIApplication.shared.open(twitterAppURL, options: [:], completionHandler: nil)
         }
@@ -62,7 +60,11 @@ class DeveloperViewController: UIViewController {
     }
     
     @IBAction func webPressed(_ sender: UIButton) {
-        
+        let site = "https://www.ghanaware.com"
+        guard let webURL = URL(string: site) else { return }
+        if UIApplication.shared.canOpenURL(webURL) {
+            UIApplication.shared.open(webURL, options: [:], completionHandler: nil)
+        }
     }
     
     

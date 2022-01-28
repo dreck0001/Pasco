@@ -37,9 +37,6 @@ class TestViewController: UIViewController {
     }
     private var shouldDisplayAnswers = false { didSet { print("shouldDisplayAnswers: \(shouldDisplayAnswers)"); tableView.reloadData() } }
     
-    
-    
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,8 +104,6 @@ class TestViewController: UIViewController {
             updateLeftLabel()
         }
     }
-    
-    
     
     // MARK: - My Fuctions
     private func uploadGrade() {
@@ -264,25 +259,25 @@ class TestViewController: UIViewController {
         test.status = .Started
         }
     
-        @objc func onTimerFires()
-        {
+    @objc func onTimerFires()
+    {
 //            stop timer if mins is < 0
-            if mins < 0 {
-                stopTime()
-            } else {
+        if mins < 0 {
+            stopTime()
+        } else {
 //                set the timeLeft string appropriately
-                if secs < 10 { timeLeft = "\(mins):0\(secs)" }
-                else { timeLeft = "\(mins):\(secs)" }
+            if secs < 10 { timeLeft = "\(mins):0\(secs)" }
+            else { timeLeft = "\(mins):\(secs)" }
 //                decrement min and reset secs when secs reaches 0
-                if secs <= 0 {
-                    secs = 60
-                    mins -= 1
-                }
-//                vibrate each sec in the last 10 secs
-                if mins < 1 && secs < 11 { Utilities.vibrate() }
+            if secs <= 0 {
+                secs = 60
+                mins -= 1
             }
-        secs -= 1
+//                vibrate each sec in the last 10 secs
+            if mins < 1 && secs < 11 { Utilities.vibrate() }
         }
+    secs -= 1
+    }
 
     // MARK: - Navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -295,7 +290,6 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
         if TestViewController.curQuestion != nil && TestViewController.curQuestion?.optionE != "" { numOfCells = 7 }
         return numOfCells
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -406,7 +400,6 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if test.status == .Started {
             let firstCell = 0
@@ -431,6 +424,5 @@ extension TestViewController: UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
     }
-    
 }
 

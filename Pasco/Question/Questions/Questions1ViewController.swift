@@ -24,7 +24,6 @@ class Questions1ViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("questions1VC: viewDidLoad")

@@ -51,14 +51,14 @@ class TestMenuViewController: UIViewController {
     
     // MARK: - Functions
     private func updateUI() {
-        if Utilities.userIsSignedIn() {
+        if Utilities.userEmailIsVerified() {
             navigationItem.title = "Take an Exam"
             selectTestButton.isEnabled = true
             selectTestButton.alpha = 1
         } else {
             navigationItem.title = "Sign in to Continue"
             selectTestButton.isEnabled = false
-            selectTestButton.alpha = 0.5
+            selectTestButton.alpha = 0.2
         }
     }
 }

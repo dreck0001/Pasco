@@ -11,14 +11,14 @@ import Firebase
 import GoogleMobileAds
 
 class AccountViewController: UIViewController {
- 
+    
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var myNavBar: UINavigationBar!
     let usersRef = Firestore.firestore().collection("users")
     var user: Pasco.User? {
         didSet {
-//            print("---AccountVC: \(user!)")
+            Log.i(msg: "\(user)")
             getGrades()
             tableView.reloadData()
         }
@@ -30,7 +30,7 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        getUser()
-
+        Log.i(msg: "")
         setupNavigationBar()
         // tableview stuff
         tableView.delegate = self
@@ -43,6 +43,7 @@ class AccountViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        Log.i(msg: "")
         getUser()
     }
     
@@ -63,10 +64,13 @@ class AccountViewController: UIViewController {
         if let user = Auth.auth().currentUser {
             usersRef.whereField("email", isEqualTo: user.email!).getDocuments { (querySnapshot, err) in
                 if let err = err {
-                    print("---AccountVC: Eror Could not find the userinfo using the email: \(err)")
+                    Log.e(msg: "Could not find the userinfo using the email: \(err)")
                 } else {
                     if querySnapshot!.count > 1 {
-                        print("---AccountVC: email returned more than 1 user. Investigate why!: \(querySnapshot!.documents)")
+                        Log.e(msg: "Email returned more than 1 user. Investigate why!: \(querySnapshot!.documents)")
+                    }
+                    else if querySnapshot!.count < 1 {
+                        Log.e(msg: "mail returned no user email. User must have been removed from users database?!: \(querySnapshot!.documents)")
                     } else {
                         for document in querySnapshot!.documents {
                             let data = document.data()
@@ -75,7 +79,7 @@ class AccountViewController: UIViewController {
                     }
                 }
             }
-        }
+        } else {Log.f(msg: "Could not find the user") }
     }
     private func getGrades() {
         let ref = Firestore.firestore().collection("users").document((user?.username)!).collection("grades")
@@ -95,7 +99,6 @@ class AccountViewController: UIViewController {
             }
         }
     }
-    
     private func presentShareSheet(from cell: UITableViewCell) {
         let txt = "Hey, Download Pasco and start preparing for your exam today!\nUse the link below to download:\n<<Place link here>>"
         let alertController = UIAlertController()
@@ -117,7 +120,6 @@ class AccountViewController: UIViewController {
         
         present(alertController, animated: true, completion: nil)
     }
-    
     private func presentMailVCWith(text: String) {
         let subject = "Share Pasco"
         let body = text
@@ -225,13 +227,13 @@ extension AccountViewController: UITableViewDataSource, UITableViewDelegate {
 extension AccountViewController: GADBannerViewDelegate {
     /// Tells the delegate an ad request loaded an ad.
     func adViewDidReceiveAd(_ bannerView: GADBannerView) {
-        print("AccountViewController: adViewDidReceiveAd")
+        print("---AccountViewController: adViewDidReceiveAd")
     }
     
     /// Tells the delegate an ad request failed.
     func adView(_ bannerView: GADBannerView,
                 didFailToReceiveAdWithError error: GADRequestError) {
-        print("AccountViewController: adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
+        print("---AccountViewController: adView:didFailToReceiveAdWithError: \(error.localizedDescription)")
     }
     
     /// Tells the delegate that a full-screen view will be presented in response
@@ -242,19 +244,25 @@ extension AccountViewController: GADBannerViewDelegate {
     
     /// Tells the delegate that the full-screen view will be dismissed.
     func adViewWillDismissScreen(_ bannerView: GADBannerView) {
-        print("AccountViewController: adViewWillDismissScreen")
+        print("---AccountViewController: adViewWillDismissScreen")
     }
     
     /// Tells the delegate that the full-screen view has been dismissed.
     func adViewDidDismissScreen(_ bannerView: GADBannerView) {
-        print("AccountViewController: adViewDidDismissScreen")
+        print("---AccountViewController: adViewDidDismissScreen")
     }
     
     /// Tells the delegate that a user click will open another app (such as
     /// the App Store), backgrounding the current app.
     func adViewWillLeaveApplication(_ bannerView: GADBannerView) {
-        print("AccountViewController: adViewWillLeaveApplication")
+        print("---AccountViewController: adViewWillLeaveApplication")
     }
 
 }
 
+//=afriye (retry)
+//+mommy
+//+selorm
+//=uncle (voice mail)
+//=prof (retry)
+//-mark ()
