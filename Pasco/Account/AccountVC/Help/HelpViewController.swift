@@ -31,7 +31,7 @@ class HelpViewController: UIViewController {
     private func presentMailVCWith(text: String) {
         let subject = "Pasco: User Question"
         let body = text
-        let coded = "mailto:ghanaware@yahoo.com?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let coded = "mailto:mydatamala@gmail.com?subject=\(subject)&body=\(body)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         if let emailURL: NSURL = NSURL(string: coded!) {
             if UIApplication.shared.canOpenURL(emailURL as URL) {
                 if #available(iOS 10.0, *) {

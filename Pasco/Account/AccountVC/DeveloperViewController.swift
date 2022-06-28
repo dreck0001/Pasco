@@ -31,7 +31,7 @@ class DeveloperViewController: UIViewController {
 
     @IBAction func facebookPresed(_ sender: UIButton) {
         guard let facebookAppURL = URL(string: "fb://profile/105446761056284") else { return }
-        guard let facebookWebURL = URL(string: "https://www.facebook.com/ghanaware") else { return }
+        guard let facebookWebURL = URL(string: "https://www.facebook.com/MyDatamala") else { return }
         if UIApplication.shared.canOpenURL(facebookAppURL) {
             UIApplication.shared.open(facebookAppURL, options: [:], completionHandler: nil)
         }
@@ -39,7 +39,7 @@ class DeveloperViewController: UIViewController {
     }
     
     @IBAction func instagramPressed(_ sender: UIButton) {
-        let screenName =  "ghanaware"
+        let screenName =  "MyDatamala"
         guard let instagramAppURL = URL(string: "instagram://user?username=\(screenName)") else { return }
         guard let instagramWebURL = URL(string:  "https://instagram.com/\(screenName)") else { return }
 
@@ -50,7 +50,7 @@ class DeveloperViewController: UIViewController {
     }
     
     @IBAction func twitterPressed(_ sender: UIButton) {
-        let screenName =  "ghanaware"
+        let screenName =  "MyDatamala"
         guard let twitterAppURL = URL(string: "twitter://user?screen_name=\(screenName)") else { return }
         guard let twitterWebURL = URL(string:  "https://twitter.com/\(screenName)") else { return }
         if UIApplication.shared.canOpenURL(twitterAppURL) {
@@ -60,7 +60,7 @@ class DeveloperViewController: UIViewController {
     }
     
     @IBAction func webPressed(_ sender: UIButton) {
-        let site = "https://www.ghanaware.com"
+        let site = "https://www.datamala.com"
         guard let webURL = URL(string: site) else { return }
         if UIApplication.shared.canOpenURL(webURL) {
             UIApplication.shared.open(webURL, options: [:], completionHandler: nil)
