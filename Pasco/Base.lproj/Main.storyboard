@@ -1716,9 +1716,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <attributedString key="attributedText">
                                                         <fragment>
-                                                            <string key="content">GhanaWare is an emerging software developer focused on delivering high quality software products relevant to the Ghanaian people. Use the links below to read about our mission and explore our products.</string>
+                                                            <string key="content">Datamala is an emerging software developer focused on delivering high quality software products focused on delivering relevant data to customers. Use the links below to read about our mission and explore our products.</string>
                                                             <attributes>
                                                                 <font key="NSFont" size="14" name="Courier"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>

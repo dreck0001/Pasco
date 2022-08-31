@@ -92,7 +92,7 @@ class RegisterViewController: UIViewController {
                             self.deleteUser()
                         } else {
                             print("---RegisterVC: Database: User created and added to users database succesfully. Check and send emial verification")
-                            self.sendEmailVerification()
+                            self.sendlVerificationEmai()
                             
                             print("---RegisterVC: Unwinding to AccountCheckVC")
 //                            using this method because RegisterVC is presented by a button and not a NavVC
@@ -106,13 +106,20 @@ class RegisterViewController: UIViewController {
         }
     }
     
-    private func sendEmailVerification() {
+    private func sendlVerificationEmai() {
         guard let user = Auth.auth().currentUser else { return }
         user.sendEmailVerification{ (emailError) in
-            if emailError != nil { print("---\(self.description): sendEmailVerification error: \(emailError)") }
+            if emailError != nil { print("---\(self.description): sendEmailVerification error: \(emailError?.localizedDescription)") }
             else { print("---\(self.description): sendEmailVerification email sent") }
         }
     }
+    
+//    // 1. Create user account / log user in
+//    firebase.auth().createUserWithEmailAndPassword(emailID, password).then(async ({user}) => {
+//      // 2. Send verification email
+//      await user.sendEmailVerification()
+//      console.log("Verification email sent!")
+//    })
     
     private func deleteUser() {
         let user = Auth.auth().currentUser
